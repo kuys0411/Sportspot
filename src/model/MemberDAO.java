@@ -1,9 +1,12 @@
 package model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import util.DBUtil;
 
@@ -13,9 +16,14 @@ public class MemberDAO {
 	ResultSet rs;
 	String member_insert = "insert into member(M_ID, M_pwd, M_name, M_sex, M_email, M_interest) "
 			+ "values ( ?, ?, ?, ?, ?, ?)";
-	String member_remove = "delete member where M_ID = ?";
+	String member_remove = "delete from member where M_ID = ?";
 	
+	String member_remove_from_bookingmember = "delete from booking_member where M_ID = ?";
 	String member_update = "update member set M_pwd=?, M_name=?, M_sex=?, M_email=?, M_interest=? where M_id=?";
+	
+	String select_by_ID = "select * from member where M_ID = ?";
+	
+	
 	public int memberInsert(MemberDTO memDTO) {
 		// TODO Auto-generated method stub
 		int result = 0;
@@ -47,14 +55,25 @@ public class MemberDAO {
 		int result = 0;
 		conn = DBUtil.getConnect();
 		try {
+			
+			System.out.println("mpwd : " + memDTO.getMpwd() +" update완료함");
+			System.out.println("name : " + memDTO.getMname() +" update완료함");
+			System.out.println("gender : " + memDTO.getMsex() +" update완료함");
+			System.out.println("mail: " + memDTO.getMemail() +" update완료함");
+			System.out.println("interest : " + memDTO.getMinterest() +" update완료함");
+			System.out.println("mid : " + memDTO.getMid() +" update완료함");
+
+			System.out.println("result : " + result +" update완료함");
+			
 			st = conn.prepareStatement(member_update);
 			st.setString(1, memDTO.getMpwd());
 			st.setString(2, memDTO.getMname());
 			st.setString(3, memDTO.getMsex());
 			st.setString(4, memDTO.getMemail());
 			st.setString(5, memDTO.getMinterest());
-			st.setString(6, memDTO.getMid());
+			st.setString(6, realID);
 			result = st.executeUpdate();
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -72,6 +91,10 @@ public class MemberDAO {
 		int result = 0;
 		conn = DBUtil.getConnect();
 		try {
+			st = conn.prepareStatement(member_remove_from_bookingmember);
+			st.setString(1, id);
+			result = st.executeUpdate();
+			
 			st = conn.prepareStatement(member_remove);
 			st.setString(1, id);
 			result = st.executeUpdate();
@@ -84,4 +107,40 @@ public class MemberDAO {
 		return result;
 	}
 
+
+
+	public MemberDTO selectByID(String realID) {
+		// TODO Auto-generated method stub
+		conn = DBUtil.getConnect();
+		MemberDTO memDTO = null;
+		try {
+			
+			st = conn.prepareStatement(select_by_ID);
+			st.setString(1, realID);
+			rs = st.executeQuery();
+			List<MemberDTO> memlist = new ArrayList<MemberDTO>();
+			while(rs.next()) {
+				memDTO = makeMemDTO(rs);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbclose(conn, st, rs);
+		}
+		return memDTO;
+	}
+
+
+
+	private MemberDTO makeMemDTO(ResultSet rs) throws SQLException {
+		String mid = rs.getString("M_ID");
+		String mpwd = rs.getString("M_pwd");
+		String mname = rs.getString("M_name");
+		String msex = rs.getString("M_sex");
+		String memail = rs.getString("M_email");
+		String minterest = rs.getString("M_interest");
+		MemberDTO memdto = new MemberDTO(mid, mpwd, mname, msex, memail, minterest);
+		return memdto;
+	}
 }

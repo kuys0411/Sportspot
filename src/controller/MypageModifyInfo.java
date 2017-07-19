@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +16,7 @@ import model.MemberDTO;
 /**
  * Servlet implementation class MypageModifyInfo
  */
-@WebServlet("/userInfoModify")
+@WebServlet("/mypage/modifyinfo")
 public class MypageModifyInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,7 +33,13 @@ public class MypageModifyInfo extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession();
+		String realID = (String)session.getAttribute("userID");
+		MemberDAO dao = new MemberDAO();
+		MemberDTO memDTO = dao.selectByID(realID);
+		request.setAttribute("memDTO", memDTO);
+		RequestDispatcher rd = request.getRequestDispatcher("mypage_modifyInfo.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
@@ -39,23 +47,27 @@ public class MypageModifyInfo extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
 		MemberDTO memdto = makeMemberDTO(request);
 		MemberDAO dao = new MemberDAO();
 		HttpSession session = request.getSession();
 		String realID = (String)session.getAttribute("userID");
 		int result = dao.modifyMemberDTO(memdto, realID);
-		
+		request.setAttribute("memDTO", memdto);
+		RequestDispatcher rd = request.getRequestDispatcher("mypage_modifyInfo.jsp");
+		rd.forward(request, response);
+
 	}
 	
 	private MemberDTO makeMemberDTO(HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		String mid = request.getParameter("ID");
-		String mname = request.getParameter("Name");
-		String memail = request.getParameter("mail");
-		String mpwd = request.getParameter("Password");
+		String mid = request.getParameter("id");
+		String mname = request.getParameter("name");
+		String memail = request.getParameter("email");
+		String mpwd = request.getParameter("password");
 		String msex = request.getParameter("sex");
 		String minterest = request.getParameter("interest");
-		
+		System.out.println("memberDTO : "+ mid +" " +mname+" " + memail+" " + mpwd+" " + msex+" " +minterest);
 		MemberDTO memDTO = new MemberDTO(mid, mpwd, mname, msex, memail, minterest);
 		return memDTO;
 	}

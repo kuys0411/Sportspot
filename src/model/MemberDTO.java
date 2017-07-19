@@ -57,4 +57,6 @@ public class MemberDTO {
 	public void setMinterest(String minterest) {
 		this.minterest = minterest;
 	}
+	
+	
 }
