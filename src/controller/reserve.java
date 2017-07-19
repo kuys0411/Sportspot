@@ -49,7 +49,7 @@ import model.ReservePlaceDTO;
 		int open= Integer.parseInt(str_open[0]);
 		int close= Integer.parseInt(str_close[0]);
 		
-		//System.out.println("open:"+open+" close:"+close);
+		
 		int loop_count = close-open+1;
 		
 		int[] time_info=new int[loop_count];

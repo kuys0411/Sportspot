@@ -3,7 +3,7 @@ package model;
 import java.sql.Date;
 
 public class ReserveBookingDTO {
-	int Bid;
+	//int Bid;
 	int Mid;
 	int Pid;
 	Date date;
@@ -13,21 +13,21 @@ public class ReserveBookingDTO {
 	ReserveBookingDTO(){
 		
 	}
-	public ReserveBookingDTO(int bid, int mid, int pid, Date date, int bnum, String bstartTime) {
+	public ReserveBookingDTO(/*int bid,*/ int mid, int pid, Date date, int bnum, String bstartTime) {
 		super();
-		Bid = bid;
+		//Bid = bid;
 		Mid = mid;
 		Pid = pid;
 		this.date = date;
 		this.bnum = bnum;
 		this.bstartTime = bstartTime;
 	}
-	public int getBid() {
+	/*public int getBid() {
 		return Bid;
 	}
 	public void setBid(int bid) {
 		Bid = bid;
-	}
+	}*/
 	public int getMid() {
 		return Mid;
 	}
@@ -60,9 +60,10 @@ public class ReserveBookingDTO {
 	}
 	@Override
 	public String toString() {
-		return "ReserveBookingDTO [Bid=" + Bid + ", Mid=" + Mid + ", Pid=" + Pid + ", date=" + date + ", bnum=" + bnum
-				+ ", bstartTime=" + bstartTime + "]";
+		return "ReserveBookingDTO [Mid=" + Mid + ", Pid=" + Pid + ", date=" + date + ", bnum=" + bnum + ", bstartTime="
+				+ bstartTime + "]";
 	}
+	
 	
 	
 }

@@ -234,7 +234,7 @@
 													<td>0</td>
 
 													<td><input type="submit" class="yellow"
-														id="reservebtn" value="예약하기" onclick="call('${time}')"></td>
+														id="reservebtn" name="time" value="예약하기" onclick="call('${time}')"></td>
 
 												</tr>
 											</c:forEach>
@@ -251,6 +251,12 @@
 
 										</tbody>
 									</table>
+									
+									<div style="visibility: hidden">
+										<input type="text" name="sel_pid" value="${placeinfo.pid}"></input>
+										<input type="text" name="sel_place" value="${placeinfo.pname}"></input>
+									</div> 
+									
 								</form>
 							</div>
 
@@ -270,13 +276,13 @@
 						src="http://maps.google.com/maps/api/js?key=AIzaSyDWKmcj5ZnlDMJFJOcD7gTj4KF49JRo3N4"></script>
 					<!-- key 값 입력 -->
 					<style>
-#map_ma {
-	width: 100%;
-	height: 400px;
-	clear: both;
-	border: solid 1px red;
-}
-</style>
+					#map_ma {
+						width: 100%;
+						height: 400px;
+						clear: both;
+						border: solid 1px red;
+					}
+					</style>
 
 					<div id="map_ma"></div>
 					<script type="text/javascript">
@@ -339,22 +345,13 @@
 	</div>
 
 	<script>
-		/* $('.dropdown .dropdown-menu li > a').bind(
-				//dropdown - select 활성화
-				'click',
-				function(e) {
-					var html = $(this).html();
-					$('.dropdown button.dropdown-toggle').html(
-							html + ' <span class="caret"></span>');
-				}); */
 		
-		function call(time){ //for문으로 만들 때 함수 call
+		function call(time){ //예약하기 버튼 눌렀을 때 call
 			 	
 				var result = confirm(time+":00시를 선택하셨습니다. 정말 예약하시겠습니까?" );
 		        if(result){
 		        	myfrm.submit();
 		        } 
-				
 		}
 		
 				
