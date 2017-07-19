@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import util.DateUtil;
 
 /**
  * Servlet implementation class ReserveComplete
@@ -35,7 +39,25 @@ public class ReserveComplete extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println();
 		System.out.println("reserve complete(post)");
+		
+		HttpSession session = request.getSession();
+		
+		
+		String dt= request.getParameter("select_date");
+		Date select_date = DateUtil.toSqlDate(dt);
+		
+		System.out.println("date출력:"+ select_date);
+		
+		
+		
+		String userid = null;
+		request.setCharacterEncoding("utf-8");
+		if((String)session.getAttribute("userID") != null){
+			userid = (String)session.getAttribute("userID"); //id얻기 
+		}
+		
 		
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("/search/reservecomplete.jsp");

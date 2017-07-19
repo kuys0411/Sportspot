@@ -27,6 +27,11 @@ public class ReserveDAO {
 			+ "FROM Place, Degree, PlaceAddr "
 			+ "WHERE place.P_ID = Degree.P_ID and Place.P_ID = PlaceAddr.P_ID and place.P_ID=?";
 	
+	//create sequence seq_b_id;
+	String insertbooking_sql="insert into Booking_Member "
+			+ "values(seq_b_id.nextval,?,?,?,?,?)"; //sequence积己秦林绊 柳青 
+	
+	
 	String selectCount_Sql="SELECT count "
 			+ "From Booking_Place, Place "
 			+ "WHERE Booking_Place.P_ID = Place.P_ID and "
