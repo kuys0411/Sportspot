@@ -22,12 +22,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <body>
 <!--header-->
 	<div class="header-w3l">
-		<h1>회원가입하기</h1>
+		<br><br><h1>Sign up for SportSpot</h1>
 	</div>
 <!--//header-->
 <!--main-->
 <div class="main-agileits">
-	<h2 class="sub-head">양식을 입력해주세요 </h2>
+	<h2 class="sub-head">Wellcome to SportSpot </h2>
 		<div class="sub-main">	
 			<form action="signup" method="post">
 				<input placeholder="ID" name="ID" class="name" type="text" required>
@@ -49,8 +49,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				</div>	
 				<div id="interest">
 				Choose Interest <br>
-				<input type="radio" name="interest" value="soccer" checked> Soccer
-				<input type="radio" name="interest" value="basketball"> Basketball
+				<input type="radio" name="interest" value="football" checked> Football
+				<input type="radio" name="interest" value="baseball"> Baseball
+				<input type="radio" name="interest" value="gateball"> Gateball<br>
+				<input type="radio" name="interest" value="cycling"> Cycling
+				<input type="radio" name="interest" value="achery"> Achery
+				<input type="radio" name="interest" value="swimming"> Swimming<br>
 					<br>
 				</div>	
 				<!-- <input  type="radio" name = "sex" value = "male"> 남자 <input  type="radio" name="sex" value = "male"> 여자<br> -->
@@ -62,8 +66,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<div class="clear"></div>
 </div>
 <!--//main-->
-
-
 
 </body>
 </html>

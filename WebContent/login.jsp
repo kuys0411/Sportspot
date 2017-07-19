@@ -34,7 +34,7 @@ else if(${loginCheckResult} == 2){
 <!--header start here-->
 <div class="login-form">
 			<div class="top-login">
-				<span><img src="Resources/images/SOO/loginImages/group.png" alt=""/></span>
+				<span><img src="Resources/images/jin/logo_vertic.png" alt=""/></span>
 			</div>
 			<h1>Login</h1>
 			<div id="loginMsg"></div>
