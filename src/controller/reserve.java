@@ -27,7 +27,7 @@ public class reserve extends HttpServlet {
      */
     public reserve() {
         super();
-        // TODO Auto-generated constructor stub
+        System.out.println("æ»≥Á«œººø‰");
     }
 
 	/**
