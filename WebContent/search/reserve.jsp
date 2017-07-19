@@ -174,81 +174,87 @@
 
 							<div id="book_a_session_wrapper" class="toggle_content active">
 
-								<!-- 지점 선택 & 날짜 선택 -->
-								<div class="row">
+
+								<form name="myfrm" action="ReserveComplete" method="post"
+									onsubmit="return false;">
+									<!-- 지점 선택 & 날짜 선택 -->
+									<div class="row">
 
 
-									<div class="col-xs-12 col-sm-6 booking_input_wrapper">
-										<div class="row">
-											<div class="col-xs-6">
-												<label> 날짜선택 </label>
+										<div class="col-xs-12 col-sm-6 booking_input_wrapper">
+											<div class="row">
+												<div class="col-xs-6">
+													<label> 날짜선택 </label>
+												</div>
+
+												<div class="col-xs-6">
+													<input type="date" name="select_date">
+													<!-- css파일로 처리해줘야함(글씨색) -->
+												</div>
+
+
 											</div>
+										</div>
 
-											<div class="col-xs-6">
-												<input type="date">
-												<!-- css파일로 처리해줘야함(글씨색) -->
+										<!-- 지점 선택 -->
+										<div class="col-xs-12 col-sm-6 booking_input_wrapper">
+											<div class="row">
+												<div class="col-xs-6">
+													<label> 인원선택 </label>
+												</div>
+												<div class="col-xs-6">
+													<input type="number" name="sel_count" value="count"
+														autofocus required="required">
+
+
+												</div>
 											</div>
-
-
 										</div>
 									</div>
 
-									<!-- 지점 선택 -->
-									<div class="col-xs-12 col-sm-6 booking_input_wrapper">
-										<div class="row">
-											<div class="col-xs-6">
-												<label> 인원선택 </label>
-											</div>
-											<div class="col-xs-6">
-												<input type="number" name="sel_count" value="count"
-													autofocus required="required">
-
-												
-											</div>
-										</div>
-									</div>
-								</div>
 
 
 
+									<table class="table">
+										<thead>
+											<tr>
+												<th>시작시간</th>
+												<!-- <th>소요시간(분)</th> -->
+												<th>신청인원</th>
+												<th>예약상태</th>
+											</tr>
+										</thead>
+										<tbody>
 
-								<table class="table">
-									<thead>
-										<tr>
-											<th>시작시간</th>
-											<!-- <th>소요시간(분)</th> -->
-											<th>신청인원</th>
-											<th>예약상태</th>
-										</tr>
-									</thead>
-									<tbody>
 
 
-										<form name="myfrm" action="ReserveComplete" method="post" onsubmit="return false;">
 											<c:forEach items="${time_info}" var="time">
 												<tr>
 													<td>${time}:00</td>
-													<td></td>
+													<td>0</td>
 
 													<td><input type="submit" class="yellow"
 														id="reservebtn" value="예약하기" onclick="call('${time}')"></td>
 
 												</tr>
 											</c:forEach>
-										</form>
-
-
-										<tr>
-											<td>07:00</td>
-											<td>20</td>
-											<td><a class="red" href="#">예약불가</a></td>
-										</tr>
 
 
 
-									</tbody>
-								</table>
+											<tr>
+												<td>07:00</td>
+												<td>20</td>
+												<td><a class="red" href="#">예약불가</a></td>
+											</tr>
+
+
+
+										</tbody>
+									</table>
+								</form>
 							</div>
+
+
 						</div>
 					</div>
 

@@ -13,13 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import model.ReserveDAO;
 import model.ReservePlaceDTO;
 
-
-
 /**
  * Servlet implementation class reserve
  */
-@WebServlet("/reserve")
-public class reserve extends HttpServlet {
+	@WebServlet("/reserve")
+	public class reserve extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -65,7 +63,6 @@ public class reserve extends HttpServlet {
 			open++;
 			System.out.print(time_info[i]+" ");
 		}
-		
 		
 		request.setAttribute("placeinfo", placeinfo);
 		request.setAttribute("open", open);
