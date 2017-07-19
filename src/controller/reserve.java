@@ -2,9 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.text.*;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -16,6 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.ReserveDAO;
 import model.ReservePlaceDTO;
+
+import java.util.Calendar;
+
+
+
 
 /**
  * Servlet implementation class reserve
@@ -61,13 +64,17 @@ import model.ReservePlaceDTO;
 			open++;
 		}
 		
-		//int sel = dao.selectCount_sql(pid, bstartTime, date);
 		int[] count_info = new int[loop_count];
 		String bstartTime="";
 		int sel=0;
 		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar c1 = Calendar.getInstance();
+        String dt = sdf.format(c1.getTime()); //현재 날짜 
+        System.out.println(dt);
+        
 		Date sql_date = null;
-		String dt="2017-07-19";
+		
 		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			java.util.Date hire = sd.parse(dt);

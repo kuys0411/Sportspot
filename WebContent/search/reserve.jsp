@@ -46,10 +46,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  -->
-
-
 </head>
-
 
 <body ng-app="myapp">
 	<div class="modal fade" id="error_modal">
@@ -205,7 +202,7 @@
 												<div class="col-xs-6">
 													<input type="number" id="sel_count" name="sel_count"
 														value="1" required="required" style="color: black">
-													<!-- autofocus -->
+													
 
 												</div>
 											</div>
@@ -271,13 +268,13 @@
 						src="http://maps.google.com/maps/api/js?key=AIzaSyDWKmcj5ZnlDMJFJOcD7gTj4KF49JRo3N4"></script>
 					<!-- key 값 입력 -->
 					<style>
-#map_ma {
-	width: 100%;
-	height: 400px;
-	clear: both;
-	border: solid 1px red;
-}
-</style>
+					#map_ma {
+						width: 100%;
+						height: 400px;
+						clear: both;
+						border: solid 1px red;
+					}
+					</style>
 
 					<div id="map_ma"></div>
 					<script type="text/javascript">
@@ -394,21 +391,7 @@
 		        } 
 		}
 		
-				
-		(function(i, s, o, g, r, a, m) {
-			i['GoogleAnalyticsObject'] = r;
-			i[r] = i[r] || function() {
-				(i[r].q = i[r].q || []).push(arguments)
-			}, i[r].l = 1 * new Date();
-			a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-			a.async = 1;
-			a.src = g;
-			m.parentNode.insertBefore(a, m)
-		})(window, document, 'script',
-				'https://www.google-analytics.com/analytics.js', 'ga');
-
-		ga('create', 'UA-80011128-1', 'auto');
-		ga('send', 'pageview');
+		
 	</script>
 
 	<script type="text/javascript" src="http://wcs.naver.net/wcslog.js"></script>
