@@ -58,7 +58,7 @@
 }
 </style>
 
-<script> if(${result} == 1){ alert("회원탈퇴가 완료되었습니다.");}</script>
+<script> if($(result) == 1){ alert("회원탈퇴가 완료되었습니다.");}</script>
 </head>
 <script>
 	var id = "<%=userid%>";
@@ -132,12 +132,13 @@
 							<li><a href="searchTest"> RESERVE(TEMP) </a></li>
 							<!--  로그인을 하면 로그아웃이랑 MyPage로 교체 -->
 							<li id="login"><a href="login.jsp"><span>LOGIN</span> </a></li>
-							<li id="register"><a href="signup.jsp"><span>REGISTER</span>
-							</a></li>
+							<li id="register"><a href="signup.jsp"><span>REGISTER</span></a></li>
 							<li id="mypage" class="hide"><a href="mypage/mypageShowInfo">MYPAGE</a></li>
 							<li id="logout" class="hide"><a href="logout"><span></span>LOGOUT</a></li>
+							<li id="login_stage" class="hide"><a href="logout"><span></span>$(userid)님</a><span></span></li>
 						</ul>
 					</div>
+					
 					<!-- /.navbar-collapse -->
 				</div>
 				<!-- /.container-fluid -->
@@ -272,7 +273,6 @@
 		ga('send', 'pageview');
 	</script>
 
-	<script type="text/javascript" src="http://wcs.naver.net/wcslog.js"></script>
 	<script type="text/javascript">
 		if (!wcs_add)
 			var wcs_add = {};

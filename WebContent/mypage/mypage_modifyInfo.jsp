@@ -33,7 +33,25 @@
 
 </head>
 
-<body>
+<body ng-app="myapp">
+	<div class="modal fade" id="error_modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 id="error_title"></h4>
+				</div>
+				<div class="modal-body">
+					<p id="error_message"></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="error_confirm_button"
+						class="btn btn-default" data-dismiss="modal">확인</button>
+					<!--<button type="button" id="error_button_extra" class="btn btn-default" data-dismiss="modal">확인</button>-->
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div id="body_wrapper">
 		<div id="body_inner">
 			<nav class="navbar navbar-default" role="navigation" id="nav">
@@ -45,6 +63,7 @@
 								src="../Resources/images/jin/logo/full.png"
 								style="width: 360px;"></a>
 						</div>
+
 						<button type="button" class="navbar-toggle collapsed"
 							data-toggle="collapse" data-target="#nav_collapse"
 							id="mobile_menu_button">
@@ -52,24 +71,22 @@
 								class="icon-bar"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span>
 						</button>
+					</div>
 
-
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="nav_collapse">
-							<ul class="nav navbar-nav navbar-right" id="navbar-ul">
-								<li><a href="/" class="active"> HOME </a></li>
-								<li><a href="searchTest"> SEARCH </a></li>
-								<!--  로그인을 하면 로그아웃이랑 MyPage로 교체 -->
-								<li id="mypage"><a href="mypage/mypageShowInfo">MYPAGE</a></li>
-								<li id="logout"><a href="logout"><span></span>LOGOUT</a></li>
-							</ul>
-						</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="nav_collapse">
+						<ul class="nav navbar-nav navbar-right" id="navbar-ul">
+							<li><a href="../index.jsp" class="active"> HOME </a></li>
+							<li><a href="../searchTest.jsp"> SEARCH </a></li>
+							<!--  로그인을 하면 로그아웃이랑 MyPage로 교체 -->
+							<li id="mypage"><a href="mypageShowInfo">MYPAGE</a></li>
+							<li id="logout"><a href="logout"><span></span>LOGOUT</a></li>
+						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
 				</div>
 				<!-- /.container-fluid -->
 			</nav>
-
 			<div id="main_content">
 
 				<div class="container" id="reservation_container">

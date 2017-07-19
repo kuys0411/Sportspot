@@ -44,7 +44,25 @@
 	</script>
 </head>
 
-<body>
+<body ng-app="myapp">
+	<div class="modal fade" id="error_modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 id="error_title"></h4>
+				</div>
+				<div class="modal-body">
+					<p id="error_message"></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="error_confirm_button"
+						class="btn btn-default" data-dismiss="modal">확인</button>
+					<!--<button type="button" id="error_button_extra" class="btn btn-default" data-dismiss="modal">확인</button>-->
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div id="body_wrapper">
 		<div id="body_inner">
 			<nav class="navbar navbar-default" role="navigation" id="nav">
@@ -52,10 +70,11 @@
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
 						<div id="top_logo">
-							<a class="navbar-brand" href="/"><img
+							<a class="navbar-brand"><img
 								src="../Resources/images/jin/logo/full.png"
 								style="width: 360px;"></a>
 						</div>
+
 						<button type="button" class="navbar-toggle collapsed"
 							data-toggle="collapse" data-target="#nav_collapse"
 							id="mobile_menu_button">
@@ -68,10 +87,10 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="nav_collapse">
 						<ul class="nav navbar-nav navbar-right" id="navbar-ul">
-							<li><a href="/" class="active"> HOME </a></li>
-							<li><a href="searchTest"> SEARCH </a></li>
+							<li><a href="../index.jsp" class="active"> HOME </a></li>
+							<li><a href="../searchTest.jsp"> SEARCH </a></li>
 							<!--  로그인을 하면 로그아웃이랑 MyPage로 교체 -->
-							<li id="mypage"><a href="mypage/mypageShowInfo">MYPAGE</a></li>
+							<li id="mypage"><a href="mypageShowInfo">MYPAGE</a></li>
 							<li id="logout"><a href="logout"><span></span>LOGOUT</a></li>
 						</ul>
 					</div>
@@ -126,7 +145,7 @@
 						<div id="login_box">
 							<form id="login_form" method="post" action="removeInfo">
 								<legend> 정말 탈퇴하시겠습니까? </legend>
-								<p class="error_msg"> 동의하면 아이디와 비밀번호를 입력해 주세요.</p>
+								<p class="error_msg">동의하면 아이디와 비밀번호를 입력해 주세요.</p>
 
 								<input type="text" class="form-control book_login_input"
 									placeholder="ID" name="userID"> <input type="password"
