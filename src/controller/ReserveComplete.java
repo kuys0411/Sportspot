@@ -76,7 +76,6 @@ public class ReserveComplete extends HttpServlet {
 		dao.bookInsert(bookinfo);
 		
 		//BookingPlace table
-		
 		//3가지 컬럼으로 있는지 없는지 확인하기
 		int sel = dao.selectCount_sql(pid, bstartTime, date);
 		System.out.println("인원 수:"+sel);

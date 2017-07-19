@@ -2,10 +2,8 @@ package controller;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,28 +16,32 @@ import model.ReserveDAO;
 import model.ReservePlaceDTO;
 
 /**
- * Servlet implementation class reserve
+ * Servlet implementation class ReserveServletAjax
  */
-	@WebServlet("/reserve")
-	public class reserve extends HttpServlet {
+@WebServlet("/countget")
+public class ReserveGetCount extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public reserve() {
+    public ReserveGetCount() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("reserve get count(get)");
+		
+		//pid 전달, 달력날짜 전달
+		
 		
 		String pid_temp = request.getParameter("pid");
 		int pid = Integer.parseInt(pid_temp);
 		
-		//id로 전용 DAO, DTO를 생성하기
 		ReserveDAO dao = new ReserveDAO();
 		ReservePlaceDTO placeinfo = dao.selectplaceById(pid);
 		
@@ -93,8 +95,10 @@ import model.ReservePlaceDTO;
 		
 		
 		RequestDispatcher rd;
-		rd = request.getRequestDispatcher("/search/reserve.jsp");
+		rd = request.getRequestDispatcher("/search/countget.jsp");
 		rd.forward(request, response);
+		
+		
 	}
 
 	/**
@@ -102,7 +106,6 @@ import model.ReservePlaceDTO;
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 		doGet(request, response);
 	}
 
