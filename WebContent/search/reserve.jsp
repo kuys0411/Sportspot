@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="google-site-verification"
 	content="YHkzOS5N5M9qkZTIGtDDfuKidQhuMuSj02txDAxSlxg" />
@@ -188,8 +188,8 @@
 												</div>
 
 												<div class="col-xs-6">
-													<input type="date" name="select_date">
-													<!-- css파일로 처리해줘야함(글씨색) -->
+													<input type="date" id="select_date" name="select_date" style="color:black" value="2017-07-19" min="2017-07-19" max="2017-07-31" >
+													<!-- 수정하기 -->
 												</div>
 
 
@@ -203,16 +203,13 @@
 													<label> 인원선택 </label>
 												</div>
 												<div class="col-xs-6">
-													<input type="number" name="sel_count" value="count"
-														autofocus required="required">
-
+													<input type="number" id="sel_count" name="sel_count" value="1"
+														required="required"  style="color:black"> <!-- autofocus -->
 
 												</div>
 											</div>
 										</div>
 									</div>
-
-
 
 
 									<table class="table">
@@ -227,19 +224,16 @@
 										<tbody>
 
 
-
 											<c:forEach items="${time_info}" var="time">
 												<tr>
 													<td>${time}:00</td>
 													<td>0</td>
 
 													<td><input type="submit" class="yellow"
-														id="reservebtn" name="time" value="예약하기" onclick="call('${time}')"></td>
+														id="reservebtn" value="예약하기" onclick="call('${time}')"></td>
 
 												</tr>
 											</c:forEach>
-
-
 
 											<tr>
 												<td>07:00</td>
@@ -247,15 +241,15 @@
 												<td><a class="red" href="#">예약불가</a></td>
 											</tr>
 
-
-
 										</tbody>
 									</table>
 									
-									<div style="visibility: hidden">
+									<!-- <div style="visibility: hidden" id="hidden"> -->
 										<input type="text" name="sel_pid" value="${placeinfo.pid}"></input>
 										<input type="text" name="sel_place" value="${placeinfo.pname}"></input>
-									</div> 
+										<!-- <input type="text" id="select_time" name="select_time">시간</input> -->
+										<textarea type="text" cols="1" rows="1" id="select_time" name="select_time"></textarea>
+									<!-- </div>  -->
 									
 								</form>
 							</div>
@@ -346,12 +340,26 @@
 
 	<script>
 		
-		function call(time){ //예약하기 버튼 눌렀을 때 call
+		function call(time){ //예약하기 버튼 눌렀을 때 call되는 함수 
 			 	
 				var result = confirm(time+":00시를 선택하셨습니다. 정말 예약하시겠습니까?" );
-		        if(result){
-		        	myfrm.submit();
+				var sel_count = document.getElementById("sel_count");
+				var sel_date = document.getElementById("select_date");
+				
+				//id(hidden)에 접근하여 time쓰기 (넘기기용)
+		        var hidden_time= document.getElementById("select_time");   
+		        hidden_time.innerHTML= time;
+		        
+		        /* if(sel_count.value==0){ 예외처리 
+		        	alert("aaaaaaaaaaaaaaaa");
+		        	sel_count.focus();
+		        	return false;
+		        } */
+		         
+				if(result){
+		        	myfrm.submit(); 
 		        } 
+				
 		}
 		
 				

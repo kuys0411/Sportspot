@@ -46,6 +46,7 @@ public class ReserveComplete extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession(); //세션 얻어오기 
 		
 		String dt= request.getParameter("select_date"); //선택날짜 
@@ -57,10 +58,10 @@ public class ReserveComplete extends HttpServlet {
 		String id= request.getParameter("sel_pid"); //place id 
 		int pid = Integer.parseInt(id);
 		
-		/*String time= request.getParameter("time");
-		int bstartTime= Integer.parseInt(time);*/
+		String bstartTime= request.getParameter("select_time");
+		int revise_time= Integer.parseInt(bstartTime);
 		
-		request.setCharacterEncoding("utf-8");
+		
 		String place = request.getParameter("sel_place");
 		System.out.println("place출력:"+place); 
 		
@@ -69,21 +70,21 @@ public class ReserveComplete extends HttpServlet {
 			mid = (String)session.getAttribute("userID"); 
 		}
 		
-		System.out.println("user id 출력:"+ mid);
-		System.out.println("place id출력:"+pid);
-		System.out.println("date출력:"+ date);
-		System.out.println("count출력:"+ bnum);
-		//System.out.println("time출력:" +bstartTime);
+		ReserveDAO dao = new ReserveDAO();
+		ReserveBookingDTO bookinfo = new ReserveBookingDTO(mid, pid, date, bnum, bstartTime);
+		dao.bookInsert(bookinfo);
 		
-		/*PlaceDAO dao = new PlaceDAO();
-		List<PlaceDTO> placelist = dao.selectAll();
-		request.setAttribute("placelist", placelist);*/
+		String time="";
+		if(revise_time>=6 && revise_time<=11) {
+			time="오전 ";
+		}
+		time+=revise_time;
 		
-		
-		//ReserveDAO dao = new ReserveDAO();
-		//ReserveBookingDTO bookinfo = new ReserveBookingDTO(mid, pid, date, bnum, bstartTime);
-		//ReserveBookingDTO reserveinfo= dao.bookInsert(bookinfo);
-		
+		//날짜, 장소, 예약시간, 인원 
+		request.setAttribute("date", date);
+		request.setAttribute("place", place);
+		request.setAttribute("time", time);
+		request.setAttribute("bnum", bnum);
 		
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("/search/reservecomplete.jsp");

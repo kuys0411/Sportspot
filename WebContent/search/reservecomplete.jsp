@@ -139,10 +139,10 @@
 								
 									
 									<tr class="warning">
-										<td><center>17-05-25</center></td>
-										<td><center>ㅁㅁㅁㅁㅁ</center></td>
-										<td><center>8:00</center></td>
-										<td><center>5</center></td>
+										<td><center>${date}</center></td>
+										<td><center>${place}</center></td>
+										<td><center>${time}:00</center></td>
+										<td><center>${bnum}명</center></td>
 									</tr>
 								
 								</tbody>

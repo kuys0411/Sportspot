@@ -46,7 +46,7 @@ public class ReserveDAO {
 		
 		try {
 			st=conn.prepareStatement(insertbooking_sql);
-			st.setInt(1, book.getMid());
+			st.setString(1, book.getMid());
 			st.setInt(2, book.getPid());
 			st.setDate(3, book.getDate());
 			st.setInt(4, book.getBnum());
