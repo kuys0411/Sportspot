@@ -42,7 +42,8 @@
 					<div class="navbar-header">
 						<div id="top_logo">
 							<a class="navbar-brand"><img
-								src="../Resources/images/jin/logo/full.png"></a>
+								src="../Resources/images/jin/logo/full.png"
+								style="width: 360px;"></a>
 						</div>
 						<button type="button" class="navbar-toggle collapsed"
 							data-toggle="collapse" data-target="#nav_collapse"
@@ -51,17 +52,19 @@
 								class="icon-bar"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span>
 						</button>
-					</div>
 
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="nav_collapse">
-						<ul class="nav navbar-nav navbar-right" id="navbar-ul">
-							<li><a href="index" class="active"> HOME </a></li>
-							<li><a href="searchTest"> SEARCH </a></li>
-							<!--  로그인을 하면 로그아웃이랑 MyPage로 교체 -->
-							<li id="mypage"><a href="mypage/mypageShowInfo">MYPAGE</a></li>
-							<li id="logout"><a href="logout"><span></span>LOGOUT</a></li>
-						</ul>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="nav_collapse">
+							<ul class="nav navbar-nav navbar-right" id="navbar-ul">
+								<li><a href="index" class="active"> HOME </a></li>
+								<li><a href="searchTest"> SEARCH </a></li>
+								<!--  로그인을 하면 로그아웃이랑 MyPage로 교체 -->
+								<li id="mypage"><a href="mypage/mypageShowInfo">MYPAGE</a></li>
+								<li id="logout"><a href="logout"><span></span>LOGOUT</a></li>
+							</ul>
+						</div>
+
 					</div>
 					<!-- /.navbar-collapse -->
 				</div>
@@ -75,7 +78,7 @@
 					ng-controller="AppController">
 					<div id="reservation_bg">
 						<img id=reservation_img
-							src="../Resources/images/SOO/mypageImage.jpg">
+							src="../Resources/images/jin/ready.png">
 					</div>
 
 
