@@ -26,13 +26,18 @@ a{text-decoration:none;}
 .underline{	padding-bottom:5px;	border-bottom: 1px solid #eee; margin:0 0 20px 0;}/* Add 5px bottom padding and a underline */
 nav.vertical ul li{	display:block;}/* vertical menu */
 nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
+@import{url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);}
+@font-face{
+font-family:'bebas';
+src: url('../fonts/BebasNeue-webfont.woff'),url('../fonts/BebasNeue.otf');		
+}
 img{max-width:100%;}
 /*end reset*/
 /*--header start here--*/
 body{
-  font-family: 'Montserrat', sans-serif;
+    font-family: 'Nanum Gothic Coding', sans-serif;
    font-size: 100%;
-   background: url(../images/SOO/loginImages/bbb.jpg)no-repeat;
+   background: url(../images/jin/bgimg_short.png)no-repeat;
        background-size: cover;
 }
 .login-form{
@@ -49,35 +54,28 @@ body{
 	margin-bottom:2em;
 /*-- w3layouts --*/
 }
+
 .top-login {
-    width: 130px;
-    height: 130px;
+    width: 300px;
+    height: 225px;
     display: block;
-    -webkit-transform: rotate(45deg) translate3d(0, 0, 0);
-    -moz-transform: rotate(45deg) translate3d(0, 0, 0);
-    -ms-transform: rotate(45deg) translate3d(0, 0, 0);
-    -o-transform: rotate(45deg) translate3d(0, 0, 0);
-    transform: rotate(45deg) translate3d(0, 0, 0);
+    -webkit-transform:translate3d(0, 0, 0);
+    -moz-transform:translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
     margin: 0 auto 4em;
-    background: #fff;
     position: relative;
 }
 .top-login span{
-    border: 2px solid #F36;
-    width: 105px;
-    height: 105px;
-    display: block;
-    margin: 0px auto;
-    position: absolute;
-    top: 11px;
-    left: 11px;
+
 }
 .top-login span img{
-       -webkit-transform: rotate(-45deg) translate3d(0, 0, 0);
-    -moz-transform: rotate(-45deg) translate3d(0, 0, 0);
-    -ms-transform: rotate(-45deg) translate3d(0, 0, 0);
-    -o-transform: rotate(-45deg) translate3d(0, 0, 0);
-    transform: rotate(-45deg) translate3d(0, 0, 0);
+       -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform:translate3d(0, 0, 0);
+    transform:translate3d(0, 0, 0);
     margin: 20px 0 0 20px;
 }
 /*----*/
@@ -87,6 +85,7 @@ body{
 	display: block;
 	margin: 0 auto;
 }
+
 .login-ic {
     background: rgba(255, 255, 255, 0.32); 
 	margin-bottom:1.5em;
@@ -125,11 +124,11 @@ body{
     font-weight: 700;
     color: #fff;
     padding: 13px 0;
-    background: #ff3366;
+    background: #ed3e43;
     display: inline-block;
     width: 100%;
 	outline:none;
-	border:2px solid #ff3366;
+	border:2px solid #ed3e43;
 	cursor:pointer;
 	text-transform:uppercase;
 }
