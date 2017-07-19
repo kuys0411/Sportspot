@@ -20,16 +20,27 @@
 					<td>${time}:00</td>
 					<td>${count_info[status.index]}</td>
 					<!-- 수정해야한다. -->
-					<td><input type="submit" class="yellow" id="reservebtn"
-						value="예약하기" onclick="call('${time}')"></td>
+					<c:set var="name" value="${count_info[status.index]}" />
+					<c:choose>
+						<c:when test="${name < 30}">
+							<!-- 인원수 30명 미만 예약가능 -->
+							<td><input type="submit" class="yellow" id="reservebtn"
+								value="예약하기" onclick="call('${time}')"
+								style="background-color: #000000"></td>
+						</c:when>
+
+						<c:otherwise>
+							<!-- 인원수 30명부터 예약 불가능  -->
+
+							<td><input type="button" class="red" id="reservebtn"
+								value="예약불가" disabled="disabled"
+								style="background-color: #000000"></td>
+						</c:otherwise>
+
+					</c:choose>
 				</tr>
 			</c:forEach>
 
-			<!-- <tr>
-												<td>07:00</td>
-												<td>20</td>
-												<td><a class="red" href="#">예약불가</a></td>
-											</tr> -->
 		</tbody>
 	</table>
 

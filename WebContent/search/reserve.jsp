@@ -187,8 +187,12 @@
 												<div class="col-xs-6">
 													<input type="date" id="select_date" name="select_date"
 														style="color: black" value="2017-07-19" min="2017-07-19"
-														max="2017-07-31"> <input type="button"
-														class="yellow" id="date_btn" name="date_btn" value="선택">
+														max="2017-07-31"></input>
+													<input type="button" class="yellow" id="date_btn" name="date_btn" value="선택" 
+														style="background-color: #333333; 
+														width:51px, height:41px;width: 51px;height: 41px; color:#ffffff"
+														
+														></input>
 												</div>
 											</div>
 										</div>
@@ -211,7 +215,7 @@
 
 
 
-									<div id="here"></div>
+									<div id="here"></div> <!--  -->
 
 
 									<table class="table">
