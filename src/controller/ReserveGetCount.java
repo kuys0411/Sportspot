@@ -36,24 +36,13 @@ public class ReserveGetCount extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("reserve get count(get)");
 		
-		//pid 전달, 달력날짜 전달
-		
-		
 		String pid_temp = request.getParameter("sel_pid");
 		int pid = Integer.parseInt(pid_temp);
 		
-		String dt=request.getParameter("sel_date");
-		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
-		Date sql_date = null;
-		try {
-			java.util.Date hire = sd.parse(dt);
-			sql_date = new Date(hire.getTime()); //long값 hire을 바꾼 뒤 sql Date 생성자에 넣으면 바뀜.
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		String dt = request.getParameter("sel_date");
 		
-		/*ReserveDAO dao = new ReserveDAO();
+		//id로 전용 DAO, DTO를 생성하기
+		ReserveDAO dao = new ReserveDAO();
 		ReservePlaceDTO placeinfo = dao.selectplaceById(pid);
 		
 		String tmp_open= placeinfo.getPopen();
@@ -80,7 +69,7 @@ public class ReserveGetCount extends HttpServlet {
 		int sel=0;
 		
 		Date sql_date = null;
-		String dt=request.getParameter("sel_date");
+		//String dt="2017-07-19";
 		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			java.util.Date hire = sd.parse(dt);
@@ -102,7 +91,7 @@ public class ReserveGetCount extends HttpServlet {
 		request.setAttribute("open", open);
 		request.setAttribute("loop_count", loop_count);
 		request.setAttribute("time_info", time_info);
-		request.setAttribute("count_info", count_info);*/
+		request.setAttribute("count_info", count_info);
 		
 		
 		RequestDispatcher rd;

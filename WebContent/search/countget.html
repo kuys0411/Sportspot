@@ -71,85 +71,12 @@
 
 	<div id="body_wrapper">
 		<div id="body_inner">
-			<!-- <nav class="navbar navbar-default" role="navigation" id="nav">
-				<div class="container">
-					Brand and toggle get grouped for better mobile display
-					<div class="navbar-header">
-						<div id="top_logo">
-							<a class="navbar-brand" href="/"><img
-								src="http://www.seoul-escape.com/static/image/logo_v6.jpg"></a>
-						</div>
-						<button type="button" class="navbar-toggle collapsed"
-							data-toggle="collapse" data-target="#nav_collapse"
-							id="mobile_menu_button">
-							<span class="sr-only">Toggle navigation</span> <span
-								class="icon-bar"></span> <span class="icon-bar"></span> <span
-								class="icon-bar"></span>
-						</button>
-					</div>
-
-					Collect the nav links, forms, and other content for toggling
-					<div class="collapse navbar-collapse" id="nav_collapse">
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="/Project"> HOME </a></li>
-							<li><a href="#" class="active"> SEARCH </a></li>
-
-							<li><a href="/contact/"> MYPAGE </a></li>
-							<li><a href="/contact/"> LOGOUT </a></li>
-							<li class=""><a class="set_lang_en" href="#"> </a></li>
-
-						</ul>
-					</div>
-					/.navbar-collapse
-				</div>
-				/.container-fluid
-			</nav> -->
-			<!-- 상단바 -->
+			
 
 			<!-- test -->
 			<div id="main_content">
 				<div class="container">
-					<%-- <div class="row contact">
-						<div id="reservation_bg">
-							<img src="Resources/images/image_koo/main/main2.jpg">
-						</div>
-
-						<div class="col-xs-12 col-sm-6 nopadding">
-							<div class="contact_bg">
-								<img src="Resources/images/image_koo/main/main3.jpg"
-									height="350" style="padding-left: 40px; padding-top: 80px;">
-							</div>
-							<div class="arrow-left"></div>
-						</div>
-						<br>
-						<h3>
-							<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Place Information</b>
-						</h3>
-
-
-						<div class="col-xs-12 col-sm-6 contact_content">
-
-							<div id="hongdae" class="branch_tab active">
-
-								<ul>
-									<li>장소: ${placeinfo.pname}</li>
-									<li>전화번호: ${placeinfo.pphone}</li>
-									<li>홈페이지 이동: <a target="_blank"
-										href="http://${placeinfo.phomepage}">Click</a>
-									</li>
-									<li>공휴일</li>
-									<textarea rows="1" cols="50" readonly>${placeinfo.pholiday}</textarea>
-									<li>대중교통</li>
-									<textarea rows="5" cols="50" readonly>${placeinfo.phowtogo}</textarea>
-
-									<li>상세주소: ${placeinfo.pdoro}</li>
-
-								</ul>
-
-
-							</div>
-						</div>
-					</div> --%>
+					
 					<!-- test -->
 
 					<div id="main_content">
@@ -157,19 +84,7 @@
 						<div class="container" id="reservation_container"
 							ng-controller="AppController">
 
-							<!-- <form action="/reservation/detail/" method="post"
-								id="detail_form">
-								<input type='hidden' name='csrfmiddlewaretoken'
-									value='P4Knx6SygVfXsIJzUEJkeEVpVZCmxMPy' /> <input
-									type="hidden" id="hidden_rn" name="reservation_number">
-								<input type="hidden" id="hidden_pw" name="password">
-							</form> -->
-
-							<!-- <div class="subtitle">
-								<span class="tab_wrapper">
-									<p class="btn btn-warning">실시간 예약</p>
-								</span>
-							</div> -->
+							
 
 							<div id="book_a_session_wrapper" class="toggle_content active">
 
@@ -180,32 +95,6 @@
 									<div class="row">
 
 
-										<!-- <div class="col-xs-12 col-sm-6 booking_input_wrapper">
-											<div class="row">
-												<div class="col-xs-6">
-													<label> 날짜선택 </label>
-												</div>
-
-												<div class="col-xs-6">
-													<input type="date" id="select_date" name="select_date" style="color:black" value="2017-07-19" min="2017-07-19" max="2017-07-31" >
-													<input type="button" class="yellow" id="date_btn" name="date_btn" value="선택">
-												</div>
-											</div>
-										</div> -->
-
-										<!-- 지점 선택 -->
-										<!-- <div class="col-xs-12 col-sm-6 booking_input_wrapper">
-											<div class="row">
-												<div class="col-xs-6">
-													<label> 인원선택 </label>
-												</div>
-												<div class="col-xs-6">
-													<input type="number" id="sel_count" name="sel_count" value="1"
-														required="required"  style="color:black"> autofocus
-
-												</div>
-											</div>
-										</div> -->
 									</div>
 
 									<table class="table">
@@ -217,7 +106,7 @@
 											</tr>
 										</thead>
 										<tbody>
-											<%-- <tr>
+											 <tr>
 												<td>시작시간</td>
 												<td>신청인원</td>
 												<td><input type="submit" class="yellow"
@@ -228,7 +117,7 @@
 												<td>신청인원</td>
 												<td><input type="submit" class="yellow"
 														id="reservebtn" value="예약하기" onclick="call('${time}')"></td>
-											</tr> --%>
+											</tr> 
 											
 											
 											<c:forEach items="${time_info}" var="time" varStatus="status">
@@ -270,25 +159,11 @@
 			</div>
 		</div>
 	</div>
-	<!-- MAIN CONTATINER -->
-
-	<!-- <div id="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 col-md-6">
-					<div class="footer_info">
-						<p>SportSpot © 2017 SEOUL KDATA. All Rights Reserved.</p>
-						<p>(주)SPOTSPORT | 한국데이터진흥원</p>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div> -->
+	
 
 	<script>
 		
-		/* $("#date_btn").on("click", function(){
+		/*  $("#date_btn").on("click", function(){
 			alert("날짜가 선택되었습니다. ajax로  가져오기 ");
 		});
 	
@@ -302,16 +177,12 @@
 		        var hidden_time= document.getElementById("select_time");   
 		        hidden_time.innerHTML= time;
 		        
-		        /* if(sel_count.value==0){ 예외처리 
-		        	alert("aaaaaaaaaaaaaaaa");
-		        	sel_count.focus();
-		        	return false;
-		        } */
+		       
 		         
 				if(result){
 		        	myfrm.submit(); 
 		        } 
-		} */
+		}  */
 		
 				
 		(function(i, s, o, g, r, a, m) {

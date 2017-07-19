@@ -212,7 +212,9 @@
 										</div>
 									</div>
 
-									<div id="here">여기</div>
+
+									
+									<div id="here"></div>
 
 
 									<table class="table">
@@ -228,7 +230,8 @@
 											<c:forEach items="${time_info}" var="time" varStatus="status">
 												<tr>
 													<td>${time}:00</td>
-													<td>${count_info[status.index]}</td> <!-- 수정해야한다. -->
+													<td>${count_info[status.index]}</td>
+													<!-- 수정해야한다. -->
 													<td><input type="submit" class="yellow"
 														id="reservebtn" value="예약하기" onclick="call('${time}')"></td>
 												</tr>
@@ -240,11 +243,12 @@
 												<td><a class="red" href="#">예약불가</a></td>
 											</tr> -->
 										</tbody>
-									</table> 
+									</table>
 
 									<div style="visibility: hidden" id="hidden">
-										<input type="text" id="sel_pid" name="sel_pid" value="${placeinfo.pid}"></input>
-										<input type="text" name="sel_place" value="${placeinfo.pname}"></input>
+										<input type="text" id="sel_pid" name="sel_pid"
+											value="${placeinfo.pid}"></input> <input type="text"
+											name="sel_place" value="${placeinfo.pname}"></input>
 										<!-- <input type="text" id="select_time" name="select_time">시간</input> -->
 										<textarea type="text" cols="1" rows="1" id="select_time"
 											name="select_time"></textarea>
@@ -337,29 +341,28 @@
 
 	<script>
 		
-$(function(){ 
+
         $('#date_btn').on('click',function(){ 
               alert("데이터 전송~ ^^*"); 
-       $.ajax({ 
-               url:'countget', //가져오고자하는 서버페이지 주소를 넣는다. 
-               type:'get', //데이터를 서버로 전송하게 된다. 
-               data:{ 
-            	   sel_pid: $('#sel_pid').val(),
-            	   sel_date: $('#select_date').val()  //에디터박스의 아이디를 넣으면 해당 에디터박스의 데이터를 보내준다.
-            	          
-               } , 
-               success : function(t){ 
-                             alert('성공!' + t);
-                             
-                             $("#here").html(t);
-                         
-               } , 
-               error : function(){ 
-                         alert('실패 ㅠㅠ'); 
-               } 
-        });
-    }); 
-}); 
+	       $.ajax({ 
+	               url:'countget', //가져오고자하는 서버페이지 주소를 넣는다. 
+	               type:'get', //데이터를 서버로 전송하게 된다. 
+	               data:{ 
+	            	   sel_pid: $('#sel_pid').val(),
+	            	   sel_date: $('#select_date').val()  //에디터박스의 아이디를 넣으면 해당 에디터박스의 데이터를 보내준다.
+	               } , 
+	               success : function(t){ 
+	                             alert('성공!' + t);
+	                             
+	                             $("#here").html(t);
+	                         
+	               } , 
+	               error : function(){ 
+	                         alert('실패 ㅠㅠ'); 
+	               } 
+	        });
+    	}); 
+
 		$("#date_btn").on("click", function(){
 			alert("날짜가 선택되었습니다. ajax로  가져오기 ");
 			var date = $("#select_date").val();
