@@ -64,7 +64,7 @@
 	var id = "<%=userid%>";
 	$(document).ready(function(){
 		if(id != "null"){
-			alert(id);
+			alert(id+"님, 어서오세요! :D");
 			$("#login").addClass("hide")
 			$("#register").addClass("hide");
 			$("#mypage").removeClass("hide");
@@ -111,7 +111,7 @@
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
 						<div id="top_logo">
-							<a class="navbar-brand" href="/"><img
+							<a class="navbar-brand" href="index.jsp"><img
 								src="Resources/images/jin/logo/full.png"></a>
 						</div>
 						<button type="button" class="navbar-toggle collapsed"
@@ -126,7 +126,7 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="nav_collapse">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="/Project" class="active"> HOME </a></li>
+							<li><a href="/index" class="active"> HOME </a></li>
 							<li><a href="search"> SEARCH </a></li>
 							<!-- Test for Reservation page :: temp  -->
 							<li><a href="searchTest"> RESERVE(TEMP) </a></li>
