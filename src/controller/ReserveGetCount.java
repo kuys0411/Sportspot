@@ -75,7 +75,7 @@ public class ReserveGetCount extends HttpServlet {
 			java.util.Date hire = sd.parse(dt);
 			sql_date = new Date(hire.getTime()); //long값 hire을 바꾼 뒤 sql Date 생성자에 넣으면 바뀜.
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
