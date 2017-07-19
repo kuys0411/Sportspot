@@ -188,8 +188,10 @@
 												</div>
 
 												<div class="col-xs-6">
-													<input type="date" id="select_date" name="select_date" style="color:black" value="2017-07-19" min="2017-07-19" max="2017-07-31" >
-													<input type="button" class="yellow" id="date_btn" name="date_btn" value="선택">
+													<input type="date" id="select_date" name="select_date"
+														style="color: black" value="2017-07-19" min="2017-07-19"
+														max="2017-07-31"> <input type="button"
+														class="yellow" id="date_btn" name="date_btn" value="선택">
 												</div>
 											</div>
 										</div>
@@ -201,13 +203,17 @@
 													<label> 인원선택 </label>
 												</div>
 												<div class="col-xs-6">
-													<input type="number" id="sel_count" name="sel_count" value="1"
-														required="required"  style="color:black"> <!-- autofocus -->
+													<input type="number" id="sel_count" name="sel_count"
+														value="1" required="required" style="color: black">
+													<!-- autofocus -->
 
 												</div>
 											</div>
 										</div>
 									</div>
+
+									<div id="here">여기</div>
+
 
 									<table class="table">
 										<thead>
@@ -234,14 +240,15 @@
 												<td><a class="red" href="#">예약불가</a></td>
 											</tr> -->
 										</tbody>
-									</table>
-									
-									<div style="visibility: hidden" id="hidden"> 
-										<input type="text" name="sel_pid" value="${placeinfo.pid}"></input>
+									</table> 
+
+									<div style="visibility: hidden" id="hidden">
+										<input type="text" id="sel_pid" name="sel_pid" value="${placeinfo.pid}"></input>
 										<input type="text" name="sel_place" value="${placeinfo.pname}"></input>
 										<!-- <input type="text" id="select_time" name="select_time">시간</input> -->
-										<textarea type="text" cols="1" rows="1" id="select_time" name="select_time"></textarea>
-									</div>  
+										<textarea type="text" cols="1" rows="1" id="select_time"
+											name="select_time"></textarea>
+									</div>
 								</form>
 							</div>
 
@@ -260,13 +267,13 @@
 						src="http://maps.google.com/maps/api/js?key=AIzaSyDWKmcj5ZnlDMJFJOcD7gTj4KF49JRo3N4"></script>
 					<!-- key 값 입력 -->
 					<style>
-					#map_ma {
-						width: 100%;
-						height: 400px;
-						clear: both;
-						border: solid 1px red;
-					}
-					</style>
+#map_ma {
+	width: 100%;
+	height: 400px;
+	clear: both;
+	border: solid 1px red;
+}
+</style>
 
 					<div id="map_ma"></div>
 					<script type="text/javascript">
@@ -330,8 +337,37 @@
 
 	<script>
 		
+$(function(){ 
+        $('#date_btn').on('click',function(){ 
+              alert("데이터 전송~ ^^*"); 
+       $.ajax({ 
+               url:'countget', //가져오고자하는 서버페이지 주소를 넣는다. 
+               type:'get', //데이터를 서버로 전송하게 된다. 
+               data:{ 
+            	   sel_pid: $('#sel_pid').val(),
+            	   sel_date: $('#select_date').val()  //에디터박스의 아이디를 넣으면 해당 에디터박스의 데이터를 보내준다.
+            	          
+               } , 
+               success : function(t){ 
+                             alert('성공!' + t);
+                             
+                             $("#here").html(t);
+                         
+               } , 
+               error : function(){ 
+                         alert('실패 ㅠㅠ'); 
+               } 
+        });
+    }); 
+}); 
 		$("#date_btn").on("click", function(){
 			alert("날짜가 선택되었습니다. ajax로  가져오기 ");
+			var date = $("#select_date").val();
+			
+			$("#here").load("countget", "date="+date, function(){ //서버에서 사용할 이름이: aaa인 것이다.
+				alert("서버에 다녀옴"); //갔다와서 실행하는 것이다.
+			});
+			
 		});
 	
 		function call(time){ //예약하기 버튼 눌렀을 때 call되는 함수 
