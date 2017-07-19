@@ -32,15 +32,84 @@ public class ReserveDAO {
 	String insertbooking_sql="insert into Booking_Member "
 			+ "values(seq_b_id.nextval,?,?,?,?,?)"; //sequence생성해주고 진행 
 	
-	String selectCount_Sql="SELECT count "
-			+ "From Booking_Place, Place "
-			+ "WHERE Booking_Place.P_ID = Place.P_ID and "
-			+ "place.P_ID=? and "
-			+ "Booking_Place.BP_startTime=? and "
-			+ "Booking_Place.BP_Date=?";
+	// Booking_place
+	String selectCount_sql="select count from Booking_Place Where P_ID=? and BP_startTime=? and BP_Date=?";
+	String ins_bookingPlace_sql="insert into Booking_Place values(?,?,?,?)"; //카운트 유무 확인 
+	String update_booking_place_sql= "update Booking_Place set count=count+? where P_ID=? and BP_startTime=? and BP_Date=?";
+	
+	
+	public int update_booking(int bnum, int pid, String bstartTime, Date date) {
+		int result=0;
+		conn=DBUtil.getConnect();
+		
+		try {
+			st=conn.prepareStatement(update_booking_place_sql);
+			st.setInt(1, bnum);
+			st.setInt(2, pid);
+			st.setString(3, bstartTime);
+			st.setDate(4, date);
+					
+			result=st.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbclose(conn, st, rs);
+		}
+		return result;
+	}
+	
+	
+	
+	public int selectCount_sql(int pid, String bstartTime, Date date) {
+		int count=0;
+		conn=DBUtil.getConnect();
+		
+		try {
+			st=conn.prepareStatement(selectCount_sql);
+			st.setInt(1, pid);
+			st.setString(2, bstartTime);
+			st.setDate(3, date);
+			rs=st.executeQuery();
+			
+			while(rs.next()) {
+				count = rs.getInt("count");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbclose(conn, st, rs);
+		}
+		return count;
+	}
+	
+	
+	public int ins_bookingPlace_sql(BookingPlaceDTO book) {
+		int result=0;
+		conn=DBUtil.getConnect();
+		
+		try {
+			st=conn.prepareStatement(ins_bookingPlace_sql);
+			st.setInt(1, book.getPid());
+			st.setString(2, book.getBpstart());
+			st.setDate(3, book.getBpdate());
+			st.setInt(4, book.getCount());
+		
+			result=st.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbclose(conn, st, rs);
+		}
+		return result;
+	}
 	
 	public int bookInsert(ReserveBookingDTO book) {
-	
+		
 		int result=0;
 		conn=DBUtil.getConnect();
 		
@@ -61,7 +130,6 @@ public class ReserveDAO {
 		}
 		return result;
 	}
-	
 	
 	
 	public ReservePlaceDTO selectplaceById(int pid){ //table 3개 종합
@@ -86,33 +154,7 @@ public class ReserveDAO {
 		return placeinfo;
 	}
 	
-	/*public BookingPlaceDTO selectCount(){
-		BookingPlaceDTO book_place = new BookingPlaceDTO();
-		conn=DBUtil.getConnect();
-		
-		try {
-			st= conn.prepareStatement(selectCount_Sql);
-			st.setInt(1, x);
-			st.setString(2, x);
-			st.setDate(3, x);
-			
-			rs=st.executeQuery();
-			while(rs.next()){ //참인동안 돌면서 
-				placeinfo = makePlace(rs);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally{
-			DBUtil.dbclose(conn, st, rs);
-		}
-		
-		
-		return null;
-	}*/
-	
-	
-	
+
 	private ReservePlaceDTO makePlace(ResultSet rs) throws SQLException {
 		int pid= rs.getInt("P_ID");
 		String pname= rs.getString("P_NAME");

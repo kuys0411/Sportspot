@@ -211,7 +211,6 @@
 										</div>
 									</div>
 
-
 									<table class="table">
 										<thead>
 											<tr>
@@ -222,7 +221,6 @@
 											</tr>
 										</thead>
 										<tbody>
-
 
 											<c:forEach items="${time_info}" var="time">
 												<tr>
@@ -240,20 +238,17 @@
 												<td>20</td>
 												<td><a class="red" href="#">예약불가</a></td>
 											</tr>
-
 										</tbody>
 									</table>
 									
-									<!-- <div style="visibility: hidden" id="hidden"> -->
+									<div style="visibility: hidden" id="hidden"> 
 										<input type="text" name="sel_pid" value="${placeinfo.pid}"></input>
 										<input type="text" name="sel_place" value="${placeinfo.pname}"></input>
 										<!-- <input type="text" id="select_time" name="select_time">시간</input> -->
 										<textarea type="text" cols="1" rows="1" id="select_time" name="select_time"></textarea>
-									<!-- </div>  -->
-									
+									</div>  
 								</form>
 							</div>
-
 
 						</div>
 					</div>
