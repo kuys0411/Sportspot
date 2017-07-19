@@ -25,14 +25,12 @@ import model.ReservePlaceDTO;
      */
     public reserve() {
         super();
-        System.out.println("안녕하세요");
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("get으로 연결완료");
 		
 		String pid_temp = request.getParameter("pid");
 		int pid = Integer.parseInt(pid_temp);
@@ -41,9 +39,7 @@ import model.ReservePlaceDTO;
 		
 		ReserveDAO dao = new ReserveDAO();
 		ReservePlaceDTO placeinfo = dao.selectplaceById(pid);
-		System.out.println("test2:"+placeinfo);
 		
-		//
 		String tmp_open= placeinfo.getPopen();
 		String tmp_close = placeinfo.getPclose();
 		
@@ -53,15 +49,13 @@ import model.ReservePlaceDTO;
 		int open= Integer.parseInt(str_open[0]);
 		int close= Integer.parseInt(str_close[0]);
 		
-		System.out.println("open:"+open+" close:"+close);
+		//System.out.println("open:"+open+" close:"+close);
 		int loop_count = close-open+1;
-		
 		
 		int[] time_info=new int[loop_count];
 		for(int i=0; i<loop_count; i++){
 			time_info[i]=open;
 			open++;
-			System.out.print(time_info[i]+" ");
 		}
 		
 		request.setAttribute("placeinfo", placeinfo);

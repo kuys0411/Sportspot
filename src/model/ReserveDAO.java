@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,13 +32,36 @@ public class ReserveDAO {
 	String insertbooking_sql="insert into Booking_Member "
 			+ "values(seq_b_id.nextval,?,?,?,?,?)"; //sequence생성해주고 진행 
 	
-	
 	String selectCount_Sql="SELECT count "
 			+ "From Booking_Place, Place "
 			+ "WHERE Booking_Place.P_ID = Place.P_ID and "
 			+ "place.P_ID=? and "
 			+ "Booking_Place.BP_startTime=? and "
 			+ "Booking_Place.BP_Date=?";
+	
+	public int bookInsert(ReserveBookingDTO book) {
+	
+		int result=0;
+		conn=DBUtil.getConnect();
+		
+		try {
+			st=conn.prepareStatement(insertbooking_sql);
+			st.setInt(1, book.getMid());
+			st.setInt(2, book.getPid());
+			st.setDate(3, book.getDate());
+			st.setInt(4, book.getBnum());
+			st.setString(5, book.getBstartTime());
+			result=st.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbclose(conn, st, rs);
+		}
+		return result;
+	}
+	
 	
 	
 	public ReservePlaceDTO selectplaceById(int pid){ //table 3개 종합

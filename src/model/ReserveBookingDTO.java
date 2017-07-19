@@ -58,8 +58,11 @@ public class ReserveBookingDTO {
 	public void setBstartTime(String bstartTime) {
 		this.bstartTime = bstartTime;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "ReserveBookingDTO [Bid=" + Bid + ", Mid=" + Mid + ", Pid=" + Pid + ", date=" + date + ", bnum=" + bnum
+				+ ", bstartTime=" + bstartTime + "]";
+	}
 	
 	
 }

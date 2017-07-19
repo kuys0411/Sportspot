@@ -40,12 +40,13 @@ public class ReserveComplete extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println();
-		System.out.println("reserve complete(post)");
-		
+		System.out.println("reserve complete(post)2");
+		 
 		HttpSession session = request.getSession();
 		
 		
 		String dt= request.getParameter("select_date");
+		System.out.println("date출력:"+ dt);
 		Date select_date = DateUtil.toSqlDate(dt);
 		
 		System.out.println("date출력:"+ select_date);
