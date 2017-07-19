@@ -10,7 +10,15 @@ src: url('../../fonts/NanumBarunGothic.eot'),
   position: relative;
   font-family: 'nanum', sans-serif;
 }
-/*  Popup contents : deleted
+
+/* #login_status {
+	text-align: center;
+	font-family: 'nanum', sans-serif;
+	font-size: 15px;
+	color: #fff;
+	margin:20px;
+} */
+  Popup contents : deleted
 #popup {
   position: absolute;
   z-index: 9999;
@@ -19,22 +27,23 @@ src: url('../../fonts/NanumBarunGothic.eot'),
 
 #popup {
   max-width: 100%;
+
 }
 
-#popup img {
-  width: 100%;
-}
 
 #popup div {
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: #fff;
-  text-align: right;
+  background: rgba(256, 256, 256, 0.80);
+/*    background-color: #fff; */
+    	text-align: center;
+	font-family: 'nanum', sans-serif;
+	font-size: 20px;
+	color: #fff;
+	margin:20px;
 }
 
-#popup img {
-  cursor: pointer;
-}
+
 
 #popup div a {
   border: 1px solid #333;
@@ -45,7 +54,7 @@ src: url('../../fonts/NanumBarunGothic.eot'),
   text-decoration: none;
   cursor: pointer;
   padding: 0 5px;
-} */
+} 
 
 #notice {
   text-align: center;

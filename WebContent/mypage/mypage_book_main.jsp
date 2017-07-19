@@ -87,6 +87,7 @@
 							<li id="mypage"><a href="mypageShowInfo">MYPAGE</a></li>
 							<li id="logout"><a href="logout"><span></span>LOGOUT</a></li>
 						</ul>
+
 					</div>
 					<!-- /.navbar-collapse -->
 				</div>

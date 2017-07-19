@@ -38,9 +38,9 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	src="Resources/js/index1.js"></script>
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	src="Resources/js/index2.js"></script>
 
 
 <!-- 	ID alert  -->
@@ -126,8 +126,8 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="nav_collapse">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="/index" class="active"> HOME </a></li>
-							<li><a href="search"> SEARCH </a></li>
+							<li><a href="index.jsp" class="active"> HOME </a></li>
+							<li><a href="search.jsp"> SEARCH </a></li>
 							<!-- Test for Reservation page :: temp  -->
 							<li><a href="searchTest"> RESERVE(TEMP) </a></li>
 							<!--  로그인을 하면 로그아웃이랑 MyPage로 교체 -->
@@ -135,10 +135,10 @@
 							<li id="register"><a href="signup.jsp"><span>REGISTER</span></a></li>
 							<li id="mypage" class="hide"><a href="mypage/mypageShowInfo">MYPAGE</a></li>
 							<li id="logout" class="hide"><a href="logout"><span></span>LOGOUT</a></li>
-							<li id="login_stage" class="hide"><a href="logout"><span></span>$(userid)님</a><span></span></li>
+							<li id="login_result" class="hide"><a><span><%out.print(userid);%>님!</span></a></li>
 						</ul>
 					</div>
-					
+
 					<!-- /.navbar-collapse -->
 				</div>
 				<!-- /.container-fluid -->
@@ -146,7 +146,6 @@
 
 			<div id="main_content">
 				<div id="main-container" class="container">
-
 					<!-- Carousel items -->
 					<div id="carousel" class="carousel slide carousel-fade"
 						data-ride="carousel">
@@ -176,7 +175,9 @@
 							class="sr-only">Next</span>
 						</a>
 					</div>
-
+					<div>
+						<br>
+					</div>
 					<!-- second row contents(Service Features) -->
 					<div id="features">
 						<div class="row">
@@ -249,8 +250,8 @@
 		<div class="container">
 			<div class="col-sm-12 col-md-6">
 				<div class="footer_info">
-						<p>Copyright © 2017 2017 SEOUL KDATA. All Rights Reserved.</p>
-						<p>(주)SPORTSPOT | 빅데이터 청년인재 서울 2반 |</p>
+					<p>Copyright © 2017 2017 SEOUL KDATA. All Rights Reserved.</p>
+					<p>(주)SPORTSPOT | 빅데이터 청년인재 서울 2반 |</p>
 				</div>
 			</div>
 		</div>
