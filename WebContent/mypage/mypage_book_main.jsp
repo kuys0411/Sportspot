@@ -26,6 +26,13 @@
 	type="text/css" />
 <script type="text/javascript" src="../Resources/js/mypage.js"></script>
 <script type="text/javascript" src="../Resources/js/mypage2.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
 
 </head>
@@ -64,7 +71,6 @@
 								<li id="logout"><a href="logout"><span></span>LOGOUT</a></li>
 							</ul>
 						</div>
-
 					</div>
 					<!-- /.navbar-collapse -->
 				</div>
@@ -73,14 +79,28 @@
 
 			<div id="main_content">
 
-
-				<div class="container" id="reservation_container"
-					ng-controller="AppController">
-					<div id="reservation_bg">
-						<img id=reservation_img
-							src="../Resources/images/jin/ready.png">
+				<div class="container" id="reservation_container">
+					<div id="carousel" class="carousel slide carousel-fade"
+						data-ride="carousel">
+						<!-- slider images -->
+						<div class="carousel-inner">
+							<div class="active item">
+								<img src="../Resources/images/jin/mpg/mpgslider01.png">
+							</div>
+							<div class="item">
+								<img src="../Resources/images/jin/mpg/mpgslider02.png">
+							</div>
+							<div class="item">
+								<img src="../Resources/images/jin/mpg/mpgslider03.png">
+							</div>
+							<div class="item">
+								<img src="../Resources/images/jin/mpg/mpgslider04.png">
+							</div>
+							<div class="item">
+								<img src="../Resources/images/jin/mpg/mpgslider05.png">
+							</div>
+						</div>
 					</div>
-
 
 
 					<div id="booking_toggle_wrapper" class="subtitle">

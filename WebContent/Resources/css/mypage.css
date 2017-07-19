@@ -1,3 +1,14 @@
+@font-face{
+font-family:'nanum';
+src: url('../../fonts/NanumBarunGothic.eot'),
+	 url('../../fonts/NanumBarunGothic.ttf'),
+	 url('../../fonts/NanumBarunGothic.woff')	,
+	 url('../../fonts/NanumBarunGothic.woff2');		
+}
+
+body{
+	font-family:'nanum', Arial;
+}
 #itaewon {
   padding-top: 25px;
 }

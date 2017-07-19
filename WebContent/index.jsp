@@ -248,8 +248,8 @@
 		<div class="container">
 			<div class="col-sm-12 col-md-6">
 				<div class="footer_info">
-					<p>Copyright © 2017 2017 SEOUL KDATA. All Rights Reserved.</p>
-					<p>(주)SPORTSPOT | 빅데이터 청년인재 서울 2반 구영석, 김윤영, 손수현, 정유진 |</p>
+						<p>Copyright © 2017 2017 SEOUL KDATA. All Rights Reserved.</p>
+						<p>(주)SPORTSPOT | 빅데이터 청년인재 서울 2반 |</p>
 				</div>
 			</div>
 		</div>

@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+@font-face{
+font-family:'nanum';
+src: url('../../fonts/NanumBarunGothic.eot'),
+	 url('../../fonts/NanumBarunGothic.ttf'),
+	 url('../../fonts/NanumBarunGothic.woff')	,
+	 url('../../fonts/NanumBarunGothic.woff2');		
+}
+body{
+	font-family:'nanum', Arial;
+}
 /*!
 Animate.css - http://daneden.me/animate
 Licensed under the MIT license - http://opensource.org/licenses/MIT
