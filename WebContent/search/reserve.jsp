@@ -202,7 +202,7 @@
 												<div class="col-xs-6">
 													<input type="number" id="sel_count" name="sel_count"
 														value="1" required="required" style="color: black">
-													
+
 
 												</div>
 											</div>
@@ -210,7 +210,7 @@
 									</div>
 
 
-									
+
 									<div id="here"></div>
 
 
@@ -229,8 +229,22 @@
 													<td>${time}:00</td>
 													<td>${count_info[status.index]}</td>
 													<!-- 수정해야한다. -->
-													<td><input type="submit" class="yellow"
-														id="reservebtn" value="예약하기" onclick="call('${time}')"></td>
+				
+													<c:set var="name" value="${count_info[status.index]}"/>
+													<c:choose>
+														<c:when test="${name < 30}">
+															<td><input type="submit" class="yellow"
+																id="reservebtn" value="예약하기" onclick="call('${time}')"></td>
+														</c:when>
+														
+														<c:otherwise>
+
+															<td><input type="submit" class="red" id="reservebtn"
+																value="예약불가"></td>
+														</c:otherwise>
+													
+													</c:choose>
+
 												</tr>
 											</c:forEach>
 
@@ -268,13 +282,13 @@
 						src="http://maps.google.com/maps/api/js?key=AIzaSyDWKmcj5ZnlDMJFJOcD7gTj4KF49JRo3N4"></script>
 					<!-- key 값 입력 -->
 					<style>
-					#map_ma {
-						width: 100%;
-						height: 400px;
-						clear: both;
-						border: solid 1px red;
-					}
-					</style>
+#map_ma {
+	width: 100%;
+	height: 400px;
+	clear: both;
+	border: solid 1px red;
+}
+</style>
 
 					<div id="map_ma"></div>
 					<script type="text/javascript">
