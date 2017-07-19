@@ -165,7 +165,7 @@
 
 							<div class="subtitle">
 								<span class="tab_wrapper">
-									<p class="btn btn-warning">실시간 예약</p>
+									<p class="btn btn-warning" style="background-color: #f1c40f">실시간 예약</p>
 								</span>
 							</div>
 
@@ -232,15 +232,15 @@
 				
 													<c:set var="name" value="${count_info[status.index]}"/>
 													<c:choose>
-														<c:when test="${name < 30}">
+														<c:when test="${name < 30}"> <!-- 인원수 30명 미만 예약가능 -->
 															<td><input type="submit" class="yellow"
-																id="reservebtn" value="예약하기" onclick="call('${time}')"></td>
+																id="reservebtn" value="예약하기" onclick="call('${time}')" style="background-color: #000000"></td>
 														</c:when>
 														
-														<c:otherwise>
+														<c:otherwise> <!-- 인원수 30명부터 예약 불가능  -->
 
-															<td><input type="submit" class="red" id="reservebtn"
-																value="예약불가"></td>
+															<td><input type="button" class="red" id="reservebtn"
+																value="예약불가" disabled="disabled" style="background-color: #000000"></td>
 														</c:otherwise>
 													
 													</c:choose>
@@ -273,7 +273,7 @@
 
 					<div class="subtitle">
 						<span class="tab_wrapper">
-							<p class="btn btn-warning">오시는 길</p>
+							<p class="btn btn-warning" style="background-color: #f1c40f">오시는 길</p>
 						</span>
 					</div>
 
