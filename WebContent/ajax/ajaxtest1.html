@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+
+<script>
+	$(function(){
+		$("#btn").click(function(){
+			var data = $("#userid").val();
+			alert(data);
+			data = encodeURIComponent(data);
+			/* 
+			id값으로 userid를 준다. */
+			$("#here").load("call.jsp", "userid="+data, function(){
+				alert("갔다옴");
+			});
+		});
+		$("#btn2").click(function(){
+			var data = $("#userid").val();
+			data = encodeURIComponent(data);
+			var param="?userid= " + data;
+			$.get("callto.jsp" + param, function(responseData, status){
+				//서버에 다녀온 후에 수행
+				alert(responseData);
+				var obj = JSON.parse(responseData);
+				here.innerHTML = obj.id + "=>" + obj.pass;
+				
+			});
+		});
+	
+	});
+	
+	
+</script>
+</head>
+<body>
+	<h1>Ajax연습</h1>
+	<button id = "btn">load연습</button><button id = "btn2">연습</button>
+	<!-- id는 클라이언트프로그램(자바스크립트), name은 서버프로그램(JSP) -->
+	<input type="text" id="userid" name="userid" value="zzilre"><br>
+	<div id="here">
+		여기
+	</div>
+</body>
+</html>

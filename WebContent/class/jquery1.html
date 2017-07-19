@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<title>Insert title here</title>
+<script>
+
+	//문서가 로드되면 $()부분을 실행
+	$(function(){
+		//누구한테.실행할 함수
+		$("#here").html("<h1>jQuery배우자~</h1>");
+		$("h1.intro").css("background", "green");
+		$("h1").eq(0).css("background", "yellow");
+		$("h1:even").css("color", "red");
+	});
+	
+	function call(){
+		alert("문서 로드가 끝났다.")
+	}
+</script>
+
+</head>
+
+<body>
+	<h1>jQuery연습</h1>
+	<h1 class="intro"> jQUery연습2</h1>
+	<h1 > jQUery연습3</h1>
+	<div id="here"> 여기 </div>
+	
+</body>
+</html>
