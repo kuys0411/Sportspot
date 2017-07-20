@@ -49,15 +49,9 @@ public class SendMessageServlet extends HttpServlet {
 		String message_from = request.getParameter("messageFrom");
 		String message_to = request.getParameter("messageTo");
 		String message_body = request.getParameter("messageBody");
-		String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 
-		java.sql.Date message_Date = DateUtil.toSqlDate(date);
-		System.out.println("Message info");
-		System.out.println("MessageFrom : " + message_from);
-		System.out.println("Message to :" + message_to);
-		System.out.println("Message body : " +message_body);
 		MessageDAO msgdao = new MessageDAO();
-		MessageDTO msgdto = new MessageDTO(message_from, message_to, message_body, message_Date);
+		MessageDTO msgdto = new MessageDTO(message_from, message_to, message_body);
 		int result = msgdao.insertMessageDTO(msgdto);
 		
 		RequestDispatcher rd;

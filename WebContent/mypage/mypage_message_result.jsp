@@ -5,10 +5,11 @@
 	
 			<c:forEach items="${messages}" var="msg">
 					<div class="msgForm">
+						<p>MessageNum</p>
+						<span id="messageDate">${msg.messageID}</span> <br>
 						<p>Message_From</p>
-						<span id="messageFrom"> ${msg.messageTo}</span> <br>
-						<p>Date</p>
-						<span id="messageDate">${msg.message_Date}</span> <br>
+						<span id="messageFrom"> ${msg.messageFrom}</span> <br>
+
 						<p>Message Body</p>
 						<span id="messageBody">${msg.messageBody} </span> <br>    
 						<button class="messageReply"> Reply  </button> <button class="messageDelete"> Delete </button>

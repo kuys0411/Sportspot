@@ -16,7 +16,7 @@ public class MessageDAO {
 	ResultSet rs;
 	
 	String selectAllMessage = "select * from Message where Message_receiver = ? ";
-	String insert_message = "insert into Message (Message_sender, Message_receiver, Message_Body, Message_Date ) values (?,?,?, SYSDATE) ";
+	String insert_message = "insert into Message values (seq_message_id.nextval, ?,?,?) ";
 	
 	String delete_message = "delete from message where Message_sender = ? and Message_receiver = ? and Message_Body = ? ";
 
@@ -69,14 +69,14 @@ public class MessageDAO {
 	Message_To	Varchar2(255),
 	Message_Date date,
 	Message_Body	varchar2(1000)*/
+	
 	private MessageDTO makeMessageDTO(ResultSet rs) throws SQLException {
 		// TODO Auto-generated method stub
+		long mid = rs.getLong("MESSAGE_id");
 		String message_from = rs.getString("MESSAGE_sender");
 		String message_to = rs.getString("MESSAGE_receiver");
-		Date Message_Date = rs.getDate("MESSAGE_DATE");
 		String message_body = rs.getString("MESSAGE_BODY");
-		System.out.println("makeDTO "+ message_from);
-		MessageDTO messageDTO = new MessageDTO(message_from, message_to, message_body, null);
+		MessageDTO messageDTO = new MessageDTO( message_from, message_to, message_body, mid);
 		
 		return messageDTO;
 	}
@@ -85,10 +85,17 @@ public class MessageDAO {
 	public int deleteMessage(String msgTo, String msgFrom, String msgBody) {
 		int result = 0;
 		conn = DBUtil.getConnect();
+		String messageFrom = msgFrom.replace(" ", "");
+		String messageTo = msgTo.replace(" ", "");
+		String messageBody = msgBody.trim();
 		try {
+			System.out.println("msgFrom :" + messageFrom);
+			System.out.println("msgTo :" + messageTo);
+			System.out.println("msgBody :" + messageBody);
+			
 			st = conn.prepareStatement(delete_message);
-			st.setString(1, msgFrom);
-			st.setString(2, msgTo);
+			st.setString(1, messageFrom);
+			st.setString(2, messageTo);
 			st.setString(3, msgBody);
 			result = st.executeUpdate();
 		} catch (SQLException e) {
