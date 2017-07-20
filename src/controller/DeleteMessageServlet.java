@@ -13,7 +13,7 @@ import model.MessageDAO;
 /**
  * Servlet implementation class DeleteMessageServlet
  */
-@WebServlet("mypage/deleteMessage")
+@WebServlet("/mypage/deleteMessage")
 public class DeleteMessageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -37,10 +37,12 @@ public class DeleteMessageServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		System.out.println("deleteMEssageservlet");
+		System.out.println("deleteMEssageservlet");
+
+		System.out.println("deleteMEssageservlet");
+
 		request.setCharacterEncoding("utf-8");
-	/*	msgFrom : messageFrom,
-		msgBody : messageBody*/
 		String msgFrom = request.getParameter("messageFrom");
 		String msgBody = request.getParameter("msgBody");
 		HttpSession session = request.getSession();
@@ -48,7 +50,7 @@ public class DeleteMessageServlet extends HttpServlet {
 		
 		MessageDAO dao = new MessageDAO();
 		int result = dao.deleteMessage(msgTo, msgFrom, msgBody);
-		
+		System.out.println("after delete message dopost # : " + result);
 	}
 
 }

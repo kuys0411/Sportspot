@@ -90,8 +90,9 @@ $(document).ready(function(){
 		alert("delete");
 		var delDiv = $(this).closest("div");
     	var messageFrom = $(this).closest("div").find('#messageFrom').text();
-    	var messageBody = $(this).closest("div").find('#messageBody').text();
-		$ajax({
+    	var messageBody = $(this).parent().find('#messageBody').text();
+    	alert("delete");
+    	$.ajax({ 
 			url:'deleteMessage',
 			type:'POST',
 			data:{
