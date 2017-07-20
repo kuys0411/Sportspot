@@ -206,10 +206,6 @@ sport=["soccer","baseball","badminton","goggles","golf","tennis-ball",
 	
 $(document).ready(function(){
 	var OpenWin;
-	
-	
-	
-	
 	$('#here').on('click', '.join', function (){
 		var msgTo = $(this).closest("tr").find('#gotoMessage').text();
 		

@@ -100,12 +100,12 @@ input[type="text"]:hover,input[type="Password"]:hover,#active, #MSGTO{
 .forget-pass {
 	float: right;
 }
-.submit {
+.submit ,#closebtn{
 	padding: 2px 2px;
 	float:left;
 	margin-right: 11px;
 }
-.submit input[type="submit"] {
+.submit input[type="submit"], .submit input[type="button"] {
 	background: #F06B37;
 	border: none;
 	outline: none;
@@ -263,7 +263,7 @@ input[type="text"]:hover,input[type="Password"]:hover,#active, #MSGTO{
 	.login {
 	padding: 1em 0;
 	}
-	.submit{
+	.submit, #closebtn{
 	padding: 2px ;
 	text-align: center;
 	float:none;

@@ -21,58 +21,29 @@
 
 <script>
 
-function close(){
-	self.close();
+/* function closeSelf(){
+    // do something
+
+    if(condition satisfied){
+       alert("conditions satisfied, submiting the form.");
+       document.forms['certform'].submit();
+       window.close();
+    }else{
+       alert("conditions not satisfied, returning to form");    
+    }
 }
-<%-- 
-	
-	$(document).ready(function(){
-		$('#submitBtn').on('click',function(){
-			alert("press submitBtn");
-			$.ajax({
-				url:"http://localhost:8888/Project/sendMessage",
-				type:'POST',
-				data:{
-					messageFrom : <%=userid%>,
-					messageTo:$('#MSGTO').val(),
-					messageBody : $('#textarea').val()
-				},
-				success : function(t){
-					alert('메세지 전송에 성공');
-					close();
-				},
-				error : function(){
-					alert('메세지 전송에 실패');
-				}
-			});
-		});
-		
-		$('#closebtn').on('click',function(){
-			close();
-		});
-	}); --%>
-	
-/* 	
-	$('#date_btn').on('click',function(){ 
-        alert("데이터 전송~ ^^*"); 
-     $.ajax({ 
-             url:'countget', //가져오고자하는 서버페이지 주소를 넣는다. 
-             type:'get', //데이터를 서버로 전송하게 된다. 
-             data:{ 
-          	   sel_pid: $('#sel_pid').val(),
-          	   sel_date: $('#select_date').val()  //에디터박스의 아이디를 넣으면 해당 에디터박스의 데이터를 보내준다.
-             } , 
-             success : function(t){ 
-                           alert('성공!' + t);
-                           
-                           $("#here").html(t);
-                       
-             } , 
-             error : function(){ 
-                       alert('실패 ㅠㅠ'); 
-             } 
-      });
-	});  */
+ */
+/* 
+<form action="/system/wpacert" method="post" enctype="multipart/form-data" name="certform">
+       <div>Certificate 1: <input type="file" name="cert1"/></div>
+       <div>Certificate 2: <input type="file" name="cert2"/></div>
+       <div>Certificate 3: <input type="file" name="cert3"/></div>
+
+       // change the submit button to normal button
+       <div><input type="button" value="Upload"  onclick="closeSelf();"/></div>
+</form> */
+
+
 </script>
 </head>
  
@@ -86,11 +57,11 @@ function close(){
 				<!-----start-main---->
 				<form action="/Project/sendMessage" method="POST">
 			         <div>
-						<span><label>Message_From</label></span>
+						<span><label>MessageSender</label></span>
 						<span><input type="text" class="textbox" name="messageFrom" id="active" value ="<%=userid%>" readonly ></span>
 					 </div>
 					 <div>
-						<span><label>Message_To</label></span>
+						<span><label>MessageReceiver</label></span>
 					    <span><input type="text" class="textbox" id="MSGTO" name="messageTo" readonly></span>
 					 </div>
 
@@ -101,8 +72,8 @@ function close(){
 					 </div>
 					<div class="sign">
 						<div class="submit">
-						  <input type="submit" onClick="window.close()" value="메시지 보내기"  >
-						  <input type="button" id ="closebtn" value="창 닫기" onClick="window.close()" >
+						  <input type="submit" onClick="closeSelf()" value="메시지 보내기"  >
+						  <input type="button" id ="closebtn" value="창 닫기" onClick="self.close()" >
 						  
 						</div>
 					

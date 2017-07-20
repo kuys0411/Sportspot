@@ -19,7 +19,7 @@ select b.B_ID, m.M_ID, m.M_name, b.B_num, b.B_Date, b.B_startTime, p.P_type, pa.
 
 
 
-
+select * from message;
 
 
 select * from BOOKING_MEMBER;
@@ -37,3 +37,29 @@ select b.B_ID, m.M_ID, m.M_name, b.B_num, b.B_Date, b.B_startTime, p.P_type from
 
 de
 select B_ID, B_Date, B_STARTTIME, P_NAME, B_NUM from PLACE A , BOOKING_MEMBER B where A.P_ID = B.P_ID AND M_ID = 'user1';
+
+
+
+select * from message
+
+
+
+
+
+
+create table Message(
+	Message_sender varchar2(255),
+	Message_receiver Varchar2(255),
+	Message_Date date,
+	Message_Body varchar2(1000),
+	constraint PK_MSENDER foreign key(Message_sender) references member(m_id),
+	constraint PK_MRECEIVER foreign key(Message_receiver) references member(m_id)
+
+);
+
+select M_ID from member
+
+selectg
+select * from member
+
+

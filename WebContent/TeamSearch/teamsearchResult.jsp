@@ -23,7 +23,7 @@
         <tr>
 
           <td >${oneitem.bid}</td>
-          <td id="gotoMessage"> ${oneitem.mid } </td>
+          <td id="gotoMessage">${oneitem.mid}</td>
           <td> ${oneitem.mname} </td>
           <td> ${oneitem.bnum} </td>
           <td> ${oneitem.bdate} </td>

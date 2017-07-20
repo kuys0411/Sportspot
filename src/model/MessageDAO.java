@@ -15,8 +15,8 @@ public class MessageDAO {
 	PreparedStatement st;
 	ResultSet rs;
 	
-	String selectAllMessage = "select * from Message where Message_To = ? ";
-	String insert_message = "insert into Message (Message_From, Message_To, Message_Body, Message_Date ) values (?,?,?, SYSDATE) ";
+	String selectAllMessage = "select * from Message where Message_receiver = ? ";
+	String insert_message = "insert into Message (Message_sender, Message_receiver, Message_Body, Message_Date ) values (?,?,?, SYSDATE) ";
 
 	public int insertMessageDTO(MessageDTO msgdto) {
 		conn = DBUtil.getConnect();
@@ -69,8 +69,8 @@ public class MessageDAO {
 	Message_Body	varchar2(1000)*/
 	private MessageDTO makeMessageDTO(ResultSet rs) throws SQLException {
 		// TODO Auto-generated method stub
-		String message_from = rs.getString("MESSAGE_FROM");
-		String message_to = rs.getString("MESSAGE_TO");
+		String message_from = rs.getString("MESSAGE_sender");
+		String message_to = rs.getString("MESSAGE_receiver");
 		Date Message_Date = rs.getDate("MESSAGE_DATE");
 		String message_body = rs.getString("MESSAGE_BODY");
 		System.out.println("makeDTO "+ message_from);
