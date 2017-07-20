@@ -6,13 +6,29 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
 <meta name="google-site-verification"
 	content="YHkzOS5N5M9qkZTIGtDDfuKidQhuMuSj02txDAxSlxg" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>예약페이지</title>
-<link rel="shortcut icon"
-	href='http://www.seoul-escape.com/static/image/favicon.ico'
+<link rel="stylesheet"
+	href="../Resources/css/contact.css"
+	type="text/css" />
+
+<title>SPORTSPOT Reservation</title>
+
+<!-- design : icon -->
+<link rel="shortcut icon" href="../Resources/images/jin/ico/favicon.png"
 	type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="../Resources/images/jin/ico/ghost-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="../Resources/images/jin/ico/ghost-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="../Resources/images/jin/ico/ghost-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed"
+	href="../Resources/images/jin/ico/ghost-icon-57-precomposed.png">
+
+
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -20,32 +36,36 @@
                                initial-scale=1.0,
                                maximum-scale=1">
 <meta name="title" content="Seoul Escape Room">
-<link rel="stylesheet"
-	href="http://www.seoul-escape.com/static/CACHE/css/58f590e8ac6c.css"
+
+<!-- CSS -->
+
+<link rel="stylesheet" href="../Resources/css/reservation1.css"
 	type="text/css" />
-<link rel="stylesheet"
-	href="http://www.seoul-escape.com/static/css/reservation.css"
+<link rel="stylesheet" href="../Resources/css/reservation1.css"
 	type="text/css" />
-<link href="http://www.seoul-escape.com/static/css/datepicker.css"
-	rel="stylesheet" />
+<link href="../Resources/css/datepicker.css" rel="stylesheet" />
+<link rel="stylesheet" href="../Resources/css/contact.css"
+	type="text/css" />
+
+
+<!-- Java Script -->
 <script type="text/javascript"
 	src="http://www.seoul-escape.com/static/CACHE/js/c546a5c802e8.js"></script>
 <script type="text/javascript"
 	src="http://www.seoul-escape.com/static/CACHE/js/38f6e66c6208.js"></script>
-
 <script type="text/javascript"
 	src="http://www.seoul-escape.com/static/CACHE/js/da0caed938c7.js"></script>
 <script
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA3t7a2pTWqsB_QnkLNfxdmiGxgXL045g"></script>
-<link rel="stylesheet"
-	href="http://www.seoul-escape.com/static/css/contact.css"
-	type="text/css" />
 
 <!-- bootstrap -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 
 <%
@@ -53,8 +73,8 @@
 	request.setCharacterEncoding("utf-8");
 	if ((String) session.getAttribute("userID") != null) {
 		userid = (String) session.getAttribute("userID");
-		
-	}else{
+
+	} else {
 		response.sendRedirect("login.jsp");
 	}
 %>
@@ -114,10 +134,11 @@ $(document).ready(function(){
 					<div class="collapse navbar-collapse" id="nav_collapse">
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/Project"> HOME </a></li>
-							<li><a id="search" href="#" > SEARCH </a></li>
-							<li id="mypage" ><a href="mypage/mypageShowInfo" class="active">MYPAGE</a></li>
-							<li id="logout" ><a href="logout"><span></span>LOGOUT</a></li>
-							<li id="login_result" ><a><span id="userid"><%=userid%>님 환영합니다.</span></a></li>
+							<li><a id="search" href="#" class="active"> SEARCH </a></li>
+							<li id="mypage"><a href="mypage/mypageShowInfo">MYPAGE</a></li>
+							<li id="logout"><a href="logout"><span></span>LOGOUT</a></li>
+							<li id="login_result"><a><span id="userid"><%=userid%>님
+										환영합니다.</span></a></li>
 
 						</ul>
 					</div>
