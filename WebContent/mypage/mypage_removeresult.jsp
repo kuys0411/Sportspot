@@ -46,7 +46,7 @@
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
 						<div id="top_logo">
-							<a class="navbar-brand" href="index.jsp"><img
+							<a class="navbar-brand" href="../index.jsp"><img
 								src="../Resources/images/jin/logo/full.png"></a>
 						</div>
 						<button type="button" class="navbar-toggle collapsed"
@@ -61,12 +61,12 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="nav_collapse">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="index.jsp" class="active"> HOME </a></li>
-							<li><a id="search" href="search.jsp"> SEARCH </a></li>
+							<li><a href="../index.jsp" class="active"> HOME </a></li>
+							<li><a id="search" href="../search.jsp"> SEARCH </a></li>
 							
-							<li id="login"><a href="login.jsp"><span>LOGIN</span> </a></li>
-							<li id="register"><a href="signup.jsp"><span>REGISTER</span></a></li>
-							<li id="mypage" class="hide"><a href="mypage/mypageShowInfo">MYPAGE</a></li>
+							<li id="login"><a href="../login.jsp"><span>LOGIN</span> </a></li>
+							<li id="register"><a href="../signup.jsp"><span>REGISTER</span></a></li>
+							<li id="mypage" class="hide"><a href="mypageShowInfo">MYPAGE</a></li>
 							<li id="logout" class="hide"><a href="logout"><span></span>LOGOUT</a></li>
 							<li id="login_result" class="hide"><a><span id="userid"></span></a></li>
 
