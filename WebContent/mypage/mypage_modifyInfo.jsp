@@ -52,7 +52,7 @@
 		ab = (String)request.getAttribute("a");
 		System.out.println("안뇽"+ab);
 	}else{
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("../login.jsp");
 	}
 %>
 
