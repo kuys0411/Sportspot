@@ -336,7 +336,7 @@ $(document).ready(function(){
     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">상세선택
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <li><a href="#">전체</a></li>
+      <li><a href="#">그 외</a></li>
       <li class="divider"></li>
       <li><a href="#">승마장</a></li>      
       <li><a href="#">씨름장</a></li>
@@ -384,7 +384,7 @@ $(document).ready(function(){
 </div>
 
 <br>
- <p> 같이 검색할 검색 종목 :<span id="inputtype"></span> </p>
+ <p>검색 종목 :<span id="inputtype"></span> </p>
 <div id= "hoho">
 </div>
  <div id="here">
