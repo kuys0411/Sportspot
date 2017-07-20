@@ -18,6 +18,7 @@
                                initial-scale=1.0,
                                maximum-scale=1">
 <meta name="title" content="Seoul Escape Room">
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr"><!-- n초후 화면 넘어가기 -->
 
 <title>SportSpot Reservation</title>
 
@@ -98,6 +99,15 @@
 %>
 
 <body ng-app="myapp">
+	
+	<script language="JavaScript">
+   function next(){
+      location = 'mypage/mypageShowInfo';
+   }
+   </script>
+   <body onLoad="setTimeout('next()', 3000)">
+   
+   
 	<div class="modal fade" id="error_modal">
 		<div class="modal-dialog">
 			<div class="modal-content">
