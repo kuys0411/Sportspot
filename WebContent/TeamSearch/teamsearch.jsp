@@ -9,7 +9,7 @@
 	content="YHkzOS5N5M9qkZTIGtDDfuKidQhuMuSj02txDAxSlxg" />
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title id="title_seoul_escape">SPORTSPOT Search</title>
+<title id="title_seoul_escape">SPORTSPOT Team Search</title>
 
 <!-- design : icon -->
 <link rel="shortcut icon" href="../Resources/images/jin/ico/favicon.png"
@@ -543,7 +543,7 @@ $(document).ready(function(){
 				<div class="container" id="basic">
 					<h2>지역 조회</h2>
 					<br>
-					
+
 					<div class="input-group">
 						<input type="text" class="form-control"
 							placeholder="동명을 입력하세요 ex)잠실동 " id="P_doro"
@@ -557,15 +557,14 @@ $(document).ready(function(){
 							</button>
 						</div>
 					</div>
-					
+
 					<p>
 						같이 검색할 검색 종목 :<span id="inputtype"></span> <br>
-
 					<div id="hoho"></div>
 					<div id="here"></div>
-						
+
 					</p>
-					
+
 				</div>
 
 
@@ -580,13 +579,8 @@ $(document).ready(function(){
           </div> -->
 							<div class="col-sm-12 col-md-6">
 								<div class="footer_info">
-									<p>Copyright © 2015 Seoul Escape Room. All Rights Reserved.
-									</p>
-									<p>
-										(주)삶넥스트 | 사업자등록번호: 887-81-00575 | 대표: BAIGWOONYONG, 이정헌 | <a
-											href="/reservation/orderlist/" id="admin_orderlist">
-											Login </a>
-									</p>
+									<p>SportSpot © 2017 SEOUL KDATA. All Rights Reserved.
+									</br>(주)SPORTSPOT | 빅데이터 청년인재 서울 2반 |</p>
 								</div>
 							</div>
 							<!-- <div class="col-md-6 visible_large">
@@ -598,6 +592,5 @@ $(document).ready(function(){
 					</div>
 				</div>
 			</div>
-
 </body>
 </html>
