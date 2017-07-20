@@ -49,7 +49,7 @@
 	src="http://www.seoul-escape.com/static/CACHE/js/38f6e66c6208.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<script src="Resources/js/searchjs"></script>
+<script src="Resources/js/search.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
