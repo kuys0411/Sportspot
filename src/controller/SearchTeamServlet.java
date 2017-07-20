@@ -16,7 +16,7 @@ import model.SearchTeamDTO;
 /**
  * Servlet implementation class SearchTeamServlet
  */
-@WebServlet("/searchTeam")
+@WebServlet("/TeamSearch/searchTeam")
 public class SearchTeamServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -32,6 +32,7 @@ public class SearchTeamServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("doGet searchTeam");
 		String type = request.getParameter("P_type");
 		String reg = request.getParameter("P_doro");
 		System.out.println(type);
@@ -39,8 +40,6 @@ public class SearchTeamServlet extends HttpServlet {
 		System.out.println("type:" +type+ "|reg:"+reg+"|");
 		
 
-		
-		
 		List<SearchTeamDTO> dtolist = dao.searchAllTeam(type,reg);
 		request.setAttribute("teamlist", dtolist);
 		RequestDispatcher rd = request.getRequestDispatcher("teamsearchResult.jsp");

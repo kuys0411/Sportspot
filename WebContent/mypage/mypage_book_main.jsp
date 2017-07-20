@@ -34,6 +34,32 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
+<script>
+$(document).ready(function(){
+	$('.deleteBtn').on('click',function(){ 
+		var nearTR = $(this).closest("tr");
+	    var bookID = $(this).closest("tr").find("#bid").text();
+	 $.ajax({ 
+	         url:'removeBookInfo', //가져오고자하는 서버페이지 주소를 넣는다. 
+	         type:'GET', //데이터를 서버로 전송하게 된다. 
+	         data:{ 
+	      	   bID: bookID  //에디터박스의 아이디를 넣으면 해당 에디터박스의 데이터를 보내준다.
+	         }, 
+	         success : function(t){ 
+	                       alert("삭제성공");
+	                       nearTR.remove();
+	         } , 
+	         error : function(){ 
+	                   alert('삭제 실패'); 
+	         } 
+	  });
+	});
+});
+
+
+
+</script>
+
 
 </head>
 
@@ -122,10 +148,10 @@
 
 					<div id="booking_toggle_wrapper" class="subtitle">
 						<span class="tab_wrapper"> <a id="btn_toggle_book"
-							class="toggle_button active" href="bookinfo"> 예약현황 </a>
+							class="toggle_button active" href="#"> 예약현황 </a>
 
 						</span>
-						<!-- <span class="tab_wrapper"> <a id="btn_toggle_priceinfo" class="toggle_button" href="mypage_message.jsp"> 받은 메시지 </a> </span> -->
+						<span class="tab_wrapper"> <a id="btn_toggle_priceinfo" class="toggle_button" href="mypage_message.jsp"> 받은 메시지 </a> </span>
 
 						<span class="tab_wrapper"> <a id="btn_toggle_priceinfo"
 							class="toggle_button" href="modifyinfo"> 회원정보 수정 </a>
@@ -142,7 +168,6 @@
 								<th>시간</th>
 								<th>장소</th>
 								<th>인원</th>
-								<th>수정</th>
 								<th>삭제</th>
 							</tr>
 						</thead>
@@ -154,15 +179,12 @@
 	String placeName;
 	int bookNum; -->
 							<tr>
-								<td>${bookInfo.bookID}</td>
+								<td id="bid">${bookInfo.bookID}</td>
 								<td>${bookInfo.bookDate }</td>
 								<td>${bookInfo.bookStartTime}</td>
 								<td>${bookInfo.placeName}</td>
 								<td>${bookInfo.bookNum}</td>
-								<td><button
-										onclick="location.href='bookModify?empid=${bookInfo.bookID}'">수정</button></td>
-								<td><button
-										onclick="location.href='bookDelete?empid=${bookInfo.bookID}'">삭제</button></td>
+								<td><button class="deleteBtn">삭제</button></td>
 								<%-- 	<td>${emp.hire_date }</td>
 			<td>${emp.job_id }</td>
 			<td>${emp.department_id }</td>

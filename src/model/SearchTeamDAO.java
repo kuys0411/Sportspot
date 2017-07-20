@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import util.DBUtil;
@@ -43,7 +44,7 @@ public class SearchTeamDAO {
 		//type으로만 검색
 		System.out.println("searchALlTeam 시작");
 		conn = DBUtil.getConnect();
-		List<SearchTeamDTO> teamlist = null;
+		List<SearchTeamDTO> teamlist = new ArrayList<SearchTeamDTO>();
 		//type은 있고 reg는 없음.
 		if(reg == "" && type != "") {
 			String sql = selectByType_sql;
@@ -51,11 +52,12 @@ public class SearchTeamDAO {
 			String[] splitedType = type.split(" ");
 			int i = 0;
 			for(i = 0; i < splitedType.length ; i ++) {
-				if(i == 0) sql +="( '" + splitedType[i]+ "', ";
-				else if(i == splitedType.length - 1) sql += " ' " +splitedType[i]+"' )";
+				if(i == 0) sql +="( '" + splitedType[i]+ "' ";
+				else if(i == splitedType.length - 1) sql += " , ' " +splitedType[i]+"' )";
 				else sql+= "'"+splitedType[i]+"', ";
 				
 			}
+			if(splitedType.length == 1) sql += ")";
 			System.out.println("servlet sql : " + sql);
 
 			try {
@@ -139,10 +141,10 @@ public class SearchTeamDAO {
 	private SearchTeamDTO makeSearchTeamDTO(ResultSet rs) throws SQLException {
 		int bid = rs.getInt("B_ID");
 		String mid = rs.getString("M_ID");
-		String mname = rs.getString("M-name");
-		int bnum = rs.getInt("B_Num");
-		Date bdate = rs.getDate("B_Date");
-		String bstart = rs.getString("B_startTime");
+		String mname = rs.getString("M_NAME");
+		int bnum = rs.getInt("B_NUM");
+		Date bdate = rs.getDate("B_DATE");
+		String bstart = rs.getString("B_STARTTIME");
 		String ptype = rs.getString("P_TYPE");
 		
 		SearchTeamDTO searchteamDTO = new SearchTeamDTO(bid, mid, mname, bnum, bdate, bstart, ptype);

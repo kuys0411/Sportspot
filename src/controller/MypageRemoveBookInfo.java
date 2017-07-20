@@ -43,6 +43,7 @@ public class MypageRemoveBookInfo extends HttpServlet {
 		if(result == 1) {
 			request.setAttribute("bid", bID);
 		}
+		System.out.println("doget DeleteBookInfo");
 		RequestDispatcher rd = request.getRequestDispatcher("/mypage/mypageShowInfo");
 		rd.forward(request, response);
 		
