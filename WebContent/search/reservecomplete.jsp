@@ -184,7 +184,7 @@
 
 						<div id="hongdae" class="branch_tab active">
 
-							<table class="table table-striped table-hover">
+							<table class="table table-striped table-hover ">
 								<thead>
 									<tr>
 										<th><center>날짜</center></th>
@@ -196,7 +196,7 @@
 								<tbody>
 
 
-									<tr class="warning"  style="color:black">
+									<tr class="warning">
 										<td><center>${date}</center></td>
 										<td><center>${place}</center></td>
 										<td><center>${time}:00</center></td>
