@@ -245,8 +245,9 @@ $(document).ready(function(){
 	var OpenWin;
 	
 	$(".join").click(function(){
+		alert("fdsafd");
 		var msgTo = $(this).closest("tr").find('#gotoMessage').text();
-		alert(msgTo);
+		
 /* 		var messsageToValue = $(this).closest("tr").find('#gotoMessage').text();
 		alert(messageToValue); */
 		OpenWin = window.open("joinpopup.jsp", "a", "width=300, height=600, left=300, top=100");
@@ -487,49 +488,7 @@ $(document).ready(function(){
 </div>
  <div id="here">
    
- <table class="table">
-      <thead>
-        <tr>
-          <th> 예약번호 </th>
-          <th> 아이디 </th>
-          <th> 이름 </th>
-          <th> 인원수 </th>
-          <th> 날짜 </th>
-          <th> 시작시간</th>
-          <th> 운동유형</th>
-          <th> 같이하기</th>
-      
-        </tr>
-      </thead>
- <tbody>     
-        <tr>
-
-          <td>1234</td>
-          <td id="gotoMessage"> user1 </td>
-          <td> 1324 </td>
-          <td> 1234 </td>
-          <td> 1234 </td>
-          <td> 1234 </td>
-          <td> 1234 </td>
-          <td> <button class="join" onclick="joinpopup()">같이하기</button> </td>
-          </tr>
- </tbody>
-  <tbody>     
-        <tr>
-
-          <td>1234</td>
-          <td id="gotoMessage"> user3 </td>
-          <td> 1324 </td>
-          <td> 1234 </td>
-          <td> 1234 </td>
-          <td> 1234 </td>
-          <td> 1234 </td>
-          <td> <button class="join" onclick="joinpopup()">같이하기</button> </td>
-          </tr>
- </tbody>
  
- 
- </table>  
   
  </div>
  
