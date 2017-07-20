@@ -209,9 +209,9 @@ $(document).ready(function(){
 									<li>홈페이지 이동: <a target="_blank"
 										href="http://${placeinfo.phomepage}">Click</a></li>
 									<li>공휴일</li>
-									<textarea rows="1" cols="40" readonly>${placeinfo.pholiday}</textarea>
+									<textarea rows="1" cols="40" readonly style="color:black;">${placeinfo.pholiday}</textarea>
 									<li>대중교통</li>
-									<textarea rows="5" cols="40" readonly>${placeinfo.phowtogo}</textarea>
+									<textarea rows="5" cols="40" readonly style="color:black;">${placeinfo.phowtogo}</textarea>
 
 
 								</ul>

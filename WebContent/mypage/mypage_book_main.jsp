@@ -200,7 +200,7 @@
 								<td>${bookInfo.bookStartTime}</td>
 								<td>${bookInfo.placeName}</td>
 								<td>${bookInfo.bookNum}</td>
-								<td><button class="deleteBtn">삭제</button></td>
+								<td><button class="deleteBtn" style="color:black;">삭제</button></td>
 								<%-- 	<td>${emp.hire_date }</td>
 			<td>${emp.job_id }</td>
 			<td>${emp.department_id }</td>

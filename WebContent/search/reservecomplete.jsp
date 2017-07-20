@@ -105,7 +105,7 @@
       location = 'mypage/mypageShowInfo';
    }
    </script>
-   <body onLoad="setTimeout('next()', 3000)">
+   <body onLoad="setTimeout('next()', 2000)">
    
    
 	<div class="modal fade" id="error_modal">
@@ -184,7 +184,7 @@
 
 						<div id="hongdae" class="branch_tab active">
 
-							<table class="table table-striped table-hover ">
+							<table class="table table-striped table-hover">
 								<thead>
 									<tr>
 										<th><center>날짜</center></th>
@@ -196,7 +196,7 @@
 								<tbody>
 
 
-									<tr class="warning">
+									<tr class="warning"  style="color:black">
 										<td><center>${date}</center></td>
 										<td><center>${place}</center></td>
 										<td><center>${time}:00</center></td>
