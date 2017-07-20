@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
+
 <table class="table">
 상세한 정보를 확인하고 장소에 예약하려면 장소명을 클릭하세요!
 	<thead>
@@ -19,7 +20,7 @@
 		<c:forEach items="${dtolist}" var="oneitem">
 			<tr>
 				<td>${oneitem.ptype}</td>
-				<td ><a href="reserve?pid=${oneitem.pid}" style="color:white; font-weight:bold;">${oneitem.pname}</a></td>
+				<td ><a href="reserve?pid=${oneitem.pid}" style="font-weight:bold;">${oneitem.pname}</a></td>
 				<td>${oneitem.popen }</td>
 				<td>${oneitem.pclose}</td>
 				<td>${oneitem.doro}</td>
