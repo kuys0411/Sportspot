@@ -8,6 +8,8 @@
 	request.setCharacterEncoding("utf-8");
 	if ((String) session.getAttribute("userID") != null) {
 		userid = (String) session.getAttribute("userID");
+	}else{
+		response.sendRedirect("login.jsp");
 	}
 %>
 
@@ -84,6 +86,17 @@ $(document).ready(function(){
 
 </script>
 
+
+
+<script>
+$(document).ready(function(){
+	$("#date_btn").on('click', function(){
+		$("#preesDelete").remove();
+	});
+});
+</script>
+
+
 </head>
 
 
@@ -113,7 +126,7 @@ $(document).ready(function(){
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
 						<div id="top_logo">
-							<a class="navbar-brand"><img
+							<a class="navbar-brand" href="../index.jsp"><img
 								src="../Resources/images/jin/logo/full.png"
 								style="width: 360px;"></a>
 						</div>
@@ -130,11 +143,11 @@ $(document).ready(function(){
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="nav_collapse">
 						<ul class="nav navbar-nav navbar-right" id="navbar-ul">
-							<li><a href="../index.jsp" class="active"> HOME </a></li>
-							<li><a href="../searchTest.jsp"> SEARCH </a></li>
-							<!--  로그인을 하면 로그아웃이랑 MyPage로 교체 -->
-							<li id="mypage"><a href="mypageShowInfo">MYPAGE</a></li>
-							<li id="logout"><a href="logout"><span></span>LOGOUT</a></li>
+							<li><a href="/Project"> HOME </a></li>
+							<li><a id="search" href="../search.jsp" > SEARCH </a></li>
+							<li id="mypage" ><a href="#" class="active">MYPAGE</a></li>
+							<li id="logout" ><a href="../logout"><span></span>LOGOUT</a></li>
+							<li id="login_result" ><a><span id="userid"><%=userid%>님 환영합니다.</span></a></li>
 						</ul>
 
 					</div>
