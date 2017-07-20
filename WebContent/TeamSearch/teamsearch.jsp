@@ -95,8 +95,8 @@
 							<li><a href="/Project"> HOME </a></li>
 							<li><a href="#" class="active"> SEARCH </a></li>
 
-							<li><a href="/contact/"> MYPAGE </a></li>
-							<li><a href="/contact/"> LOGOUT </a></li>
+							<li><a href="../mypage/mypageShowInfo"> MYPAGE </a></li>
+							<li><a href="../logout"> LOGOUT </a></li>
 							<li class=""><a class="set_lang_en" href="#"> </a></li>
 
 						</ul>

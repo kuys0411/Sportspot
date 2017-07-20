@@ -203,9 +203,7 @@ $(document).ready(function(){
 									class="form-control" name="password" value="${memDTO.mpwd }"
 									required>
 							</div>
-
-							<h6>${memDTO.minterest}</h6>
-							
+		
 							
 							
 							<div id="interestField">
