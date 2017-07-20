@@ -22,15 +22,15 @@
  <c:forEach items="${teamlist}" var="oneitem">
         <tr>
 
-          <td>${oneitem.bid}</td>
-          <td> ${oneitem.mid } </td>
+          <td >${oneitem.bid}</td>
+          <td id="gotoMessage"> ${oneitem.mid } </td>
           <td> ${oneitem.mname} </td>
           <td> ${oneitem.bnum} </td>
           <td> ${oneitem.bdate} </td>
           <td> ${oneitem.bstart} </td>
           <td> ${oneitem.ptype} </td> 
           <td> ${oneitem.pdong} </td>
-          <td> <button class="join" onclick="joinpopup()">메시지보내기</button> </td>
+          <td> <button class="join" >메시지보내기</button> </td>
           </tr>
  </c:forEach>
  </tbody>
