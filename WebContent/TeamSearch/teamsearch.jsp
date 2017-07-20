@@ -9,7 +9,7 @@
 	content="YHkzOS5N5M9qkZTIGtDDfuKidQhuMuSj02txDAxSlxg" />
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title id="title_seoul_escape">SPORTSPOT Team Search</title>
+<title id="title_seoul_escape">SPORTSPOT Search</title>
 
 <!-- design : icon -->
 <link rel="shortcut icon" href="../Resources/images/jin/ico/favicon.png"
@@ -208,255 +208,199 @@ $(document).ready(function(){
 </script> -->
 
 
-			<SCRIPT LANGUAGE="JavaScript">
-				var checkArray = Array.apply(null, new Array(12)).map(
-						Number.prototype.valueOf, 0);
+<SCRIPT LANGUAGE="JavaScript">
+var checkArray =  Array.apply(null, new Array(12)).map(Number.prototype.valueOf,0);
 
-				$(function() {
-					$('#searchInput').on('click', function() {
-						//
-						//alert("데이터 전송~ ^^*");
-						var txt = $("#inputtype").text();
-						//alert(txt); 
-						$.ajax({
-							url : 'searchTeam', //가져오고자하는 서버페이지 주소를 넣는다. 
-							type : 'GET', //데이터를 서버로 전송하게 된다. 
-							data : {
-								P_type : txt, //에디터박스의 아이디를 넣으면 해당 에디터박스의 데이터를 보내준다.
-								P_doro : $('#P_doro').val()
-							},
-							success : function(t) {
-								alert('성공!' + t);
 
-								$("#here").html(t);
+$(function(){ 
+        $('#searchInput').on('click',function(){ 
+        	//
+              //alert("데이터 전송~ ^^*");
+              var txt = $("#inputtype").text();
+              //alert(txt); 
+       $.ajax({ 
+               url:'searchTeam', //가져오고자하는 서버페이지 주소를 넣는다. 
+               type:'GET', //데이터를 서버로 전송하게 된다. 
+               data:{ 
+            	   P_type: txt,  //에디터박스의 아이디를 넣으면 해당 에디터박스의 데이터를 보내준다.
+            	   P_doro: $('#P_doro').val()       
+               } , 
+               success : function(t){ 
+                             
+                             $("#here").html(t);
+                         
+               } , 
+               error : function(){ 
+                        alert('실패'); 
+               } 
+        });
+    }); 
+}); 
 
-							},
-							error : function() {
-								alert('실패 ㅠㅠ');
-							}
-						});
-					});
-				});
 
-				sport = [ "soccer", "baseball", "badminton", "goggles", "golf",
-						"tennis-ball", "ice-skating", "hockey", "roller-skate",
-						"archery", "target", "others" ];
+sport=["soccer","baseball","badminton","goggles","golf","tennis-ball",
+	"ice-skating","hockey","roller-skate","archery","target","others"];
+	
+$(document).ready(function(){
+	var OpenWin;
+	alert("fdsa");
+	$(".join").click(function(){
+		alert("fdsafd");
+		var msgTo = $(this).closest("tr").find('#gotoMessage').text();
+		
+/* 		var messsageToValue = $(this).closest("tr").find('#gotoMessage').text();
+		alert(messageToValue); */
+		OpenWin = window.open("joinpopup.jsp", "a", "width=300, height=600, left=300, top=100");
+/* 		$(OpenWin.document).ready(function(){
+			$(OpenWin).contents().find('#MSGTO').value(msgTo);
+		}); */
+		
+		OpenWin.onload = function(){
+			OpenWin.document.getElementById('MSGTO').value = msgTo;
+		}
+		/* purchaseWin.onload = function () {
+			  purchaseWin.document.getElementById('tdProduct').innerHTML = '2';
+			}; */
+	});		
+	
+	
+		  $(document).keypress(function(e){
+		    if(e.keyCode==13) {
+		    	document.getElementById('searchInput').click();
+		    }
+		  });
+		
 
-				$(document)
-						.ready(
-								function() {
-									var OpenWin;
+	$('.dropdown-menu a').on('click', function(){
+		
+	    $(this).parent().parent().prev().html($(this).html() + '<span class="caret"></span>');  
+	    if($(this).html() != "전체"){
+	    	var beforeText = $("#inputtype").text();
+	    	if(document.getElementById("su5").value=="전체")
+				putValue('others');
+	    	
+	    		
+			beforeText = beforeText.replace(document.getElementById("su5").value+" ","");
+			
+			$("#inputtype").text(beforeText+$(this).html()+" ");	    	
+			document.getElementById("su5").value=$(this).html();
+			
+	    }
+	    else{
+		    var beforeText = $("#inputtype").text();
+		    var temp = document.getElementById("su5").value;
+	    	putValue('others');
+		
+			beforeText = beforeText.replace(temp+" ","");
+			
+			$("#inputtype").text(beforeText+document.getElementById("su5").value+" ");	    	
+			
+	    }
+	})
 
-									$(".join")
-											.click(
-													function() {
-														alert("fdsafd");
-														var msgTo = $(this)
-																.closest("tr")
-																.find(
-																		'#gotoMessage')
-																.text();
+	
+	$('#otherss').click(function () {  
+	    if($("#otherOptions").css("display") == "none"){   
+	   
+	    	jQuery('#otherOptions').show();  
+	    } else {  
+	    	 jQuery('#otherOptions').hide();   
+	    }  
+	});
+	
+	function putValue(x){
+		
+		if(x=='soccer')
+		{
+			document.getElementById("su3").value= "축구장";
+		}
+		else if(x=='tennis-ball')
+		{
+			document.getElementById("su3").value= "테니스장";
+		}
+		else if(x=='hockey')
+		{
+			document.getElementById("su3").value= "하키장";
+		}
+		else if(x=='baseball')
+		{
+			document.getElementById("su3").value= "야구장";
+		}
+		else if(x=='badminton')
+		{
+			document.getElementById("su3").value="배드민턴장";
+		}
+		else if(x=='roller-skate')
+		{
+			document.getElementById("su3").value= "롤러스케이트장";
+		}
+		else if(x=='ice-skating')
+		{
+			document.getElementById("su3").value= "빙상장";
+		}
+		else if(x=='goggles')
+		{
+			document.getElementById("su3").value= "수영장";
+		}
+		else if(x=='target')
+		{
+			document.getElementById("su3").value= "사격장";
+		}
+		else if(x=='archery')
+		{
+			document.getElementById("su3").value= "양궁장";
+		}
+		else if(x=='golf')
+		{
+			document.getElementById("su3").value= "골프연습장";
+		}
+		else if(x=='others') //default
+		{
+			document.getElementById("su5").value= 
+		" 투기체육관 생활체육관 기타체육시설 구기체육관 간이운동장 전천후게이트볼장 게이트볼장 싸이클경기장 육상경기장 조정카누장 족구장 인공암장 국궁장 요트장 씨름장 승마장";
+			document.getElementById("su3").value= document.getElementById("su5").value;
+		
+		}
+	}
+	
+	
+	$(".icon img").click(function(){
+		var index = $("img").index(this);
+		//버튼 on
+		if(checkArray[index-1] == 0){
+			checkArray[index-1] = 1;
+			$(this).css('opacity','1');
+			var beforeText = $("#inputtype").text();
+			//alert(sport[index-1]);
+			
+			putValue(sport[index-1]);
+			$("#inputtype").text(beforeText +document.getElementById("su3").value+" ");
+			
+		}
+		//버튼 off
+		else{
+			checkArray[index-1] = 0;
+			$(this).css('opacity','0.4');
+			var text1 = $("#inputtype").text();
+			if((index== 12)&& (document.getElementById("su5").value != " 투기체육관 생활체육관 기타체육시설 구기체육관 간이운동장 전천후게이트볼장 게이트볼장 싸이클경기장 육상경기장 조정카누장 족구장 인공암장 국궁장 요트장 씨름장 승마장")){
+				text1 = text1.replace(document.getElementById("su5").value+" ",'');
+			}
+			else{
+				putValue(sport[index-1]);
+				text1 = text1.replace(document.getElementById("su3").value+" ",'');
+				
+			}
+			$("#inputtype").text(text1);
+		}
+		
+	})
+});
 
-														/* 		var messsageToValue = $(this).closest("tr").find('#gotoMessage').text();
-														 alert(messageToValue); */
-														OpenWin = window
-																.open(
-																		"joinpopup.jsp",
-																		"a",
-																		"width=300, height=600, left=300, top=100");
-														/* 		$(OpenWin.document).ready(function(){
-														 $(OpenWin).contents().find('#MSGTO').value(msgTo);
-														 }); */
 
-														OpenWin.onload = function() {
-															OpenWin.document
-																	.getElementById('MSGTO').value = msgTo;
-														}
-														/* purchaseWin.onload = function () {
-															  purchaseWin.document.getElementById('tdProduct').innerHTML = '2';
-															}; */
-													});
 
-									$(document).keypress(
-											function(e) {
-												if (e.keyCode == 13) {
-													document.getElementById(
-															'searchInput')
-															.click();
-												}
-											});
 
-									$('.dropdown-menu a')
-											.on(
-													'click',
-													function() {
 
-														$(this)
-																.parent()
-																.parent()
-																.prev()
-																.html(
-																		$(this)
-																				.html()
-																				+ '<span class="caret"></span>');
-														if ($(this).html() != "전체") {
-															var beforeText = $(
-																	"#inputtype")
-																	.text();
-															if (document
-																	.getElementById("su5").value == "전체")
-																putValue('others');
-
-															beforeText = beforeText
-																	.replace(
-																			document
-																					.getElementById("su5").value
-																					+ " ",
-																			"");
-
-															$("#inputtype")
-																	.text(
-																			beforeText
-																					+ $(
-																							this)
-																							.html()
-																					+ " ");
-															document
-																	.getElementById("su5").value = $(
-																	this)
-																	.html();
-
-														} else {
-															var beforeText = $(
-																	"#inputtype")
-																	.text();
-															var temp = document
-																	.getElementById("su5").value;
-															putValue('others');
-
-															beforeText = beforeText
-																	.replace(
-																			temp
-																					+ " ",
-																			"");
-
-															$("#inputtype")
-																	.text(
-																			beforeText
-																					+ document
-																							.getElementById("su5").value
-																					+ " ");
-
-														}
-													})
-
-									$('#otherss').click(
-											function() {
-												if ($("#otherOptions").css(
-														"display") == "none") {
-
-													jQuery('#otherOptions')
-															.show();
-												} else {
-													jQuery('#otherOptions')
-															.hide();
-												}
-											});
-
-									function putValue(x) {
-
-										if (x == 'soccer') {
-											document.getElementById("su3").value = "축구장";
-										} else if (x == 'tennis-ball') {
-											document.getElementById("su3").value = "테니스장";
-										} else if (x == 'hockey') {
-											document.getElementById("su3").value = "하키장";
-										} else if (x == 'baseball') {
-											document.getElementById("su3").value = "야구장";
-										} else if (x == 'badminton') {
-											document.getElementById("su3").value = "배드민턴장";
-										} else if (x == 'roller-skate') {
-											document.getElementById("su3").value = "롤러스케이트장";
-										} else if (x == 'ice-skating') {
-											document.getElementById("su3").value = "빙상장";
-										} else if (x == 'goggles') {
-											document.getElementById("su3").value = "수영장";
-										} else if (x == 'target') {
-											document.getElementById("su3").value = "사격장";
-										} else if (x == 'archery') {
-											document.getElementById("su3").value = "양궁장";
-										} else if (x == 'golf') {
-											document.getElementById("su3").value = "골프연습장";
-										} else if (x == 'others') //default
-										{
-											document.getElementById("su5").value = " 투기체육관 생활체육관 기타체육시설 구기체육관 간이운동장 전천후게이트볼장 게이트볼장 싸이클경기장 육상경기장 조정카누장 족구장 인공암장 국궁장 요트장 씨름장 승마장";
-											document.getElementById("su3").value = document
-													.getElementById("su5").value;
-
-										}
-									}
-
-									$(".icon img")
-											.click(
-													function() {
-														var index = $("img")
-																.index(this);
-														//버튼 on
-														if (checkArray[index - 1] == 0) {
-															checkArray[index - 1] = 1;
-															$(this).css(
-																	'opacity',
-																	'1');
-															var beforeText = $(
-																	"#inputtype")
-																	.text();
-															//alert(sport[index-1]);
-
-															putValue(sport[index - 1]);
-															$("#inputtype")
-																	.text(
-																			beforeText
-																					+ document
-																							.getElementById("su3").value
-																					+ " ");
-
-														}
-														//버튼 off
-														else {
-															checkArray[index - 1] = 0;
-															$(this).css(
-																	'opacity',
-																	'0.4');
-															var text1 = $(
-																	"#inputtype")
-																	.text();
-															if ((index == 12)
-																	&& (document
-																			.getElementById("su5").value != " 투기체육관 생활체육관 기타체육시설 구기체육관 간이운동장 전천후게이트볼장 게이트볼장 싸이클경기장 육상경기장 조정카누장 족구장 인공암장 국궁장 요트장 씨름장 승마장")) {
-																text1 = text1
-																		.replace(
-																				document
-																						.getElementById("su5").value
-																						+ " ",
-																				'');
-															} else {
-																putValue(sport[index - 1]);
-																text1 = text1
-																		.replace(
-																				document
-																						.getElementById("su3").value
-																						+ " ",
-																				'');
-
-															}
-															$("#inputtype")
-																	.text(text1);
-														}
-
-													})
-								});
-			</script>
-
+</script>
 
 			<div class="container" id="reservation_container"
 				ng-controller="AppController">
@@ -543,7 +487,7 @@ $(document).ready(function(){
 				<div class="container" id="basic">
 					<h2>지역 조회</h2>
 					<br>
-
+					
 					<div class="input-group">
 						<input type="text" class="form-control"
 							placeholder="동명을 입력하세요 ex)잠실동 " id="P_doro"
@@ -557,14 +501,15 @@ $(document).ready(function(){
 							</button>
 						</div>
 					</div>
-
+					
 					<p>
 						같이 검색할 검색 종목 :<span id="inputtype"></span> <br>
+
 					<div id="hoho"></div>
 					<div id="here"></div>
-
+						
 					</p>
-
+					
 				</div>
 
 
@@ -579,8 +524,13 @@ $(document).ready(function(){
           </div> -->
 							<div class="col-sm-12 col-md-6">
 								<div class="footer_info">
-									<p>SportSpot © 2017 SEOUL KDATA. All Rights Reserved.
-									</br>(주)SPORTSPOT | 빅데이터 청년인재 서울 2반 |</p>
+									<p>Copyright © 2015 Seoul Escape Room. All Rights Reserved.
+									</p>
+									<p>
+										(주)삶넥스트 | 사업자등록번호: 887-81-00575 | 대표: BAIGWOONYONG, 이정헌 | <a
+											href="/reservation/orderlist/" id="admin_orderlist">
+											Login </a>
+									</p>
 								</div>
 							</div>
 							<!-- <div class="col-md-6 visible_large">
@@ -592,5 +542,6 @@ $(document).ready(function(){
 					</div>
 				</div>
 			</div>
+
 </body>
 </html>
