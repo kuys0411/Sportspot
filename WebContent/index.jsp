@@ -128,14 +128,13 @@
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="index.jsp" class="active"> HOME </a></li>
 							<li><a href="search.jsp"> SEARCH </a></li>
-							<!-- Test for Reservation page :: temp  -->
-							<li><a href="searchTest"> RESERVE(TEMP) </a></li>
 							<!--  로그인을 하면 로그아웃이랑 MyPage로 교체 -->
 							<li id="login"><a href="login.jsp"><span>LOGIN</span> </a></li>
 							<li id="register"><a href="signup.jsp"><span>REGISTER</span></a></li>
 							<li id="mypage" class="hide"><a href="mypage/mypageShowInfo">MYPAGE</a></li>
 							<li id="logout" class="hide"><a href="logout"><span></span>LOGOUT</a></li>
 							<li id="login_result" class="hide"><a><span><%out.print(userid);%>님!</span></a></li>
+							
 						</ul>
 					</div>
 
