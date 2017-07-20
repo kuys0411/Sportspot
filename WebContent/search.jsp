@@ -355,7 +355,7 @@
 					<span class="tab_wrapper"> <a id="btn_toggle_book"
 						class="toggle_button active">장소 검색</a>
 					</span> <span class="tab_wrapper"> <a id="btn_toggle_book"
-						class="toggle_button active"
+						class="toggle_button"
 						href="/Project/TeamSearch/teamsearch.jsp">팀 검색</a>
 					</span>
 				</div>
