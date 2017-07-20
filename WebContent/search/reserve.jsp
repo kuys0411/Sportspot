@@ -194,7 +194,8 @@ $(document).ready(function(){
 							</div>
 						</div>
 
-						Place Information <br>
+						<!-- Place Information --> 
+						<br>
 						<h3>
 							<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${placeinfo.pname}</b>
 						</h3>
