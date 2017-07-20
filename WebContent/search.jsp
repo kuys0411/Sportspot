@@ -39,7 +39,7 @@
 
 <link rel="stylesheet" href="Resources/css/search/search1.css"
 	type="text/css" />
-<link href="Resources/css/search/reservation.css" rel="stylesheet" />
+<link href="Resources/css/search/search2.css" rel="stylesheet" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <style type="text/css">

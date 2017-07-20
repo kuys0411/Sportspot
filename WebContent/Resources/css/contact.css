@@ -1,0 +1,166 @@
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.arrow-left {
+  top: 15px;
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  border-right:10px solid #fff; 
+  right: 0;
+  position: absolute;
+}
+ 
+.arrow-right {
+  top: 15px;
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #fff;
+  left: 0;
+  position: absolute;
+}
+
+.contact {
+  background: white;
+}
+
+.contact_content {
+  padding: 30px;
+}
+
+.contact h4 {
+  color: #000;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+
+.contact a {
+  text-decoration: none;
+  color: #f1c40f;
+  cursor: pointer;
+}
+
+.contact p,
+.contact ul li {
+  font-size: 15px;
+  font-weight: 100 !important;
+}
+
+.contact ul li {
+  padding-bottom: 6px;
+}
+
+.room_desc {
+  font-weight: 100;
+  line-height: 24px;
+}
+
+.contact .section {
+  border-top: 1px solid #ddd;
+}
+
+.contact_bg {
+  width: 100%;
+}
+
+.contact_bg img {
+  width: 100%;
+}
+
+.branches {
+  padding-bottom: 25px;
+}
+
+.branch_btn {
+  margin-right: 5px;
+  color: #fff !important;
+  opacity: 0.7;
+  background-color: #f1c40f;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+.branch_btn.active {
+  opacity: 1;
+}
+
+.branch_tab {
+  display: none;
+}
+
+.branch_tab.active {
+  display: block;
+}
+
+.contact .nopadding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+textarea {
+  resize: none;
+  min-height: 60px;
+}
+
+#send_mail {
+  margin-top: 15px;
+}
+
+#map-buttons {
+  padding-top: 25px;
+  background: #fff;
+}
+
+button.btn-map {
+  opacity: 0.6;
+  background-color: #f1c40f;
+  color: #fff;
+  box-shadow: none !important;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+button.btn-map.active {
+  opacity: 1;
+}
+
+button.btn-map:hover,
+button.btn-map:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
+#map-canvas {
+  height: 500px;
+}
+
+#send_email {
+  margin-top: 15px;
+  border: 1px solid #f1c40f;
+  background-color: #f1c40f;
+  color: #fff;
+}
+
+.coming_soon {
+  padding: 3px;
+  background-color: red;
+  color: #fff;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 767px) {
+  .arrow-right,
+  .arrow-left {
+    display: none;
+  }
+
+  .contact_content {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
