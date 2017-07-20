@@ -95,6 +95,15 @@ a:hover {
 	}
 	
 %>
+<<script>
+$(document).ready(function(){
+	
+	
+	
+});
+
+</script>
+
 
 
 <body ng-app="myapp">
@@ -146,6 +155,9 @@ a:hover {
 							<li id="mypage" ><a href="mypage/mypageShowInfo">MYPAGE</a></li>
 							<li id="logout" ><a href="logout"><span></span>LOGOUT</a></li>
 							<li id="login_result" ><a><span id="userid"><%=userid%>님 환영합니다.</span></a></li>
+
+
+
 
 
 						</ul>
