@@ -239,7 +239,7 @@ $(document).ready(function(){
 
 										<div class="col-xs-6">
 											<input type="date" id="select_date" name="select_date"
-												style="color: black" value="2017-07-19" min="2017-07-19"
+												style="color: black" value="${current_date}" min="${current_date}"
 												max="2017-07-31"></input> 
 												<input type="button" class="btn btn-default" id="btn btn-default " name="date_btn" value="선택"
 												style="background-color: #333333; color:white;"></input>
