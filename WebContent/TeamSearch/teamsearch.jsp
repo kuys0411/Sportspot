@@ -88,7 +88,7 @@ a:hover {text-decoration: underline; color: yellow;}
 					<div class="navbar-header">
 						<div id="top_logo">
 							<a class="navbar-brand" href="index.jsp"><img
-								src="Resources/images/jin/logo/full.png"></a>
+								src="../Resources/images/jin/logo/full.png"></a>
 						</div>
 						<button type="button" class="navbar-toggle collapsed"
 							data-toggle="collapse" data-target="#nav_collapse"

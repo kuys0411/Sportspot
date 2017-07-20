@@ -37,10 +37,8 @@
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="Resources/js/index1.js"></script>
-<script
-	src="Resources/js/index2.js"></script>
+<script src="Resources/js/index1.js"></script>
+<script src="Resources/js/index2.js"></script>
 
 
 <!-- 	ID alert  -->
@@ -56,19 +54,34 @@
 .hide {
 	display: none;
 }
-#logout{
-	margin-right:20px;
-}
 
+#logout {
+	margin-right: 20px;
+}
 </style>
 
 <script> if($(result) == 1){ alert("회원탈퇴가 완료되었습니다.");}</script>
 </head>
 <script>
 	var id = "<%=userid%>";
-	<%-- var Stringid=""<%=userid%>"+"님 환영합니다."; --%>
+	
 	$(document).ready(function(){
-		if(id != "null"){
+		$("#search").on("click", function(){
+			if(id=="null"){
+				alert("로그인안했어요ㅠ")
+				
+			}	
+	});
+	
+	
+		$("#feature_btn").on("click", function(){
+			if(id=="null"){
+				alert("로그인안했어요ㅠ")
+				
+			}
+		})
+		
+		if(id != "null"){ //로그인 된 경우 
 			/* alert(id+"님, 어서오세요! :D"); */
 			$("#login").addClass("hide")
 			$("#register").addClass("hide");
@@ -76,6 +89,9 @@
 			$("#logout").removeClass("hide");
 			$("#login_result").removeClass("hide");
 			$("#userid").text(id+"님 환영합니다.");
+		}else{ //로그인 안된 경우 
+			
+			
 		}
 
 		 $("#logout").click(function(){
@@ -134,14 +150,14 @@
 					<div class="collapse navbar-collapse" id="nav_collapse">
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="index.jsp" class="active"> HOME </a></li>
-							<li><a href="search.jsp"> SEARCH </a></li>
+							<li><a id="search" href="search.jsp"> SEARCH </a></li>
 							<!--  로그인을 하면 로그아웃이랑 MyPage로 교체 -->
 							<li id="login"><a href="login.jsp"><span>LOGIN</span> </a></li>
 							<li id="register"><a href="signup.jsp"><span>REGISTER</span></a></li>
 							<li id="mypage" class="hide"><a href="mypage/mypageShowInfo">MYPAGE</a></li>
 							<li id="logout" class="hide"><a href="logout"><span></span>LOGOUT</a></li>
 							<li id="login_result" class="hide"><a><span id="userid"></span></a></li>
-							
+
 						</ul>
 					</div>
 
@@ -198,7 +214,7 @@
 										한 곳에 모았습니다. 축구, 야구, 농구 등 인기 구기 종목은 물론 롤러스케이트, 승마, 빙상, 요트, 씨름,
 										싸이클 등 다양한 스포츠를 지원합니다. 지금 바로 운동을 예약하세요!</p>
 									<!-- search test :: temp -->
-									<a id="feature_btn" class="gray_button" href="searchTest">
+									<a id="feature_btn" class="gray_button" href="search.jsp">
 										빨리 운동하러 가기 </a>
 								</div>
 							</div>
