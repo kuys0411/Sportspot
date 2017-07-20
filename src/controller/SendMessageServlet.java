@@ -48,13 +48,13 @@ public class SendMessageServlet extends HttpServlet {
 		String message_from = request.getParameter("messageFrom");
 		String message_to = request.getParameter("messageTo");
 		String message_body = request.getParameter("messageBody");
-		String message_Date = null;
+		Date message_Date = null;
 		System.out.println("Message info");
 		System.out.println("MessageFrom : " + message_from);
 		System.out.println("Message to :" + message_to);
 		System.out.println("Message body : " +message_body);
 		MessageDAO msgdao = new MessageDAO();
-		MessageDTO msgdto = new MessageDTO(message_from, message_to, null, message_body);
+		MessageDTO msgdto = new MessageDTO(message_from, message_to, message_Date, message_body);
 		int result = msgdao.insertMessageDTO(msgdto);
 		
 		RequestDispatcher rd;

@@ -8,21 +8,14 @@ public class MessageDTO {
 	String messageBody;
 	Date message_Date;
 	
-	public Date getMessage_Date() {
-		return message_Date;
-	}
-
-	public void setMessage_Date(Date message_Date) {
-		this.message_Date = message_Date;
-	}
-
-	public MessageDTO(String message_from, String message_to, Date message_Date, String message_body) {}
+	public MessageDTO(){}
 	
-	public MessageDTO(String messageFrom, String messageTo, String messageBody) {
+	public MessageDTO(String messageFrom, String messageTo, String messageBody, Date message_Date) {
 		super();
 		this.messageFrom = messageFrom;
 		this.messageTo = messageTo;
 		this.messageBody = messageBody;
+		this.message_Date = message_Date;
 	}
 	public String getMessageFrom() {
 		return messageFrom;
@@ -42,6 +35,14 @@ public class MessageDTO {
 	public void setMessageBody(String messageBody) {
 		this.messageBody = messageBody;
 	}
+	public Date getMessage_Date() {
+		return message_Date;
+	}
+	public void setMessage_Date(Date message_Date) {
+		this.message_Date = message_Date;
+	}
+	
+	
 	
 	
 }

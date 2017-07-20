@@ -74,7 +74,7 @@ public class MessageDAO {
 		Date Message_Date = rs.getDate("MESSAGE_DATE");
 		String message_body = rs.getString("MESSAGE_BODY");
 		System.out.println("makeDTO "+ message_from);
-		MessageDTO messageDTO = new MessageDTO(message_from, message_to,Message_Date, message_body);
+		MessageDTO messageDTO = new MessageDTO(message_from, message_to, message_body, null);
 		
 		return messageDTO;
 	}

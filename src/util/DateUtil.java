@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 public class DateUtil {
 	
 	public static java.sql.Date toSqlDate(String dt){
-		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		java.sql.Date hire_date = null;
 		try {
 			java.util.Date hire = sd.parse(dt);
