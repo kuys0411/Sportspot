@@ -7,6 +7,45 @@ Licensed under the MIT license - http://opensource.org/licenses/MIT
 Copyright (c) 2014 Daniel Eden
 */
 
+
+/* 원래 search 페이지에 있던 css */
+
+.icon img {
+	float: left;
+	margin: 3.5em;
+	opacity: 0.4;
+}
+
+.icon img:hover {
+	opacity: 1;
+}
+
+a:link {
+	display: inline-block;
+}
+
+a:link {
+	text-decoration: none;
+	color: #333333;
+}
+
+a:visited {
+	text-decoration: none;
+	color: white;
+}
+
+a:active {
+	text-decoration: none;
+	color: #333333;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #ed3e43;
+}
+
+/* 원본 CSS 내용 */
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;

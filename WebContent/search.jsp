@@ -11,7 +11,7 @@
 	content="YHkzOS5N5M9qkZTIGtDDfuKidQhuMuSj02txDAxSlxg" />
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title id="title_seoul_escape">SPORTSPOT</title>
+<title id="title_seoul_escape">SPORTSPOT Search</title>
 
 <!-- design : icon -->
 <link rel="shortcut icon" href="Resources/images/jin/ico/favicon.png"
@@ -28,56 +28,15 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
-	content="width=device-width,
-                                   initial-scale=1.0,
-                                   maximum-scale=1">
-
-
+	content="width=device-width,initial-scale=1.0, maximum-scale=1">
 <meta name="title" content="Seoul Escape Room">
 
 <!-- CSS -->
 
-<link rel="stylesheet" href="Resources/css/search/search1.css"
-	type="text/css" />
-<link href="Resources/css/search/search2.css" rel="stylesheet" />
+<link rel="stylesheet" href="Resources/css/search/search1.css"type="text/css"/>
+<link rel="stylesheet" href="Resources/css/search/search2.css"/>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<style type="text/css">
-.icon img {
-	float: left;
-	margin: 3.5em;
-	opacity: 0.4;
-}
-
-.icon img:hover {
-	opacity: 1;
-}
-
-a:link {
-	display: inline-block;
-}
-
-a:link {
-	text-decoration: none;
-	color: #333333;
-}
-
-a:visited {
-	text-decoration: none;
-	color: white;
-}
-
-a:active {
-	text-decoration: none;
-	color: #333333;
-}
-
-a:hover {
-	text-decoration: underline;
-	color: #ed3e43;
-}
-</style>
-
 
 <!-- JaveScript -->
 
@@ -90,6 +49,7 @@ a:hover {
 	src="http://www.seoul-escape.com/static/CACHE/js/38f6e66c6208.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="Resources/js/searchjs"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -168,7 +128,7 @@ a:hover {
 				<!-- /.container-fluid -->
 			</nav>
 
-			<SCRIPT LANGUAGE="JavaScript">
+<!-- 			<SCRIPT LANGUAGE="JavaScript">
 				var checkArray = Array.apply(null, new Array(12)).map(
 						Number.prototype.valueOf, 0);
 
@@ -384,7 +344,7 @@ a:hover {
 
 													})
 								});
-			</script>
+			</script> -->
 
 			<!-- search type bar -->
 			<div class="container" id="reservation_container">
