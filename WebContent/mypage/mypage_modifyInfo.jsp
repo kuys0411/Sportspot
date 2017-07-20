@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -7,6 +8,15 @@
 <meta charset="UTF-8">
 
 
+<style>
+#margin{
+	margin-right : 20px;
+}
+#ho{
+	margin-right : 10px;
+}
+
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title id="title_seoul_escape">MyPage</title>
 
@@ -35,16 +45,19 @@
 
 <%
 	String userid = null;
+    String ab="";
 	request.setCharacterEncoding("utf-8");
 	if ((String) session.getAttribute("userID") != null) {
 		userid = (String) session.getAttribute("userID");
-		
+		ab = (String)request.getAttribute("a");
+		System.out.println("안뇽"+ab);
 	}else{
 		response.sendRedirect("login.jsp");
 	}
 %>
 
 
+					
 <script>
 $(document).ready(function(){
 	$("#date_btn").on('click', function(){
@@ -142,7 +155,7 @@ $(document).ready(function(){
 						<span class="tab_wrapper"> <a id="btn_toggle_book"
 							class="toggle_button" href="mypage_book_main.jsp"> 예약 현황 </a>
 						</span>
-						<!-- <span class="tab_wrapper"> <a id="btn_toggle_priceinfo" class="toggle_button" href="mypage_message.jsp"> 받은 메시지 </a> </span> -->
+						<span class="tab_wrapper"> <a id="btn_toggle_priceinfo" class="toggle_button" href="mypage_message.jsp"> 받은 메시지 </a> </span> 
 
 						<span class="tab_wrapper"> <a id="btn_toggle_priceinfo"
 							class="toggle_button active" href="mypage_modifyInfo.jsp">
@@ -191,17 +204,40 @@ $(document).ready(function(){
 									required>
 							</div>
 
+							<h6>${memDTO.minterest}</h6>
+							
+							
 							
 							<div id="interestField">
-								<label> 관심종목 </label> <input type="radio" name="interest"
-									value="soccer"
-									<c:if test= '${memDTO.minterest} == "soccer"'>checked</c:if>>
-								Soccer <input type="radio" name="interest" value="basketball"
-									<c:if test= '${memDTO.minterest} == "basketball"'>checked</c:if>>
-								Basketball
+								<label id = "margin" color= "yellow"> 관심종목 </label>
+									  축구<input type="radio" name="interest" value="soccer" id="ho"
+									 <%=("soccer".equals(ab))?"checked":""%>> 
+								 야구<input type="radio" name="interest" value="baseball" id="ho"
+									 <%=("baseball".equals(ab))?"checked":""%>>
+								
+								배드민턴<input type="radio" name="interest" value="badminton" id="ho"
+									  <%=("badminton".equals(ab))?"checked":""%>> 
+								수영 <input type="radio" name="interest" value="swimming" id="ho"
+									 <%=("swimming".equals(ab))?"checked":""%>>
+								골프
+								<input type="radio" name="interest" value="golf" id="ho"
+									 <%=("golf".equals(ab))?"checked":""%>> 
+								 <br>빙상 스포츠<input type="radio" name="interest" value="ice" id="ho"
+									 <%=("ice".equals(ab))?"checked":""%>>
+								롤러스케이트
+								 <input type="radio" name="interest" value="roller" id="ho"
+									 <%=("roller".equals(ab))?"checked":""%>> 
+								양궁 <input type="radio" name="interest" value="archery" id="ho"
+									 <%=("archery".equals(ab))?"checked":""%>>
+								사격
+								<input type="radio" name="interest" value="shooting" id="ho"
+									  <%=("shooting".equals(ab))?"checked":""%>> 
+								기타 <input type="radio" name="interest" value="others" id="ho"
+									 <%=("others".equals(ab))?"checked":""%>>
+								
 							</div>
 
-
+							<br><br>
 							<input type="submit" value='수정하기' class="form-control"
 								id="send_email">
 						</form>

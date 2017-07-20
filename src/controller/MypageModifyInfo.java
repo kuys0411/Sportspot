@@ -37,7 +37,9 @@ public class MypageModifyInfo extends HttpServlet {
 		String realID = (String)session.getAttribute("userID");
 		MemberDAO dao = new MemberDAO();
 		MemberDTO memDTO = dao.selectByID(realID);
+		String a = memDTO.getMinterest();
 		request.setAttribute("memDTO", memDTO);
+		request.setAttribute("a", a);
 		RequestDispatcher rd = request.getRequestDispatcher("mypage_modifyInfo.jsp");
 		rd.forward(request, response);
 	}
@@ -54,6 +56,8 @@ public class MypageModifyInfo extends HttpServlet {
 		String realID = (String)session.getAttribute("userID");
 		int result = dao.modifyMemberDTO(memdto, realID);
 		request.setAttribute("memDTO", memdto);
+		String a = memdto.getMinterest();
+		request.setAttribute("a", a);
 		RequestDispatcher rd = request.getRequestDispatcher("mypage_modifyInfo.jsp");
 		rd.forward(request, response);
 

@@ -54,7 +54,7 @@ public class MypageRemoveInfo extends HttpServlet {
 			dao.deleteMember(id);
 			session.invalidate();
 			request.setAttribute("result", checkValidate);
-			RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("mypage_removeresult.jsp");
 			rd.forward(request, response);
 		}
 		/*int result = dao.deleteMember(id);*/

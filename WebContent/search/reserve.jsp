@@ -240,7 +240,7 @@ $(document).ready(function(){
 											<input type="date" id="select_date" name="select_date"
 												style="color: black" value="${current_date}"
 												min="${current_date}" max="2017-07-31"></input> <input
-												type="button" class="btn btn-default" id="btn btn-default "
+												type="button" class="btn btn-default" id="date_btn"
 												name="date_btn" value="선택"
 												style="background-color: #333333; color: white;"></input>
 										</div>
@@ -414,7 +414,7 @@ $(document).ready(function(){
 		
 
         $('#date_btn').on('click',function(){ 
-             /*  alert("데이터 전송~ ^^*");  */
+           //alert("데이터 전송~ ^^*");
 	       $.ajax({ 
 	               url:'countget', //가져오고자하는 서버페이지 주소를 넣는다. 
 	               type:'get', //데이터를 서버로 전송하게 된다. 
@@ -423,13 +423,13 @@ $(document).ready(function(){
 	            	   sel_date: $('#select_date').val()  //에디터박스의 아이디를 넣으면 해당 에디터박스의 데이터를 보내준다.
 	               } , 
 	               success : function(t){ 
-	                             /* alert('성공!' + t); */
+	                            /*  alert('성공!' + t); */
 	                             
 	                             $("#here").html(t);
 	                         
 	               } , 
 	               error : function(){ 
-	                       /*   alert('실패 ㅠㅠ');  */
+	                     /*   alert('실패 ㅠㅠ'); */
 	               } 
 	        });
     	}); 
@@ -446,29 +446,24 @@ $(document).ready(function(){
 	
 		function call(time, count_info){ //예약하기 버튼 눌렀을 때 call되는 함수 
 			 	
-				alert(count_info); //선택한 기존 신청 인원 
-				
-				var result = confirm(time+":00시를 선택하셨습니다. 정말 예약하시겠습니까?" );
 				var sel_count = document.getElementById("sel_count");
-				
-				
-				//id(hidden)에 접근하여 time쓰기 (넘기기용)
-		        var hidden_time= document.getElementById("select_time");   
+				var hidden_time= document.getElementById("select_time");   
 		        hidden_time.innerHTML= time;
 		        
-		        /* if(sel_count.value==0){ 예외처리 
-		        	alert("aaaaaaaaaaaaaaaa");
-		        	sel_count.focus();
-		        	return false;
-		        } */
-		        
-		        alert(sel_count.value); //선택한 인원 수 
-		        
-		        alert(count_info+sel_count);
-		        
-				if(result){
+		        var past_count= Number(count_info); //정수로 변환 
+		        var select_people = Number(sel_count.value);
+		       	var people = past_count+select_people;
+		       
+		       	if(people>30){
+		       		alert("인원 초과로 예약이 불가능합니다.");
+		       		return;
+		       	}
+		       	
+		       	var result = confirm(time+":00시를 선택하셨습니다. 정말 예약하시겠습니까?" );
+		       	if(result){
 		        	myfrm.submit(); 
-		        } 
+		        }
+		       	
 		}
 		
 		
