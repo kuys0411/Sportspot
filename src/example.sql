@@ -71,7 +71,7 @@ create table Message(
 
 drop table Message
 select * from message
-
+delete from message where Message_id = 5
 
 create
 

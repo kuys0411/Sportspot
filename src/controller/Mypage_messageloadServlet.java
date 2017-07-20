@@ -41,10 +41,8 @@ public class Mypage_messageloadServlet extends HttpServlet {
 		List<MessageDTO> messages = mDAO.getMessages(realID);
 		
 		request.setAttribute("messages", messages);
-		System.out.println("before forward");
-		System.out.println(messages.get(0).getMessageFrom());
 		RequestDispatcher rd;
-		rd=request.getRequestDispatcher("mypage_message_result.jsp");
+		rd=request.getRequestDispatcher("messageResult.jsp");
 		rd.forward(request, response);
 	}
 

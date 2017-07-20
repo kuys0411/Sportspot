@@ -18,7 +18,7 @@ import util.DateUtil;
 /**
  * Servlet implementation class SendMessageServlet
  */
-@WebServlet("/TeamSearch/sendMessage")
+@WebServlet({ "/TeamSearch/sendMessage", "/mypage/sendMessage" })
 public class SendMessageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -54,9 +54,9 @@ public class SendMessageServlet extends HttpServlet {
 		MessageDTO msgdto = new MessageDTO(message_from, message_to, message_body);
 		int result = msgdao.insertMessageDTO(msgdto);
 		
-		RequestDispatcher rd;
+/*		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("teamsearch.jsp");
-		rd.forward(request, response);
+		rd.forward(request, response);*/
 	}
 
 }

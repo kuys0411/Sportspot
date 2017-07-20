@@ -23,7 +23,7 @@
 
 <style type="text/css">
 .msgForm{
-	width : 250px;
+	width : 300px;
 	height : auto;
 	float:left;	
 	border-style: solid;
@@ -77,26 +77,24 @@ $(document).ready(function(){
 		alert("reply");
     	var msgTo = $(this).closest("div").find('#messageFrom').text();
     	alert("msgTO : " + msgTo);
-    	var OpenWin = window.open("../TeamSearch/joinpopup.jsp", "a", "width=400, height=700, left=300, top=100");
+    	var OpenWin = window.open("mypopup.jsp", "a", "width=400, height=700, left=300, top=100");
 		OpenWin.onload = function(){
-			OpenWin.document.getElementById('MSGTO').value = "<%=userid%>";
-			OpenWin.document.getELementByID('MSGFROM').value= msgTo; 
+			OpenWin.document.getElementById('MSGTO').value = msgTo;
+			OpenWin.document.getELementByID('MSGFROM').value= "<%=userid%>"; 
 		}
     });
     
 	$('#here').on('click', '.messageDelete', function(){
 		alert("delete");
 		var delDiv = $(this).closest("div");
-    	var messageFrom = $(this).closest("div").find('#messageFrom').text();
-    	var messageBody = $(this).parent().find('#messageBody').text();
+    	var messageFrom = $(this).closest("div").find('#messageID').text();
     	alert(messageFrom);
-    	alert("delete");
+    	
     	$.ajax({ 
 			url:'deleteMessage',
 			type:'POST',
 			data:{
-				msgFrom : messageFrom,
-				msgBody : messageBody
+				messageID : messageFrom
 			},
 			success : function(t){
 				alert("메시지 삭제 성공");
@@ -124,7 +122,7 @@ $(document).ready(function(){
 	                       
 	         } , 
 	         error : function(){ 
-	                   alert('메시지 불러오기 실패'); 
+	                   alert('불러올 메시지가 없습니다.'); 
 	         } 
 	  });
 	});

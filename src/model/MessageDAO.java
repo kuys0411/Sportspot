@@ -16,18 +16,26 @@ public class MessageDAO {
 	ResultSet rs;
 	
 	String selectAllMessage = "select * from Message where Message_receiver = ? ";
-	String insert_message = "insert into Message values (seq_message_id.nextval, ?,?,?) ";
+	String insert_message = "insert into Message(Message_id, Message_sender, Message_receiver, Message_Body) values (seq_message_id.nextval, ?,?,?) ";
 	
-	String delete_message = "delete from message where Message_sender = ? and Message_receiver = ? and Message_Body = ? ";
+	String delete_message = "delete from message where Message_id = ?";
 
 			
 	public int insertMessageDTO(MessageDTO msgdto) {
 		conn = DBUtil.getConnect();
 		int result = 0;
 		try {
+			System.out.println("insert message");
 			st = conn.prepareStatement(insert_message);
-			st.setString(1, msgdto.getMessageFrom());
-			st.setString(2, msgdto.getMessageTo());
+			String messagefrom = msgdto.getMessageFrom();
+			messagefrom = messagefrom.trim();
+			String messageto = msgdto.getMessageTo();
+			messageto = messageto.trim();
+			System.out.println("messageFrom :" +msgdto.getMessageFrom());
+			System.out.println("messageTo :" +msgdto.getMessageTo());
+			System.out.println("messageBody :"+msgdto.getMessageBody());
+			st.setString(1, messagefrom);
+			st.setString(2, messageto);
 			st.setString(3, msgdto.getMessageBody());
 			result = st.executeUpdate();
 			
@@ -82,21 +90,14 @@ public class MessageDAO {
 	}
 /*	String delete_message = "delete from message where Message_sender = ? and Message_receiver = ? and Message_Body = ? ";
 */
-	public int deleteMessage(String msgTo, String msgFrom, String msgBody) {
+	
+
+	public int deleteMessage(Long mid) {
 		int result = 0;
 		conn = DBUtil.getConnect();
-		String messageFrom = msgFrom.replace(" ", "");
-		String messageTo = msgTo.replace(" ", "");
-		String messageBody = msgBody.trim();
 		try {
-			System.out.println("msgFrom :" + messageFrom);
-			System.out.println("msgTo :" + messageTo);
-			System.out.println("msgBody :" + messageBody);
-			
 			st = conn.prepareStatement(delete_message);
-			st.setString(1, messageFrom);
-			st.setString(2, messageTo);
-			st.setString(3, msgBody);
+			st.setLong(1, mid);
 			result = st.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

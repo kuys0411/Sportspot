@@ -6,21 +6,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import model.MessageDAO;
 
 /**
- * Servlet implementation class DeleteMessageServlet
+ * Servlet implementation class Afdsa
  */
-@WebServlet("/mypage/deleteMessage")
-public class DeleteMessageServlet extends HttpServlet {
+@WebServlet({ "/Afdsa", "/fdsafdsa" })
+public class Afdsa extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteMessageServlet() {
+    public Afdsa() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,15 +34,8 @@ public class DeleteMessageServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-/*
-		msgFrom : messageFrom,
-		msgBody : messageBody*/
-		request.setCharacterEncoding("utf-8");
-		String messageID = request.getParameter("messageID");
-		Long mid = Long.parseLong(messageID);
-		MessageDAO dao = new MessageDAO();
-		int result = dao.deleteMessage(mid);
-		System.out.println("after delete :" +result);
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
