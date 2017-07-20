@@ -4,6 +4,23 @@ select * from appointment where M_ID = 'user1';
 
 select * from place;
 
+select b.B_ID, m.M_ID, m.M_name, b.B_num, b.B_Date, b.B_startTime, p.P_type, pa.P_Dong from Member m, Booking_Member b, Place p, PlaceAddr pa 
+where m.M_ID = b.M_ID and b.P_ID = p.P_ID and p.P_ID = pa.P_ID and p.P_type in( ' 롤러스케이트장' ) 
+
+
+select b.B_ID, m.M_ID, m.M_name, b.B_num, b.B_Date, b.B_startTime, p.P_type, pa.P_Dong from Member m, Booking_Member b, Place p, PlaceAddr pa where m.M_ID = b.M_ID and b.P_ID = p.P_ID and p.P_ID = pa.P_ID and p.P_type in ( '수영장'  , '롤러스케이트장' )
+
+
+
+
+
+select b.B_ID, m.M_ID, m.M_name, b.B_num, b.B_Date, b.B_startTime, p.P_type, pa.P_Dong from Member m, Booking_Member b, Place p, PlaceAddr pa where m.M_ID = b.M_ID and b.P_ID = p.P_ID and p.P_ID = pa.P_ID and p.P_type ='롤러스케이트장'
+
+
+
+
+
+
 
 select * from BOOKING_MEMBER;
 

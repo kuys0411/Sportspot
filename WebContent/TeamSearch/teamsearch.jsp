@@ -206,26 +206,30 @@ sport=["soccer","baseball","badminton","goggles","golf","tennis-ball",
 	
 $(document).ready(function(){
 	var OpenWin;
-	alert("fdsa");
-	$(".join").click(function(){
-		alert("fdsafd");
+	
+	
+	
+	
+	$('#here').on('click', '.join', function (){
 		var msgTo = $(this).closest("tr").find('#gotoMessage').text();
 		
-/* 		var messsageToValue = $(this).closest("tr").find('#gotoMessage').text();
-		alert(messageToValue); */
-		OpenWin = window.open("joinpopup.jsp", "a", "width=300, height=600, left=300, top=100");
-/* 		$(OpenWin.document).ready(function(){
-			$(OpenWin).contents().find('#MSGTO').value(msgTo);
-		}); */
-		
-		OpenWin.onload = function(){
-			OpenWin.document.getElementById('MSGTO').value = msgTo;
-		}
-		/* purchaseWin.onload = function () {
-			  purchaseWin.document.getElementById('tdProduct').innerHTML = '2';
-			}; */
-	});		
+		/* 		var messsageToValue = $(this).closest("tr").find('#gotoMessage').text();
+				alert(messageToValue); */
+				OpenWin = window.open("joinpopup.jsp", "a", "width=300, height=600, left=300, top=100");
+		/* 		$(OpenWin.document).ready(function(){
+					$(OpenWin).contents().find('#MSGTO').value(msgTo);
+				}); */
+				
+				OpenWin.onload = function(){
+					OpenWin.document.getElementById('MSGTO').value = msgTo;
+				}
+				/* purchaseWin.onload = function () {
+					  purchaseWin.document.getElementById('tdProduct').innerHTML = '2';
+					}; */
+    });
 	
+	
+
 	
 		  $(document).keypress(function(e){
 		    if(e.keyCode==13) {
