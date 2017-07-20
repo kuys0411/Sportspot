@@ -71,7 +71,7 @@ form span {
 	font-weight: 600;
 	font-family: 'Open Sans', sans-serif;
 }
-input[type="text"],input[type="Password"], #textarea, #MSGTO {
+input[type="text"],input[type="Password"], #textarea, #MSGTO, #MSGFROM {
 	padding: 9px;
 	width: 90%;
 	font-size: 1.1em;
@@ -89,7 +89,7 @@ input[type="text"],input[type="Password"], #textarea, #MSGTO {
 	-o-transition: all 0.3s ease-out;
 	transition: all 0.3s ease-out;
 }
-input[type="text"]:hover,input[type="Password"]:hover,#active, #MSGTO{
+input[type="text"]:hover,input[type="Password"]:hover,#active, #MSGTO, #MSGFROM{
 	background:#fff;
 	border:2px solid #609EC3;
 	outline:none;

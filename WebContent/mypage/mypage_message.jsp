@@ -62,6 +62,38 @@
 <script>
 
 $(document).ready(function(){
+/* 	$('#here').on('click', '.join', function (){
+		var msgTo = $(this).closest("tr").find('#gotoMessage').text();
+		
+		/* 		var messsageToValue = $(this).closest("tr").find('#gotoMessage').text();
+				alert(messageToValue); */
+				OpenWin = window.open("joinpopup.jsp", "a", "width=400, height=700, left=300, top=100");
+		/* 		$(OpenWin.document).ready(function(){
+					$(OpenWin).contents().find('#MSGTO').value(msgTo);
+				}); */
+				
+				OpenWin.onload = function(){
+					OpenWin.document.getElementById('MSGTO').value = msgTo;
+				}
+				/* purchaseWin.onload = function () {
+					  purchaseWin.document.getElementById('tdProduct').innerHTML = '2';
+					}; */
+    }); */
+    
+    $('#here').on('click', '.messageDelete', function(){
+		var OpenWin = window.open("joinpopup.jsp", "a", "width=400, height=700, left=300, top=100");
+		OpenWin.onload = function(){
+			OpenWin.document.getElementById('MSGTO').value = msgTo;
+			OpenWin.document.getELementByID('MSGFROM').value =<%=userid%>; 
+		}
+    });
+    
+	$('#here').on('click', '.messageReply', function(){
+    	
+    });
+    
+	
+	
 	$('#refresh').on('click',function(){ 
 		$('#here').empty();
 	 $.ajax({ 
