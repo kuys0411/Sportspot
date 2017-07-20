@@ -97,8 +97,7 @@ import java.util.Calendar;
 		request.setAttribute("loop_count", loop_count);
 		request.setAttribute("time_info", time_info);
 		request.setAttribute("count_info", count_info);
-		
-		
+		request.setAttribute("current_date", dt);
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("/search/reserve.jsp");
 		rd.forward(request, response);
