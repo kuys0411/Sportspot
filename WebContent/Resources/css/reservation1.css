@@ -3460,8 +3460,8 @@ body {
 }
 
 #mobile_menu_button {
-  background-color: #f1c40f;
-  border: 1px solid #f1c40f;
+  background-color: #ed3e43;
+  border: 1px solid #ed3e43;
 }
 
 #mobile_menu_button .icon-bar{
@@ -3483,12 +3483,12 @@ body {
 
 #nav li a:hover,
 #nav li a:active {
-  border-top: 2px solid #f1c40f;
-  color: #f1c40f;
+  border-top: 2px solid #ed3e43;
+  color: #ed3e43;
 }
 
 #nav li a.active {
-  color: #f1c40f;
+  color: #ed3e43;
 }
 
 .navbar-collapse.collapse.in {
@@ -3568,7 +3568,7 @@ body {
 
 #admin_login:hover,
 #admin_orderlist:hover {
-  color: #f1c40f;
+  color: #ed3e43;
 }
 
 
@@ -3597,7 +3597,7 @@ body {
 }
 
 .yellow {
-  color: #f1c40f;
+  color: #ed3e43;
 }
 
 a.yellow {
@@ -3606,7 +3606,7 @@ a.yellow {
 }
 
 a.yellow:hover {
-  color: #f1c40f;
+  color: #ed3e43;
 }
 
 .tooltip-arrow {
@@ -3666,7 +3666,7 @@ a.yellow:hover {
 }
 
 #error_modal .modal-content .modal-header {
-  background-color: #f1c40f;
+  background-color: #ed3e43;
   color: #fff;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -3695,8 +3695,8 @@ a.yellow:hover {
 
 #error_modal .modal-content .modal-footer .btn {
   border-radius: 3px;
-  border: 1px solid #f1c40f;
-  background-color: #f1c40f;
+  border: 1px solid #ed3e43;
+  background-color: #ed3e43;
   color: #fff;
   padding: 6px 20px;
 }
@@ -3723,7 +3723,7 @@ a.yellow:hover {
   #nav li a:hover,
   #nav li a:active {
     border-top: 2px solid #000;
-    color: #f1c40f;
+    color: #ed3e43;
   }
 
   .navbar-header {

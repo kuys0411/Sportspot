@@ -41,7 +41,7 @@
 
 .contact a {
   text-decoration: none;
-  color: #f1c40f;
+  color: #ed3e43;
   cursor: pointer;
 }
 
@@ -80,7 +80,7 @@
   margin-right: 5px;
   color: #fff !important;
   opacity: 0.7;
-  background-color: #f1c40f;
+  background-color: #ed3e43;
   border-radius: 3px;
   padding: 5px 10px;
 }
@@ -118,7 +118,7 @@ textarea {
 
 button.btn-map {
   opacity: 0.6;
-  background-color: #f1c40f;
+  background-color: #ed3e43;
   color: #fff;
   box-shadow: none !important;
   border-bottom-left-radius: 0;
@@ -141,8 +141,8 @@ button.btn-map:focus {
 
 #send_email {
   margin-top: 15px;
-  border: 1px solid #f1c40f;
-  background-color: #f1c40f;
+  border: 1px solid #ed3e43;
+  background-color: #ed3e43;
   color: #fff;
 }
 

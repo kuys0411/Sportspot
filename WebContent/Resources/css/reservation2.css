@@ -29,7 +29,7 @@
 .subtitle {
   padding-top: 25px;
   padding-bottom: 25px;
-  border-bottom: 1px solid #f1c40f;
+  border-bottom: 1px solid #ed3e43;
   margin-bottom: 25px;
 }
 
@@ -40,7 +40,7 @@
 .toggle_button {
   padding: 5px 10px;
   font-size: 18px;
-  color: #f1c40f;
+  color: #ed3e43;
   cursor: pointer;
 }
 
@@ -48,12 +48,12 @@
 .toggle_button:hover {
   text-decoration: none !important;
   color: white;
-  background: #f1c40f;
+  background: #ed3e43;
 }
 
 .toggle_button.active {
   color: white;
-  background: #f1c40f;
+  background: #ed3e43;
 }
 
 #book_a_session_wrapper {
@@ -97,7 +97,7 @@
 
 .booking_input_wrapper .dropdown ul.dropdown-menu a:active,
 .booking_input_wrapper .dropdown ul.dropdown-menu a:hover {
-  background-color: #f1c40f;
+  background-color: #ed3e43;
   color: #fff;
 }
 
@@ -106,13 +106,13 @@
 }
 
 #book_a_session_wrapper .row.bottom {
-  /*border-bottom: 1px solid #f1c40f;*/
+  /*border-bottom: 1px solid #ed3e43;*/
   padding-bottom: 25px;
   margin-bottom: 30px;
 }
 
 #book_a_session_wrapper .table th {
-  background-color: #f1c40f;
+  background-color: #ed3e43;
   border-bottom: 0 !important;
 }
 
@@ -177,7 +177,7 @@
 }
 
 #login_box #book_login_button {
-  background: #f1c40f;
+  background: #ed3e43;
   border: none;
   color: white;
   font-weight: bold;
@@ -217,7 +217,7 @@
 }
 
 #booking_info_cancel_wrapper .booking_info_button {
-  background: #f1c40f;
+  background: #ed3e43;
   border: none;
   color: #fff;
 }
@@ -240,7 +240,7 @@
 }
 
 #cancel_modal .modal-content .modal-header {
-  background-color: #f1c40f;
+  background-color: #ed3e43;
   color: #fff;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -269,16 +269,16 @@
 
 #cancel_modal .modal-content .modal-footer .btn {
   border-radius: 3px;
-  border: 1px solid #f1c40f;
-  background-color: #f1c40f;
+  border: 1px solid #ed3e43;
+  background-color: #ed3e43;
   color: #fff;
   padding: 6px 20px;
 }
 
 #reservation_container .book_btn {
   border-radius: 3px;
-  border: 1px solid #f1c40f;
-  background-color: #f1c40f;
+  border: 1px solid #ed3e43;
+  background-color: #ed3e43;
   color: #fff;
   padding: 6px 20px;
   margin-top: 15px;
@@ -296,16 +296,16 @@
 
 .difficulty .foreground {
   /*position: absolute;*/
-  color: #f1c40f;
+  color: #ed3e43;
 }
 
 .difficulty .foreground .fa-star,
 .difficulty .foreground .fa-star-half {
-  color: #f1c40f;
+  color: #ed3e43;
 }
 
 .difficulty .background {
-  color: #f1c40f;
+  color: #ed3e43;
   visibility: hidden;
   /*position: absolute;*/
 }
