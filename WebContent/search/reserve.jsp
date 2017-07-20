@@ -50,19 +50,20 @@
 	href="http://www.seoul-escape.com/static/css/contact.css"
 	type="text/css" />
 	 -->
-	
-	<!-- CSS new -->
-	
-	
+
+<!-- CSS new -->
+
+
 <link rel="stylesheet" href="/Project/Resources/css/reservation1.css"
 	type="text/css" />
 <link rel="stylesheet" href="/Project/Resources/css/reservation2.css"
 	type="text/css" />
-<link rel="stylesheet" href="/Project/Resources/css/datepicker2.css" type="text/css" />
+<link rel="stylesheet" href="/Project/Resources/css/datepicker2.css"
+	type="text/css" />
 <link rel="stylesheet" href="/Project/Resources/css/contact.css"
 	type="text/css" />
-	
-	
+
+
 <!-- Java Script -->
 <script type="text/javascript"
 	src="http://www.seoul-escape.com/static/CACHE/js/c546a5c802e8.js"></script>
@@ -75,9 +76,12 @@
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA3t7a2pTWqsB_QnkLNfxdmiGxgXL045g"></script>
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -86,8 +90,8 @@
 	request.setCharacterEncoding("utf-8");
 	if ((String) session.getAttribute("userID") != null) {
 		userid = (String) session.getAttribute("userID");
-		
-	}else{
+
+	} else {
 		response.sendRedirect("login.jsp");
 	}
 %>
@@ -147,10 +151,12 @@ $(document).ready(function(){
 					<div class="collapse navbar-collapse" id="nav_collapse">
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/Project"> HOME </a></li>
-							<li><a id="search" href="#" > SEARCH </a></li>
-							<li id="mypage" ><a href="mypage/mypageShowInfo" class="active">MYPAGE</a></li>
-							<li id="logout" ><a href="logout"><span></span>LOGOUT</a></li>
-							<li id="login_result" ><a><span id="userid"><%=userid%>님 환영합니다.</span></a></li>
+							<li><a id="search" href="#"> SEARCH </a></li>
+							<li id="mypage"><a href="mypage/mypageShowInfo"
+								class="active">MYPAGE</a></li>
+							<li id="logout"><a href="logout"><span></span>LOGOUT</a></li>
+							<li id="login_result"><a><span id="userid"><%=userid%>님
+										환영합니다.</span></a></li>
 
 						</ul>
 					</div>
@@ -164,20 +170,28 @@ $(document).ready(function(){
 			<div id="main_content">
 				<div class="container">
 					<div class="row contact">
+					
 						<div id="reservation_bg">
 							<img src="Resources/images/image_koo/main/main2.jpg">
 						</div>
 
+						
+						
+						
 						<div class="col-xs-12 col-sm-6 nopadding">
 							<div class="contact_bg">
-								<img src="Resources/images/image_koo/main/main3.jpg"
-									height="350" style="padding-left: 40px; padding-top: 80px;">
-							</div>
+								<!-- <img src="Resources/images/image_koo/main/main3.jpg"
+									height="350" style="padding-left: 40px; padding-top: 80px;"> -->
+								<div id="map_ma"></div>
+							</div> 
+							 
+							
+							
 							<div class="arrow-left"></div>
 						</div>
 						<br>
 						<h3>
-							<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Place Information</b>
+							<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${placeinfo.pname}</b>
 						</h3>
 
 
@@ -186,17 +200,16 @@ $(document).ready(function(){
 							<div id="hongdae" class="branch_tab active">
 
 								<ul>
-									<li>장소: ${placeinfo.pname}</li>
+									<%-- <li>장소: ${placeinfo.pname}</li> --%>
+									<li>상세주소: ${placeinfo.pdoro}</li>
 									<li>전화번호: ${placeinfo.pphone}</li>
 									<li>홈페이지 이동: <a target="_blank"
-										href="http://${placeinfo.phomepage}">Click</a>
-									</li>
+										href="http://${placeinfo.phomepage}">Click</a></li>
 									<li>공휴일</li>
-									<textarea rows="1" cols="50" readonly>${placeinfo.pholiday}</textarea>
+									<textarea rows="1" cols="40" readonly>${placeinfo.pholiday}</textarea>
 									<li>대중교통</li>
-									<textarea rows="5" cols="50" readonly>${placeinfo.phowtogo}</textarea>
-
-									<li>상세주소: ${placeinfo.pdoro}</li>
+									<textarea rows="5" cols="40" readonly>${placeinfo.phowtogo}</textarea>
+									
 
 								</ul>
 
@@ -312,11 +325,7 @@ $(document).ready(function(){
 													</tr>
 												</c:forEach>
 
-												<!-- <tr>
-												<td>07:00</td>
-												<td>20</td>
-												<td><a class="red" href="#">예약불가</a></td>
-											</tr> -->
+
 											</tbody>
 										</table>
 									</div>
@@ -328,34 +337,44 @@ $(document).ready(function(){
 										<textarea type="text" cols="1" rows="1" id="select_time"
 											name="select_time"></textarea>
 									</div>
+
+									<!-- <div class="subtitle">
+										<span class="tab_wrapper">
+											<p class="btn btn-warning" style="background-color: #f1c40f">오시는
+												길</p>
+										</span>
+									</div>  -->
 								</form>
+								
 							</div>
+
+
 
 						</div>
 					</div>
 
 
-					<div class="subtitle">
+					<!-- <div class="subtitle">
 						<span class="tab_wrapper">
 							<p class="btn btn-warning" style="background-color: #f1c40f">오시는
 								길</p>
 						</span>
-					</div>
+					</div> -->
 
 					<!-- 지도 view -->
 					<script type="text/javascript"
 						src="http://maps.google.com/maps/api/js?key=AIzaSyDWKmcj5ZnlDMJFJOcD7gTj4KF49JRo3N4"></script>
 					<!-- key 값 입력 -->
 					<style>
-#map_ma {
-	width: 100%;
-	height: 400px;
-	clear: both;
-	border: solid 1px red;
-}
-</style>
+					#map_ma {
+						width: 100%;
+						height: 460px;
+						clear: both;
+						border: solid 1px red;
+					}
+					</style>
 
-					<div id="map_ma"></div>
+					<!-- <div id="map_ma"></div> -->
 					<script type="text/javascript">
 						$(document).ready(function() {
 						var myLatlng = new google.maps.LatLng(${placeinfo.py},${placeinfo.px}); // 위치값 위도 경도
