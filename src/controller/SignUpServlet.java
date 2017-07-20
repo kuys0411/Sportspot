@@ -8,7 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import model.LoginDAO;
+import model.LoginDTO;
 import model.MemberDAO;
 import model.MemberDTO;
 
@@ -44,12 +47,29 @@ public class SignUpServlet extends HttpServlet {
 		MemberDTO memDTO = new MemberDTO();
 		memDTO = makeMemberDTO(request);
 		MemberDAO dao = new MemberDAO();
-		int result = dao.memberInsert(memDTO);
-		String message = result > 0 ?"입력 성공" : "입력 실패";
-		request.setAttribute("msg", message);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-		rd.forward(request, response);
+		int result2 = dao.checkMember2(memDTO);
+		int message;
+		//중복 아님 아이디
+		if(result2!=1){
+			System.out.println("중복아님");
+			int result = dao.memberInsert(memDTO);
+			message = result > 0 ?1 : 0;
+			request.setAttribute("msg", message);	
+			HttpSession session = request.getSession();
+			session.setAttribute("userID", request.getParameter("ID"));
+			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			rd.forward(request, response);
+			
+		}
+		//중복 임
+		else{
+			System.out.println("중복임");
+			message= 0;
+			request.setAttribute("msg", message);	
+			RequestDispatcher rd = request.getRequestDispatcher("signup.jsp");
+			rd.forward(request, response);
+		}
+			
 	}
 
 	private MemberDTO makeMemberDTO(HttpServletRequest request) {

@@ -18,6 +18,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //css files -->
 <!-- online-fonts -->
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'><link href='//fonts.googleapis.com/css?family=Raleway+Dots' rel='stylesheet' type='text/css'>
+
+
+
+
+
 </head>
 <body>
 <!--header-->
@@ -27,7 +32,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--//header-->
 <!--main-->
 <div class="main-agileits">
-	<h2 class="sub-head">Wellcome to SportSpot </h2>
+	<h2 class="sub-head">Welcome to SportSpot </h2>
 		<div class="sub-main">	
 			<form action="signup" method="post">
 				<input placeholder="ID" name="ID" class="name" type="text" required>
@@ -66,6 +71,16 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<div class="clear"></div>
 </div>
 <!--//main-->
+<script>
+if(${msg} == 0){
+	
+	alert("이미 있는 아이디입니다.");
+}
+else {
+	alert("회원가입성공.");
+}
 
+
+</script>
 </body>
 </html>

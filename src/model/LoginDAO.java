@@ -13,6 +13,7 @@ public class LoginDAO {
 	ResultSet rs;
 	
 	String loginCheck_by_id_password = "select M_ID, M_pwd from Member where M_ID=?";
+
 	
 	public int checkMember(LoginDTO loginDTO) {
 		conn = DBUtil.getConnect();
@@ -51,5 +52,6 @@ public class LoginDAO {
 		
 		return result;
 	}
+	
 
 }
