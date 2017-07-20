@@ -59,11 +59,9 @@
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
 						<div id="top_logo">
-							<a class="navbar-brand"><img
-								src="../Resources/images/jin/logo/full.png"
-								style="width: 360px;"></a>
+							<a class="navbar-brand" href="index.jsp"><img
+								src="Resources/images/jin/logo/full.png"></a>
 						</div>
-
 						<button type="button" class="navbar-toggle collapsed"
 							data-toggle="collapse" data-target="#nav_collapse"
 							id="mobile_menu_button">
@@ -75,14 +73,19 @@
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="nav_collapse">
-						<ul class="nav navbar-nav navbar-right" id="navbar-ul">
-							<li><a href="../index.jsp" class="active"> HOME </a></li>
-							<li><a href="../searchTest.jsp"> SEARCH </a></li>
-							<!--  로그인을 하면 로그아웃이랑 MyPage로 교체 -->
-							<li id="mypage"><a href="mypageShowInfo">MYPAGE</a></li>
-							<li id="logout"><a href="logout"><span></span>LOGOUT</a></li>
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="index.jsp" class="active"> HOME </a></li>
+							<li><a id="search" href="search.jsp"> SEARCH </a></li>
+							
+							<li id="login"><a href="login.jsp"><span>LOGIN</span> </a></li>
+							<li id="register"><a href="signup.jsp"><span>REGISTER</span></a></li>
+							<li id="mypage" class="hide"><a href="mypage/mypageShowInfo">MYPAGE</a></li>
+							<li id="logout" class="hide"><a href="/Project/logout"><span></span>LOGOUT</a></li>
+							<li id="login_result" class="hide"><a><span id="userid"></span></a></li>
+
 						</ul>
 					</div>
+
 					<!-- /.navbar-collapse -->
 				</div>
 				<!-- /.container-fluid -->
@@ -165,14 +168,7 @@
 									required>
 							</div>
 
-							<div id="genderField">
-								<label> 성별 </label> <input type="radio" name="sex" value="male"
-									<c:if test= '${memDTO.msex} == "male"'>checked</c:if>>
-								Male <input type="radio" name="sex" value="female"
-									<c:if test= '${memDTO.msex} == "female"'>checked</c:if>>
-								Female
-							</div>
-
+							
 							<div id="interestField">
 								<label> 관심종목 </label> <input type="radio" name="interest"
 									value="soccer"
