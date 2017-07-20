@@ -8,8 +8,6 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title id="title_seoul_escape">SPORTSPOT</title>
-<meta name="Description"
-	CONTENT="방탈출카페,방탈출,강남/홍대/이태원/부산/서면/인천/부평/방탈출카페,강남/홍대/이태원/부산/서면/인천/부평/서울이스케이프룸,대한민국최초,seoul escape room,이색데이트,이색놀거리,강남데이트,홍대데이트,이태원데이트,부산데이트,인천데이트,이태원놀거리,홍대놀거리,강남놀거리,인천놀거리,부산놀거리">
 
 
 <link rel="shortcut icon"
@@ -89,6 +87,22 @@ a:hover {
 </head>
 
 <body ng-app="myapp">
+
+
+	<!-- 로그인 예외처리 -->
+	<%
+	String userid = null;
+	request.setCharacterEncoding("utf-8");
+	if ((String) session.getAttribute("userID") != null) {
+		userid = (String) session.getAttribute("userID");
+	}else{
+		response.sendRedirect("login.jsp");
+	}
+	
+	%>
+
+
+
 	<div class="modal fade" id="error_modal">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -143,6 +157,8 @@ a:hover {
 				<!-- /.container-fluid -->
 			</nav>
 			<!-- 상단바 -->
+
+
 
 
 

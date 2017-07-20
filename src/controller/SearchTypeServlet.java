@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.SearchDAO;
 import model.SearchResultDTO;
@@ -39,10 +40,17 @@ public class SearchTypeServlet extends HttpServlet {
 		System.out.println(type+" "+reg);
 		List<SearchResultDTO> dto = new 
 			ArrayList<SearchResultDTO>();
+	
+		
+		String userid = null;
+		request.setCharacterEncoding("utf-8");
+		
+		
 		if(type=="" && reg==""){
 			RequestDispatcher rd;
 			rd=request.getRequestDispatcher("noresult.jsp");
 			rd.forward(request, response);
+		
 		}
 		else{
 			if(type==""){

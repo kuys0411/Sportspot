@@ -73,7 +73,6 @@
 			}	
 	});
 	
-	
 		$("#feature_btn").on("click", function(){
 			if(id=="null"){
 				alert("로그인안했어요ㅠ")
@@ -151,7 +150,7 @@
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="index.jsp" class="active"> HOME </a></li>
 							<li><a id="search" href="search.jsp"> SEARCH </a></li>
-							<!--  로그인을 하면 로그아웃이랑 MyPage로 교체 -->
+							
 							<li id="login"><a href="login.jsp"><span>LOGIN</span> </a></li>
 							<li id="register"><a href="signup.jsp"><span>REGISTER</span></a></li>
 							<li id="mypage" class="hide"><a href="mypage/mypageShowInfo">MYPAGE</a></li>
