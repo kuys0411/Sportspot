@@ -31,6 +31,30 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+</script>
+
+<%
+	String userid = null;
+	request.setCharacterEncoding("utf-8");
+	if ((String) session.getAttribute("userID") != null) {
+		userid = (String) session.getAttribute("userID");
+		
+	}else{
+		response.sendRedirect("login.jsp");
+	}
+%>
+
+
+<script>
+$(document).ready(function(){
+	$("#date_btn").on('click', function(){
+		$("#preesDelete").remove();
+	});
+});
+
+
+</script>
+
 </head>
 
 <body ng-app="myapp">
@@ -59,8 +83,10 @@
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
 						<div id="top_logo">
-							<a class="navbar-brand" href="index.jsp"><img
-								src="Resources/images/jin/logo/full.png"></a>
+							<a class="navbar-brand" href="../index.jsp"><img
+								src="../Resources/images/jin/logo/full.png"
+								style="width: 360px;"></a>
+								
 						</div>
 						<button type="button" class="navbar-toggle collapsed"
 							data-toggle="collapse" data-target="#nav_collapse"
@@ -74,14 +100,11 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="nav_collapse">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="index.jsp" class="active"> HOME </a></li>
-							<li><a id="search" href="search.jsp"> SEARCH </a></li>
-							
-							<li id="login"><a href="login.jsp"><span>LOGIN</span> </a></li>
-							<li id="register"><a href="signup.jsp"><span>REGISTER</span></a></li>
-							<li id="mypage" class="hide"><a href="mypage/mypageShowInfo">MYPAGE</a></li>
-							<li id="logout" class="hide"><a href="/Project/logout"><span></span>LOGOUT</a></li>
-							<li id="login_result" class="hide"><a><span id="userid"></span></a></li>
+							<li><a href="/Project"> HOME </a></li>
+							<li><a id="search" href="../search.jsp" > SEARCH </a></li>
+							<li id="mypage" ><a href="#" class="active">MYPAGE</a></li>
+							<li id="logout" ><a href="../logout"><span></span>LOGOUT</a></li>
+							<li id="login_result" ><a><span id="userid"><%=userid%>님 환영합니다.</span></a></li>
 
 						</ul>
 					</div>

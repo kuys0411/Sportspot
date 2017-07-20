@@ -111,7 +111,7 @@ $(document).ready(function(){
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
 						<div id="top_logo">
-							<a class="navbar-brand"><img
+							<a class="navbar-brand" href="../index.jsp"><img
 								src="../Resources/images/jin/logo/full.png"
 								style="width: 360px;"></a>
 						</div>
