@@ -48,6 +48,18 @@
  -->
 </head>
 
+<script>
+$(document).ready(function(){
+	$("#date_btn").on('click', function(){
+		$("#preesDelete").remove();
+	});
+});
+
+
+</script>
+
+
+
 <body ng-app="myapp">
 	<div class="modal fade" id="error_modal">
 		<div class="modal-dialog">
@@ -165,7 +177,8 @@
 
 							<div class="subtitle">
 								<span class="tab_wrapper">
-									<p class="btn btn-warning" style="background-color: #f1c40f">실시간 예약</p>
+									<p class="btn btn-warning" style="background-color: #f1c40f">실시간
+										예약</p>
 								</span>
 							</div>
 
@@ -187,12 +200,9 @@
 												<div class="col-xs-6">
 													<input type="date" id="select_date" name="select_date"
 														style="color: black" value="2017-07-19" min="2017-07-19"
-														max="2017-07-31"></input>
-													<input type="button" class="yellow" id="date_btn" name="date_btn" value="선택" 
-														style="background-color: #333333; 
-														width:51px, height:41px;width: 51px;height: 41px; color:#ffffff"
-														
-														></input>
+														max="2017-07-31"></input> <input type="button"
+														class="yellow" id="date_btn" name="date_btn" value="선택"
+														style="background-color: #333333; width: 51px, height:41px; width: 51px; height: 41px; color: #ffffff"></input>
 												</div>
 											</div>
 										</div>
@@ -215,51 +225,57 @@
 
 
 
-									<div id="here"></div> <!--  -->
+									<div id="here"></div>
+									<!--  -->
+									<div id="preesDelete">
 
-
-									<table class="table">
-										<thead>
-											<tr>
-												<th>시작시간</th>
-												<th>신청인원</th>
-												<th>예약상태</th>
-											</tr>
-										</thead>
-										<tbody>
-
-											<c:forEach items="${time_info}" var="time" varStatus="status">
+										<table class="table">
+											<thead>
 												<tr>
-													<td>${time}:00</td>
-													<td>${count_info[status.index]}</td>
-													<!-- 수정해야한다. -->
-				
-													<c:set var="name" value="${count_info[status.index]}"/>
-													<c:choose>
-														<c:when test="${name < 30}"> <!-- 인원수 30명 미만 예약가능 -->
-															<td><input type="submit" class="yellow"
-																id="reservebtn" value="예약하기" onclick="call('${time}')" style="background-color: #000000"></td>
-														</c:when>
-														
-														<c:otherwise> <!-- 인원수 30명부터 예약 불가능  -->
-
-															<td><input type="button" class="red" id="reservebtn"
-																value="예약불가" disabled="disabled" style="background-color: #000000"></td>
-														</c:otherwise>
-													
-													</c:choose>
-
+													<th>시작시간</th>
+													<th>신청인원</th>
+													<th>예약상태</th>
 												</tr>
-											</c:forEach>
+											</thead>
+											<tbody>
 
-											<!-- <tr>
+												<c:forEach items="${time_info}" var="time"
+													varStatus="status">
+													<tr>
+														<td>${time}:00</td>
+														<td>${count_info[status.index]}</td>
+														<!-- 수정해야한다. -->
+
+														<c:set var="name" value="${count_info[status.index]}" />
+														<c:choose>
+															<c:when test="${name < 30}">
+																<!-- 인원수 30명 미만 예약가능 -->
+																<td><input type="submit" class="yellow"
+																	id="reservebtn" value="예약하기" onclick="call('${time}')"
+																	style="background-color: #000000"></td>
+															</c:when>
+
+															<c:otherwise>
+																<!-- 인원수 30명부터 예약 불가능  -->
+
+																<td><input type="button" class="red"
+																	id="reservebtn" value="예약불가" disabled="disabled"
+																	style="background-color: #000000"></td>
+															</c:otherwise>
+
+														</c:choose>
+
+													</tr>
+												</c:forEach>
+
+												<!-- <tr>
 												<td>07:00</td>
 												<td>20</td>
 												<td><a class="red" href="#">예약불가</a></td>
 											</tr> -->
-										</tbody>
-									</table>
-
+											</tbody>
+										</table>
+									</div>
 									<div style="visibility: hidden" id="hidden">
 										<input type="text" id="sel_pid" name="sel_pid"
 											value="${placeinfo.pid}"></input> <input type="text"
@@ -277,7 +293,8 @@
 
 					<div class="subtitle">
 						<span class="tab_wrapper">
-							<p class="btn btn-warning" style="background-color: #f1c40f">오시는 길</p>
+							<p class="btn btn-warning" style="background-color: #f1c40f">오시는
+								길</p>
 						</span>
 					</div>
 
@@ -358,7 +375,7 @@
 		
 
         $('#date_btn').on('click',function(){ 
-              alert("데이터 전송~ ^^*"); 
+             /*  alert("데이터 전송~ ^^*");  */
 	       $.ajax({ 
 	               url:'countget', //가져오고자하는 서버페이지 주소를 넣는다. 
 	               type:'get', //데이터를 서버로 전송하게 된다. 
@@ -367,23 +384,23 @@
 	            	   sel_date: $('#select_date').val()  //에디터박스의 아이디를 넣으면 해당 에디터박스의 데이터를 보내준다.
 	               } , 
 	               success : function(t){ 
-	                             alert('성공!' + t);
+	                             /* alert('성공!' + t); */
 	                             
 	                             $("#here").html(t);
 	                         
 	               } , 
 	               error : function(){ 
-	                         alert('실패 ㅠㅠ'); 
+	                       /*   alert('실패 ㅠㅠ');  */
 	               } 
 	        });
     	}); 
 
 		$("#date_btn").on("click", function(){
-			alert("날짜가 선택되었습니다. ajax로  가져오기 ");
+			/* alert("날짜가 선택되었습니다. ajax로  가져오기 "); */
 			var date = $("#select_date").val();
 			
 			$("#here").load("countget", "date="+date, function(){ //서버에서 사용할 이름이: aaa인 것이다.
-				alert("서버에 다녀옴"); //갔다와서 실행하는 것이다.
+				/* alert("서버에 다녀옴"); */ //갔다와서 실행하는 것이다.
 			});
 			
 		});
