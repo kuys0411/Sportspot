@@ -54,8 +54,8 @@ public class SearchTeamDAO {
 			int i = 0;
 			for(i = 0; i < splitedType.length ; i ++) {
 				if(i == 0) sql +="( '" + splitedType[i]+ "' ";
-				else if(i == splitedType.length - 1) sql += " , ' " +splitedType[i]+"' )";
-				else sql+= "'"+splitedType[i]+"', ";
+				else if(i == splitedType.length - 1) sql += " , '" +splitedType[i]+"' )";
+				else sql+= ",'"+splitedType[i]+"' ";
 				
 			}
 			if(splitedType.length == 1) sql += ")";
