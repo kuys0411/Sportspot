@@ -498,27 +498,18 @@ $(document).ready(function(){
 
 
 				<div id="footer">
-					<div class="container">
-						<div class="row">
-							<!--  <div class="col-sm-12 visible_small">
-            <div class="fb_link">
-              <a href="https://www.facebook.com/seoulescape" target="_blank"><img src="http://www.seoul-escape.com/static/image/facebook.png"></a>
-            </div>
-          </div> -->
-							<div class="col-sm-12 col-md-6">
-								<div class="footer_info">
-									<p>Copyright © 2015 Seoul Escape Room. All Rights Reserved.
-									</p>
-									<p>
-										(주)삶넥스트 | 사업자등록번호: 887-81-00575 | 대표: BAIGWOONYONG, 이정헌 |
-									</p>
-								</div>
+				<div class="container">
+					<div class="row">
+						
+						<div class="col-sm-12 col-md-6">
+							<div class="footer_info">
+								<p>
+									SportSpot © 2017 SEOUL KDATA. All Rights Reserved. </br>
+									(주)SPORTSPOT | 빅데이터 청년인재 서울 2반 |
+								</p>
+								<a href="/reservation/orderlist/" id="admin_orderlist"> </a>
+								</p>
 							</div>
-							<!-- <div class="col-md-6 visible_large">
-            <div class="fb_link">
-              <a href="https://www.facebook.com/seoulescape" target="_blank"><img src="http://www.seoul-escape.com/static/image/facebook.png"></a>
-            </div>
-          </div> -->
 						</div>
 					</div>
 				</div>
