@@ -240,7 +240,7 @@ $(document).ready(function(){
 											<input type="date" id="select_date" name="select_date"
 												style="color: black" value="${current_date}"
 												min="${current_date}" max="2017-07-31"></input> <input
-												type="button" class="btn btn-default" id="btn btn-default "
+												type="button" class="btn btn-default" id="date_btn"
 												name="date_btn" value="선택"
 												style="background-color: #333333; color: white;"></input>
 										</div>
@@ -414,7 +414,7 @@ $(document).ready(function(){
 		
 
         $('#date_btn').on('click',function(){ 
-           alert("데이터 전송~ ^^*");
+           //alert("데이터 전송~ ^^*");
 	       $.ajax({ 
 	               url:'countget', //가져오고자하는 서버페이지 주소를 넣는다. 
 	               type:'get', //데이터를 서버로 전송하게 된다. 
@@ -423,13 +423,13 @@ $(document).ready(function(){
 	            	   sel_date: $('#select_date').val()  //에디터박스의 아이디를 넣으면 해당 에디터박스의 데이터를 보내준다.
 	               } , 
 	               success : function(t){ 
-	                             alert('성공!' + t);
+	                            /*  alert('성공!' + t); */
 	                             
 	                             $("#here").html(t);
 	                         
 	               } , 
 	               error : function(){ 
-	                       alert('실패 ㅠㅠ');
+	                     /*   alert('실패 ㅠㅠ'); */
 	               } 
 	        });
     	}); 
