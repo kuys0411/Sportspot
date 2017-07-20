@@ -56,12 +56,17 @@
 .hide {
 	display: none;
 }
+#logout{
+	margin-right:20px;
+}
+
 </style>
 
 <script> if($(result) == 1){ alert("회원탈퇴가 완료되었습니다.");}</script>
 </head>
 <script>
 	var id = "<%=userid%>";
+	<%-- var Stringid=""<%=userid%>"+"님 환영합니다."; --%>
 	$(document).ready(function(){
 		if(id != "null"){
 			alert(id+"님, 어서오세요! :D");
@@ -69,18 +74,20 @@
 			$("#register").addClass("hide");
 			$("#mypage").removeClass("hide");
 			$("#logout").removeClass("hide");
+			$("#login_result").removeClass("hide");
+			$("#userid").text(id+"님 환영합니다.");
 		}
 
-		<%-- $("#logout").click(function(){
+		 $("#logout").click(function(){
 			sessionStorage.removeItem("userID");
 			$("#login").removeClass("hide");
 			$("#register").removeClass("hide");
 			$("#mypage").addClass("hide");
 			$("#logout").addClass("hide");
-			<%=userid = null%>
+			
 			id="null";
 			alert(id);
-		}); --%>
+		}); 
 		
 	});
 </script>
@@ -133,7 +140,7 @@
 							<li id="register"><a href="signup.jsp"><span>REGISTER</span></a></li>
 							<li id="mypage" class="hide"><a href="mypage/mypageShowInfo">MYPAGE</a></li>
 							<li id="logout" class="hide"><a href="logout"><span></span>LOGOUT</a></li>
-							<li id="login_result" class="hide"><a><span><%out.print(userid);%>님!</span></a></li>
+							<li id="login_result" class="hide"><a><span id="userid"></span></a></li>
 							
 						</ul>
 					</div>
