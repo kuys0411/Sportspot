@@ -11,13 +11,15 @@ where m.M_ID = b.M_ID and b.P_ID = p.P_ID and p.P_ID = pa.P_ID and p.P_type in( 
 select b.B_ID, m.M_ID, m.M_name, b.B_num, b.B_Date, b.B_startTime, p.P_type, pa.P_Dong from Member m, Booking_Member b, Place p, PlaceAddr pa where m.M_ID = b.M_ID and b.P_ID = p.P_ID and p.P_ID = pa.P_ID and p.P_type in ( '수영장'  , '롤러스케이트장' )
 
 
+insert into Message (Message_sender, Message_receiver, Message_Body, Message_Date ) values ('user1','koo','hello world', SYSDATE);
 
 
+select * from message
 
 select b.B_ID, m.M_ID, m.M_name, b.B_num, b.B_Date, b.B_startTime, p.P_type, pa.P_Dong from Member m, Booking_Member b, Place p, PlaceAddr pa where m.M_ID = b.M_ID and b.P_ID = p.P_ID and p.P_ID = pa.P_ID and p.P_type ='롤러스케이트장'
 
 
-
+select * from Message where Message_receiver ='koo'
 
 select * from message;
 

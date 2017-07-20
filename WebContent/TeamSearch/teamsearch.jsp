@@ -211,7 +211,7 @@ $(document).ready(function(){
 		
 		/* 		var messsageToValue = $(this).closest("tr").find('#gotoMessage').text();
 				alert(messageToValue); */
-				OpenWin = window.open("joinpopup.jsp", "a", "width=300, height=600, left=300, top=100");
+				OpenWin = window.open("joinpopup.jsp", "a", "width=400, height=700, left=300, top=100");
 		/* 		$(OpenWin.document).ready(function(){
 					$(OpenWin).contents().find('#MSGTO').value(msgTo);
 				}); */

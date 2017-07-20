@@ -59,18 +59,14 @@
 
 <script>
 
-
-
-
-
 $(document).ready(function(){
 	$('#refresh').on('click',function(){ 
 		$('#here').empty();
 	 $.ajax({ 
-	         url:'http://localhost:8888/Project/Mypage_messageloadServlet', //가져오고자하는 서버페이지 주소를 넣는다. 
+	         url:'loadmessage', //가져오고자하는 서버페이지 주소를 넣는다. 
 	         type:'GET', //데이터를 서버로 전송하게 된다. 
 	         data:{ 
-	        	 A: 'b'
+	        	 A: ""
 	      	     //에디터박스의 아이디를 넣으면 해당 에디터박스의 데이터를 보내준다.
 	         }, 
 	         success : function(t){ 
@@ -78,7 +74,7 @@ $(document).ready(function(){
 	                       
 	         } , 
 	         error : function(){ 
-	                   alert('불러오기 실패'); 
+	                   alert('메시지 불러오기 실패'); 
 	         } 
 	  });
 	});
