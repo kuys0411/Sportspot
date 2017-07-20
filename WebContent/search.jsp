@@ -440,7 +440,7 @@
 
 				<br>
 				<p>
-					검색 종목 :<span id="inputtype"></span>
+					검색 종목 : <span id="inputtype"></span>
 				</p>
 				<div id="hoho"></div>
 				<div id="here"></div>
