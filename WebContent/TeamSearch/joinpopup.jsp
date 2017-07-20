@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>메시지 보내기</title>
+<title>메시지 보내기</title>	
 <link href="../Resources/css/join_css/style.css" rel='stylesheet' type='text/css' />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script
@@ -21,18 +21,13 @@
 
 <script>
 
-/* function closeSelf(){
-    // do something
+ function closeSelf(){
 
-    if(condition satisfied){
-       alert("conditions satisfied, submiting the form.");
-       document.forms['certform'].submit();
+       document.forms['message'].submit();
+       alert("메시지를 보냈습니다");
        window.close();
-    }else{
-       alert("conditions not satisfied, returning to form");    
-    }
 }
- */
+ 
 /* 
 <form action="/system/wpacert" method="post" enctype="multipart/form-data" name="certform">
        <div>Certificate 1: <input type="file" name="cert1"/></div>
@@ -55,7 +50,7 @@
 		<div class="login">
 			<div class="inset">
 				<!-----start-main---->
-				<form action="/Project/sendMessage" method="POST">
+				<form action="sendMessage" method="POST" name="message">
 			         <div>
 						<span><label>MessageSender</label></span>
 						<span><input type="text" class="textbox" name="messageFrom" id="active" value ="<%=userid%>" readonly ></span>

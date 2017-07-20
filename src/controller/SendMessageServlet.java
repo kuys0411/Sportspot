@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +17,7 @@ import model.MessageDTO;
 /**
  * Servlet implementation class SendMessageServlet
  */
-@WebServlet("/sendMessage")
+@WebServlet("/TeamSearch/sendMessage")
 public class SendMessageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -46,13 +48,17 @@ public class SendMessageServlet extends HttpServlet {
 		String message_from = request.getParameter("messageFrom");
 		String message_to = request.getParameter("messageTo");
 		String message_body = request.getParameter("messageBody");
-		
+		String message_Date = null;
+		System.out.println("Message info");
+		System.out.println("MessageFrom : " + message_from);
+		System.out.println("Message to :" + message_to);
+		System.out.println("Message body : " +message_body);
 		MessageDAO msgdao = new MessageDAO();
-		MessageDTO msgdto = new MessageDTO(message_from, message_to, message_body);
+		MessageDTO msgdto = new MessageDTO(message_from, message_to, null, message_body);
 		int result = msgdao.insertMessageDTO(msgdto);
 		
 		RequestDispatcher rd;
-		rd = request.getRequestDispatcher("/TeamSearch/teamsearch.jsp");
+		rd = request.getRequestDispatcher("teamsearch.jsp");
 		rd.forward(request, response);
 	}
 
