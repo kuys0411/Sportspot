@@ -180,8 +180,7 @@ $(document).ready(function(){
 					<div class="subtitle">
 
 						<span class="tab_wrapper"> <a id="btn_toggle_book"
-						class="toggle_button active">실시간 예약</a>
-<!-- 기존 버튼 ::  <p class="btn btn-warning" style="background-color: #f1c40f">실시간 예약</p> -->
+							class="toggle_button active">실시간 예약</a> <!-- 기존 버튼 ::  <p class="btn btn-warning" style="background-color: #f1c40f">실시간 예약</p> -->
 
 						</span>
 					</div>
@@ -194,9 +193,8 @@ $(document).ready(function(){
 								<div id="map_ma"></div>
 							</div>
 						</div>
-						
-						Place Information
-						<br>
+
+						Place Information <br>
 						<h3>
 							<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${placeinfo.pname}</b>
 						</h3>
@@ -239,13 +237,12 @@ $(document).ready(function(){
 
 										<div class="col-xs-6">
 											<input type="date" id="select_date" name="select_date"
-												style="color: black" value="${current_date}" min="${current_date}"
-												max="2017-07-31"></input> 
-												<input type="button" class="btn btn-default" id="btn btn-default " name="date_btn" value="선택"
-												style="background-color: #333333; color:white;"></input>
-										</div>toggle_button:select
-										<!-- 기존 버튼 ::  <p class="btn btn-warning" style="background-color: #f1c40f">실시간 예약</p> -->
-
+												style="color: black" value="${current_date}"
+												min="${current_date}" max="2017-07-31"></input> <input
+												type="button" class="btn btn-default" id="btn btn-default "
+												name="date_btn" value="선택"
+												style="background-color: #333333; color: white;"></input>
+										</div>
 									</div>
 								</div>
 
@@ -292,16 +289,16 @@ $(document).ready(function(){
 													<c:when test="${name < 30}">
 														<!-- 인원수 30명 미만 예약가능 -->
 														<td><input type="submit" class="btn btn-warning"
-															id="reservebtn" value="예약하기" onclick="call('${time}')"
-															></td>
+															id="reservebtn" value="예약하기" onclick="call('${time}')"></td>
+
 													</c:when>
 
 													<c:otherwise>
 														<!-- 인원수 30명부터 예약 불가능  -->
 
-														<td><input type="button" class="red" id="reservebtn"
-															value="예약불가" disabled="disabled"
-															style="background-color: #000000"></td>
+														<td><input type="button" class="btn btn-default"
+															id="reservebtn" value="예약불가" disabled="disabled"
+															style="background-color: #ed3e43; border-color: #ed3e43; color: white;"></td>
 													</c:otherwise>
 
 												</c:choose>
