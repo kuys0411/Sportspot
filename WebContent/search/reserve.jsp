@@ -285,12 +285,12 @@ $(document).ready(function(){
 												<td>${count_info[status.index]}</td>
 												<!-- 수정해야한다. -->
 
-												<c:set var="name" value="${count_info[status.index]}" />
+												<c:set var="count" value="${count_info[status.index]}" />
 												<c:choose>
-													<c:when test="${name < 30}">
+													<c:when test="${count < 30}">
 														<!-- 인원수 30명 미만 예약가능 -->
 														<td><input type="submit" class="btn btn-warning"
-															id="reservebtn" value="예약하기" onclick="call('${time}')"></td>
+															id="reservebtn" value="예약하기" onclick="call('${time}',${count_info[status.index]})"></td>
 
 													</c:when>
 
@@ -320,12 +320,6 @@ $(document).ready(function(){
 									name="select_time"></textarea>
 							</div>
 
-							<!-- <div class="subtitle">
-										<span class="tab_wrapper">
-											<p class="btn btn-warning" style="background-color: #f1c40f">오시는
-												길</p>
-										</span>
-									</div>  -->
 						</form>
 
 					</div>
@@ -450,11 +444,13 @@ $(document).ready(function(){
 			
 		});
 	
-		function call(time){ //예약하기 버튼 눌렀을 때 call되는 함수 
+		function call(time, count_info){ //예약하기 버튼 눌렀을 때 call되는 함수 
 			 	
+				alert(count_info); //선택한 기존 신청 인원 
+				
 				var result = confirm(time+":00시를 선택하셨습니다. 정말 예약하시겠습니까?" );
 				var sel_count = document.getElementById("sel_count");
-				//var sel_date = document.getElementById("select_date");
+				
 				
 				//id(hidden)에 접근하여 time쓰기 (넘기기용)
 		        var hidden_time= document.getElementById("select_time");   
@@ -465,7 +461,11 @@ $(document).ready(function(){
 		        	sel_count.focus();
 		        	return false;
 		        } */
-		         
+		        
+		        alert(sel_count.value); //선택한 인원 수 
+		        
+		        alert(count_info+sel_count);
+		        
 				if(result){
 		        	myfrm.submit(); 
 		        } 
