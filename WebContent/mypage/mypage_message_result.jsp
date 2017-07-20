@@ -11,6 +11,6 @@
 						<span id="messageDate">${msg.message_Date}</span> <br>
 						<p>Message Body</p>
 						<span id="messageBody">${msg.messageBody} </span> <br>    
-						<button> Reply  </button> <button> Delete </button>
+						<button class="messageReply"> Reply  </button> <button class="messageDelete"> Delete </button>
 					</div>
 			</c:forEach>

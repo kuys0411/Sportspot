@@ -27,6 +27,7 @@ public class MessageDAO {
 			st.setString(2, msgdto.getMessageTo());
 			st.setString(3, msgdto.getMessageBody());
 			result = st.executeUpdate();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
