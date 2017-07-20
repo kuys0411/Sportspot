@@ -1,22 +1,45 @@
 package model;
 
-import java.sql.Date;
 
 public class MessageDTO {
 	String messageFrom;
 	String messageTo;
 	String messageBody;
-	Date message_Date;
+	long messageID = 0; 
 	
 	public MessageDTO(){}
 	
-	public MessageDTO(String messageFrom, String messageTo, String messageBody, Date message_Date) {
+	
+	
+	public MessageDTO(String messageFrom, String messageTo, String messageBody, long messageID) {
 		super();
 		this.messageFrom = messageFrom;
 		this.messageTo = messageTo;
 		this.messageBody = messageBody;
-		this.message_Date = message_Date;
+		this.messageID = messageID;
 	}
+
+
+
+	public long getMessageID() {
+		return messageID;
+	}
+
+
+
+	public void setMessageID(int messageID) {
+		this.messageID = messageID;
+	}
+
+
+
+	public MessageDTO(String messageFrom, String messageTo, String messageBody) {
+		super();
+		this.messageFrom = messageFrom;
+		this.messageTo = messageTo;
+		this.messageBody = messageBody;
+	}
+	
 	public String getMessageFrom() {
 		return messageFrom;
 	}
@@ -35,13 +58,6 @@ public class MessageDTO {
 	public void setMessageBody(String messageBody) {
 		this.messageBody = messageBody;
 	}
-	public Date getMessage_Date() {
-		return message_Date;
-	}
-	public void setMessage_Date(Date message_Date) {
-		this.message_Date = message_Date;
-	}
-	
 	
 	
 	

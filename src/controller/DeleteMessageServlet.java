@@ -37,13 +37,11 @@ public class DeleteMessageServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("deleteMEssageservlet");
-		System.out.println("deleteMEssageservlet");
-
-		System.out.println("deleteMEssageservlet");
-
+/*
+		msgFrom : messageFrom,
+		msgBody : messageBody*/
 		request.setCharacterEncoding("utf-8");
-		String msgFrom = request.getParameter("messageFrom");
+		String msgFrom = request.getParameter("msgFrom");
 		String msgBody = request.getParameter("msgBody");
 		HttpSession session = request.getSession();
 		String msgTo = (String)session.getAttribute("userID");

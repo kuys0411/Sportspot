@@ -73,8 +73,6 @@ $(document).ready(function(){
 	<button class="messageReply"> Reply  </button> <button class="messageDelete"> Delete </button>
 </div> */
 	
-	
-    
     $('#here').on('click', '.messageReply', function(){
 		alert("reply");
     	var msgTo = $(this).closest("div").find('#messageFrom').text();
@@ -91,6 +89,7 @@ $(document).ready(function(){
 		var delDiv = $(this).closest("div");
     	var messageFrom = $(this).closest("div").find('#messageFrom').text();
     	var messageBody = $(this).parent().find('#messageBody').text();
+    	alert(messageFrom);
     	alert("delete");
     	$.ajax({ 
 			url:'deleteMessage',
