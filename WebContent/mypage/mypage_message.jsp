@@ -62,34 +62,50 @@
 <script>
 
 $(document).ready(function(){
-/* 	$('#here').on('click', '.join', function (){
-		var msgTo = $(this).closest("tr").find('#gotoMessage').text();
-		
-		/* 		var messsageToValue = $(this).closest("tr").find('#gotoMessage').text();
-				alert(messageToValue); */
-				OpenWin = window.open("joinpopup.jsp", "a", "width=400, height=700, left=300, top=100");
-		/* 		$(OpenWin.document).ready(function(){
-					$(OpenWin).contents().find('#MSGTO').value(msgTo);
-				}); */
-				
-				OpenWin.onload = function(){
-					OpenWin.document.getElementById('MSGTO').value = msgTo;
-				}
-				/* purchaseWin.onload = function () {
-					  purchaseWin.document.getElementById('tdProduct').innerHTML = '2';
-					}; */
-    }); */
+/* 
+	<div class="msgForm">
+	<p>Message_From</p>
+	<span id="messageFrom"> ${msg.messageTo}</span> <br>
+	<p>Date</p>
+	<span id="messageDate">${msg.message_Date}</span> <br>
+	<p>Message Body</p>
+	<span id="messageBody">${msg.messageBody} </span> <br>    
+	<button class="messageReply"> Reply  </button> <button class="messageDelete"> Delete </button>
+</div> */
+	
+	
     
-    $('#here').on('click', '.messageDelete', function(){
-		var OpenWin = window.open("joinpopup.jsp", "a", "width=400, height=700, left=300, top=100");
+    $('#here').on('click', '.messageReply', function(){
+		alert("reply");
+    	var msgTo = $(this).closest("div").find('#messageFrom').text();
+    	alert("msgTO : " + msgTo);
+    	var OpenWin = window.open("../TeamSearch/joinpopup.jsp", "a", "width=400, height=700, left=300, top=100");
 		OpenWin.onload = function(){
-			OpenWin.document.getElementById('MSGTO').value = msgTo;
-			OpenWin.document.getELementByID('MSGFROM').value =<%=userid%>; 
+			OpenWin.document.getElementById('MSGTO').value = "<%=userid%>";
+			OpenWin.document.getELementByID('MSGFROM').value= msgTo; 
 		}
     });
     
-	$('#here').on('click', '.messageReply', function(){
-    	
+	$('#here').on('click', '.messageDelete', function(){
+		alert("delete");
+		var delDiv = $(this).closest("div");
+    	var messageFrom = $(this).closest("div").find('#messageFrom').text();
+    	var messageBody = $(this).closest("div").find('#messageBody').text();
+		$ajax({
+			url:'deleteMessage',
+			type:'POST',
+			data:{
+				msgFrom : messageFrom,
+				msgBody : messageBody
+			},
+			success : function(t){
+				alert("메시지 삭제 성공");
+				delDiv.remove();
+			},
+			error : function(){
+				alert("메시지 삭제 실패");
+			}
+		});
     });
     
 	

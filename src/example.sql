@@ -23,7 +23,11 @@ select * from Message where Message_receiver ='koo'
 
 select * from message;
 
+create sequence seq_b_id;
 
+insert into BOOKING_PLACE values(111, 6, 2017-07-20, 5);
+
+select * from BOOKING_MEMBER
 select * from BOOKING_MEMBER;
 
 delete from BOOKING_MEMBER;

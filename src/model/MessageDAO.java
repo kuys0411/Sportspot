@@ -17,7 +17,10 @@ public class MessageDAO {
 	
 	String selectAllMessage = "select * from Message where Message_receiver = ? ";
 	String insert_message = "insert into Message (Message_sender, Message_receiver, Message_Body, Message_Date ) values (?,?,?, SYSDATE) ";
+	
+	String delete_message = "delete from message where Message_sender = ? and Message_receiver = ? and Message_Body = ? ";
 
+			
 	public int insertMessageDTO(MessageDTO msgdto) {
 		conn = DBUtil.getConnect();
 		int result = 0;
@@ -46,9 +49,7 @@ public class MessageDAO {
 
 			st = conn.prepareStatement(selectAllMessage);
 			st.setString(1, userID);
-			System.out.println("getMessage2");
 			rs = st.executeQuery();
-			System.out.println("getMessage3");
 			while(rs.next()) {
 				MessageDTO messagedto = makeMessageDTO(rs);
 				messagelist.add(messagedto);
@@ -78,6 +79,25 @@ public class MessageDAO {
 		MessageDTO messageDTO = new MessageDTO(message_from, message_to, message_body, null);
 		
 		return messageDTO;
+	}
+/*	String delete_message = "delete from message where Message_sender = ? and Message_receiver = ? and Message_Body = ? ";
+*/
+	public int deleteMessage(String msgTo, String msgFrom, String msgBody) {
+		int result = 0;
+		conn = DBUtil.getConnect();
+		try {
+			st = conn.prepareStatement(delete_message);
+			st.setString(1, msgFrom);
+			st.setString(2, msgTo);
+			st.setString(3, msgBody);
+			result = st.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DBUtil.dbclose(conn, st, rs);
+		}
+		return result;
 	}
 
 }

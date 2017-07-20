@@ -53,7 +53,7 @@
 				<form action="sendMessage" method="POST" name="message">
 			         <div>
 						<span><label>MessageSender</label></span>
-						<span><input type="text" class="textbox" name="messageFrom" id="MSGSENDER" value ="<%=userid%>" readonly ></span>
+						<span><input type="text" class="textbox" name="messageFrom" id="MSGFROM" value ="<%=userid%>" readonly ></span>
 					 </div>
 					 <div>
 						<span><label>MessageReceiver</label></span>
