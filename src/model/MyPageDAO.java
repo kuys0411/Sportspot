@@ -19,6 +19,8 @@ public class MyPageDAO {
 			+ " from PLACE A , BOOKING_MEMBER B "
 			+ " where A.P_ID = B.P_ID AND M_ID = ? "; 
 	
+	String deleteBookInfo = "delete from BOOKING_MEMBER where B_ID = ? and M_ID = ? ";
+	
 	public List<BookInfoDTO_SSH> select_bookinfo_BY_ID(String memberID) {
 		conn = DBUtil.getConnect();
 		List<BookInfoDTO_SSH> booklist = new ArrayList<BookInfoDTO_SSH>();
@@ -52,6 +54,24 @@ public class MyPageDAO {
 		BookInfoDTO_SSH bookinfo = new BookInfoDTO_SSH(bookid, bookDate, startTime, placeName, booknum);
 		
 		return bookinfo;
+	}
+
+	public int deleteBookInfo(int bID, String mID) {
+		// TODO Auto-generated method stub
+		conn = DBUtil.getConnect();
+		int result = 0;
+		try {
+			st = conn.prepareStatement(deleteBookInfo);
+			st.setInt(1, bID);
+			st.setString(2, mID);
+			result = st.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBUtil.dbclose(conn, st, rs);
+		}
+		return result;
 	}
 
 	
