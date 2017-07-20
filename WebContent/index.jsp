@@ -100,7 +100,7 @@
 			$("#logout").addClass("hide");
 			
 			id="null";
-			alert(id);
+			/* alert(id); */
 		}); 
 		
 	});
