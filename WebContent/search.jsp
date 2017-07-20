@@ -92,23 +92,16 @@ a:hover {
 	if ((String) session.getAttribute("userID") != null) {
 		userid = (String) session.getAttribute("userID");
 		
+	}else{
+		response.sendRedirect("login.jsp");
 	}
 	
 %>
-<<script>
-$(document).ready(function(){
-	
-	
-	
-});
-
-</script>
-
 
 
 <body ng-app="myapp">
 
-
+	
 
 	<div class="modal fade" id="error_modal">
 		<div class="modal-dialog">
