@@ -49,7 +49,16 @@
 
 
 </head>
-
+<%
+	String userid = null;
+	request.setCharacterEncoding("utf-8");
+	if ((String) session.getAttribute("userID") != null) {
+		userid = (String) session.getAttribute("userID");
+		
+	}else{
+		response.sendRedirect("login.jsp");
+	}
+%>
 
 <body ng-app="myapp">
 	<div class="modal fade" id="error_modal">
@@ -77,7 +86,7 @@
 				<div class="navbar-header">
 					<div id="top_logo">
 						<a class="navbar-brand" href="index.jsp"><img
-								src="Resources/images/jin/logo/full.png"></a>
+							src="Resources/images/jin/logo/full.png"></a>
 					</div>
 					<button type="button" class="navbar-toggle collapsed"
 						data-toggle="collapse" data-target="#nav_collapse"
@@ -92,11 +101,11 @@
 				<div class="collapse navbar-collapse" id="nav_collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="/Project"> HOME </a></li>
-						<li><a href="/about/" class="active"> SEARCH </a></li>
-
-						<li><a href="/contact/"> MYPAGE </a></li>
-						<li><a href="/contact/"> LOGOUT </a></li>
-						<li class=""><a class="set_lang_en" href="#"> </a></li>
+						<li><a id="search" href="#" class="active"> SEARCH </a></li>
+						<li id="mypage"><a href="mypage/mypageShowInfo">MYPAGE</a></li>
+						<li id="logout"><a href="logout"><span></span>LOGOUT</a></li>
+						<li id="login_result"><a><span id="userid"><%=userid%>님
+									환영합니다.</span></a></li>
 
 					</ul>
 				</div>
@@ -115,9 +124,9 @@
 					</div>
 
 					<br>
-					
+
 					<h3>
-						
+
 						<b><center>예약내역</center></b>
 					</h3>
 
@@ -136,19 +145,20 @@
 									</tr>
 								</thead>
 								<tbody>
-								
-									
+
+
 									<tr class="warning">
 										<td><center>${date}</center></td>
 										<td><center>${place}</center></td>
 										<td><center>${time}:00</center></td>
 										<td><center>${bnum}명</center></td>
 									</tr>
-								
+
 								</tbody>
 							</table>
-							
-							<br><br>
+
+							<br>
+							<br>
 
 						</div>
 					</div>

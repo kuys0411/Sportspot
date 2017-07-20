@@ -19,8 +19,6 @@
                                    initial-scale=1.0,
                                    maximum-scale=1">
 
-
-
 <meta name="title" content="Seoul Escape Room">
 
 <link rel="stylesheet" href="../1.css" type="text/css" />
@@ -101,8 +99,6 @@ a:hover {
 
 <body ng-app="myapp">
 
-	
-
 	<div class="modal fade" id="error_modal">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -144,13 +140,10 @@ a:hover {
 					<div class="collapse navbar-collapse" id="nav_collapse">
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/Project"> HOME </a></li>
-							<li><a id="search" href="#"> SEARCH </a></li>
+							<li><a id="search" href="#" class="active"> SEARCH </a></li>
 							<li id="mypage" ><a href="mypage/mypageShowInfo">MYPAGE</a></li>
 							<li id="logout" ><a href="logout"><span></span>LOGOUT</a></li>
 							<li id="login_result" ><a><span id="userid"><%=userid%>님 환영합니다.</span></a></li>
-
-
-
 
 
 						</ul>
