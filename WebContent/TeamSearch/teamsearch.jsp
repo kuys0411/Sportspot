@@ -192,20 +192,20 @@ $(function(){
               var txt = $("#inputtype").text();
               //alert(txt); 
        $.ajax({ 
-               url:'search', //가져오고자하는 서버페이지 주소를 넣는다. 
-               type:'get', //데이터를 서버로 전송하게 된다. 
+               url:'searchTeam', //가져오고자하는 서버페이지 주소를 넣는다. 
+               type:'GET', //데이터를 서버로 전송하게 된다. 
                data:{ 
             	   P_type: txt,  //에디터박스의 아이디를 넣으면 해당 에디터박스의 데이터를 보내준다.
             	   P_doro: $('#P_doro').val()       
                } , 
                success : function(t){ 
-                            // alert('성공!' + t);
+                            alert('성공!' + t);
                              
                              $("#here").html(t);
                          
                } , 
                error : function(){ 
-                       //  alert('실패 ㅠㅠ'); 
+                        alert('실패 ㅠㅠ'); 
                } 
         });
     }); 

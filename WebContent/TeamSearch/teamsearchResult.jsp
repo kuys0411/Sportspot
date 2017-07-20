@@ -27,7 +27,7 @@
           <td> ${oneitem.bnum} </td>
           <td> ${oneitem.bdate} </td>
           <td> ${oneitem.bstart} </td>
-          <td> ${oneitem.btype} </td>
+          <td> ${oneitem.ptype} </td>
           <td> <button id="join" onclick="joinpopup()">같이하기</button> </td>
           </tr>
  </c:forEach>
