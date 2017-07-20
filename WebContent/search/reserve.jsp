@@ -229,10 +229,12 @@ $(document).ready(function(){
 							<!-- 지점 선택 & 날짜 선택 -->
 							<div class="row">
 
-
+								<br>
 								<div class="col-xs-12 col-sm-6 booking_input_wrapper">
 									<div class="row">
+										
 										<div class="col-xs-6">
+										
 											<label> 날짜선택 </label>
 										</div>
 
@@ -246,13 +248,14 @@ $(document).ready(function(){
 										</div>
 									</div>
 								</div>
-
+		
 								<!-- 지점 선택 -->
 								<div class="col-xs-12 col-sm-6 booking_input_wrapper">
 									<div class="row">
 										<div class="col-xs-6">
 											<label> 인원선택 </label>
 										</div>
+										
 										<div class="col-xs-6">
 											<input type="number" id="sel_count" name="sel_count"
 												value="1" required="required" style="color: black">
@@ -263,7 +266,7 @@ $(document).ready(function(){
 								</div>
 							</div>
 
-
+							<br>
 
 							<div id="here"></div>
 							<!--  -->
@@ -311,15 +314,17 @@ $(document).ready(function(){
 									</tbody>
 								</table>
 							</div>
-							<div style="visibility: hidden" id="hidden">
-								<input type="text" id="sel_pid" name="sel_pid"
-									value="${placeinfo.pid}"></input> <input type="text"
-									name="sel_place" value="${placeinfo.pname}"></input>
-								<!-- <input type="text" id="select_time" name="select_time">시간</input> -->
-								<textarea type="text" cols="1" rows="1" id="select_time"
-									name="select_time"></textarea>
+							
+							<div class="row">
+								<div style="visibility: hidden" id="hidden">
+									<input type="text" id="sel_pid" name="sel_pid"
+										value="${placeinfo.pid}"></input> <input type="text"
+										name="sel_place" value="${placeinfo.pname}"></input>
+									<!-- <input type="text" id="select_time" name="select_time">시간</input> -->
+									<textarea type="text" cols="1" rows="1" id="select_time"
+										name="select_time"></textarea>
+								</div>
 							</div>
-
 						</form>
 
 					</div>

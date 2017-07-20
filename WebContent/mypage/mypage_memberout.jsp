@@ -88,10 +88,10 @@
 					<div class="collapse navbar-collapse" id="nav_collapse">
 						<ul class="nav navbar-nav navbar-right" id="navbar-ul">
 							<li><a href="../index.jsp" class="active"> HOME </a></li>
-							<li><a href="../searchTest.jsp"> SEARCH </a></li>
+							<li><a href="../search.jsp"> SEARCH </a></li>
 							<!--  로그인을 하면 로그아웃이랑 MyPage로 교체 -->
 							<li id="mypage"><a href="mypageShowInfo">MYPAGE</a></li>
-							<li id="logout"><a href="logout"><span></span>LOGOUT</a></li>
+							<li id="logout"><a href="../logout"><span></span>LOGOUT</a></li>
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
