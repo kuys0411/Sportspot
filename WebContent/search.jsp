@@ -457,35 +457,33 @@ a:hover {
 
 
 			<!-- search box -->
-			<div class="container">
-				<h2>지역 조회</h2>
-				<br>
-
-				<div class="input-group">
-					<input type="text" class="form-control"
-						placeholder="동명을 입력하세요 ex)잠실동 " id="P_doro"
-						onkeydown="if (event.keyCode == 13)
+				<div class="container" id="basic">
+					<h2>지역 조회</h2>
+					<br>
+					
+					<div class="input-group">
+						<input type="text" class="form-control"
+							placeholder="동명을 입력하세요 ex)잠실동 " id="P_doro"
+							onkeydown="if (event.keyCode == 13)
                         document.getElementById('searchInput').click()"
-						name="P_doro" value=""> <input type="hidden" id="su3"
-						name="P_type"> <input type="hidden" id="su4" name="too">
-					<input type="hidden" id="su5" name="too">
-					<div class="input-group-btn">
-						<button id=searchInput class="btn btn-default" type="button">
-							<i class="glyphicon glyphicon-search"></i>
-						</button>
+							name="P_doro"> <input type="hidden" id="su3"
+							name="P_type"> <input type="hidden" id="su4" name="too">
+						<div class="input-group-btn">
+							<button id=searchInput class="btn btn-default" type="button">
+								<i class="glyphicon glyphicon-search"></i>
+							</button>
+						</div>
 					</div>
-				</div>
-			</div>
+					
+					<p>
+						같이 검색할 검색 종목 :<span id="inputtype"></span> <br>	</p>
 
-			<!-- 			selected sport type -->
-			<div class="container">
-				<br>
-				<p>
-					같이 검색할 검색 종목 :<span id="inputtype"></span>
-				</p>
-				<div id="hoho"></div>
-				<div id="here"></div>
-			</div>
+					<div id="hoho"></div>
+					<div id="here"></div>
+						
+				
+					
+				</div>
 
 		</div><!--  end of body-inner part -->
 
