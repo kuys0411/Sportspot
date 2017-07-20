@@ -69,7 +69,7 @@
 	<%-- var Stringid=""<%=userid%>"+"님 환영합니다."; --%>
 	$(document).ready(function(){
 		if(id != "null"){
-			alert(id+"님, 어서오세요! :D");
+			/* alert(id+"님, 어서오세요! :D"); */
 			$("#login").addClass("hide")
 			$("#register").addClass("hide");
 			$("#mypage").removeClass("hide");

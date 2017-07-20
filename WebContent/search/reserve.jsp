@@ -86,8 +86,8 @@ $(document).ready(function(){
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
 						<div id="top_logo">
-							<a class="navbar-brand" href="/"><img
-								src="http://www.seoul-escape.com/static/image/logo_v6.jpg"></a>
+							<a class="navbar-brand" href="index.jsp"><img
+								src="Resources/images/jin/logo/full.png"></a>
 						</div>
 						<button type="button" class="navbar-toggle collapsed"
 							data-toggle="collapse" data-target="#nav_collapse"

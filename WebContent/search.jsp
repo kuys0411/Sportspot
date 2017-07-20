@@ -114,8 +114,8 @@ a:hover {
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
 						<div id="top_logo">
-							<a class="navbar-brand" href="/"><img
-								src="http://www.seoul-escape.com/static/image/logo_v6.jpg"></a>
+							<a class="navbar-brand" href="index.jsp"><img
+								src="Resources/images/jin/logo/full.png"></a>
 						</div>
 						<button type="button" class="navbar-toggle collapsed"
 							data-toggle="collapse" data-target="#nav_collapse"
@@ -368,9 +368,12 @@ a:hover {
 			<div class="container" id="reservation_container"
 				ng-controller="AppController">
 				<div id="booking_toggle_wrapper" class="subtitle">
+				 
 					<span class="tab_wrapper"> <a id="btn_toggle_book"
-						class="toggle_button active">장소 검색</a>
-					</span> <span class="tab_wrapper"> <a id="btn_toggle_book"
+						class="toggle_button active" href="#">장소 검색</a>
+					</span>
+					
+					<span class="tab_wrapper"> <a id="btn_toggle_book"
 						class="toggle_button active"
 						href="/Project/TeamSearch/teamsearch.jsp">팀 검색</a>
 					</span>
