@@ -446,29 +446,24 @@ $(document).ready(function(){
 	
 		function call(time, count_info){ //예약하기 버튼 눌렀을 때 call되는 함수 
 			 	
-				alert(count_info); //선택한 기존 신청 인원 
-				
-				var result = confirm(time+":00시를 선택하셨습니다. 정말 예약하시겠습니까?" );
 				var sel_count = document.getElementById("sel_count");
-				
-				
-				//id(hidden)에 접근하여 time쓰기 (넘기기용)
-		        var hidden_time= document.getElementById("select_time");   
+				var hidden_time= document.getElementById("select_time");   
 		        hidden_time.innerHTML= time;
 		        
-		        /* if(sel_count.value==0){ 예외처리 
-		        	alert("aaaaaaaaaaaaaaaa");
-		        	sel_count.focus();
-		        	return false;
-		        } */
-		        
-		        alert(sel_count.value); //선택한 인원 수 
-		        
-		        alert(count_info+sel_count);
-		        
-				if(result){
+		        var past_count= Number(count_info); //정수로 변환 
+		        var select_people = Number(sel_count.value);
+		       	var people = past_count+select_people;
+		       
+		       	if(people>30){
+		       		alert("인원 초과로 예약이 불가능합니다.");
+		       		return;
+		       	}
+		       	
+		       	var result = confirm(time+":00시를 선택하셨습니다. 정말 예약하시겠습니까?" );
+		       	if(result){
 		        	myfrm.submit(); 
-		        } 
+		        }
+		       	
 		}
 		
 		
