@@ -93,7 +93,7 @@
 		userid = (String) session.getAttribute("userID");
 		
 	}else{
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("../login.jsp");
 	}
 %>
 
