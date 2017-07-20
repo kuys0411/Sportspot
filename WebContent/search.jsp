@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
 <!DOCTYPE html >
 <html>
+
 <head>
 <meta name="google-site-verification"
 	content="YHkzOS5N5M9qkZTIGtDDfuKidQhuMuSj02txDAxSlxg" />
@@ -9,9 +13,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title id="title_seoul_escape">SPORTSPOT</title>
 
-<link rel="shortcut icon"
-	href='http://www.seoul-escape.com/static/image/favicon.ico'
+<!-- design : icon -->
+<link rel="shortcut icon" href="Resources/images/jin/ico/favicon.png"
 	type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="Resources/images/jin/ico/ghost-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="Resources/images/jin/ico/ghost-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="Resources/images/jin/ico/ghost-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed"
+	href="Resources/images/jin/ico/ghost-icon-57-precomposed.png">
+
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -19,33 +32,16 @@
                                    initial-scale=1.0,
                                    maximum-scale=1">
 
+
 <meta name="title" content="Seoul Escape Room">
 
-<link rel="stylesheet" href="../1.css" type="text/css" />
+<!-- CSS -->
 
-
-<link rel="stylesheet"
-	href="http://www.seoul-escape.com/static/CACHE/css/58f590e8ac6c.css"
+<link rel="stylesheet" href="Resources/css/search/search1.css"
 	type="text/css" />
-<link href="http://www.seoul-escape.com/static/css/reservation.css"
-	rel="stylesheet" />
-
-<script type="text/javascript"
-	src="http://www.seoul-escape.com/static/CACHE/js/38f6e66c6208.js"></script>
-
-<link href="./css_kyy/css_kyy1.css" rel="stylesheet" type="text/css" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="Resources/css/search/reservation.css" rel="stylesheet" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script src="http://code.jquery.com/jquery-1.12.1.js"></script>
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <style type="text/css">
 .icon img {
 	float: left;
@@ -68,7 +64,7 @@ a:link {
 
 a:visited {
 	text-decoration: none;
-	color: #333333;
+	color: white;
 }
 
 a:active {
@@ -78,12 +74,28 @@ a:active {
 
 a:hover {
 	text-decoration: underline;
-	color: yellow;
+	color: #ed3e43;
 }
 </style>
+
+
+<!-- JaveScript -->
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.12.1.js"></script>
+<script type="text/javascript"
+	src="http://www.seoul-escape.com/static/CACHE/js/38f6e66c6208.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 
-
+<!-- 로그인 예외처리 -->
 <%
 	String userid = null;
 	request.setCharacterEncoding("utf-8");
@@ -95,7 +107,6 @@ a:hover {
 	}
 	
 %>
-
 
 <body ng-app="myapp">
 
@@ -118,7 +129,10 @@ a:hover {
 	</div>
 
 	<div id="body_wrapper">
+
 		<div id="body_inner">
+
+			<!-- 상단바 -->
 			<nav class="navbar navbar-default" role="navigation" id="nav">
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
@@ -141,9 +155,10 @@ a:hover {
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/Project"> HOME </a></li>
 							<li><a id="search" href="#" class="active"> SEARCH </a></li>
-							<li id="mypage" ><a href="mypage/mypageShowInfo">MYPAGE</a></li>
-							<li id="logout" ><a href="logout"><span></span>LOGOUT</a></li>
-							<li id="login_result" ><a><span id="userid"><%=userid%>님 환영합니다.</span></a></li>
+							<li id="mypage"><a href="mypage/mypageShowInfo">MYPAGE</a></li>
+							<li id="logout"><a href="logout"><span></span>LOGOUT</a></li>
+							<li id="login_result"><a><span id="userid"><%=userid%>님
+										환영합니다.</span></a></li>
 
 
 						</ul>
@@ -152,11 +167,6 @@ a:hover {
 				</div>
 				<!-- /.container-fluid -->
 			</nav>
-			<!-- 상단바 -->
-
-
-
-
 
 			<SCRIPT LANGUAGE="JavaScript">
 				var checkArray = Array.apply(null, new Array(12)).map(
@@ -376,136 +386,140 @@ a:hover {
 								});
 			</script>
 
-
-			<div class="container" id="reservation_container"
-				ng-controller="AppController">
+			<!-- search type bar -->
+			<div class="container" id="reservation_container">
 				<div id="booking_toggle_wrapper" class="subtitle">
 
 					<span class="tab_wrapper"> <a id="btn_toggle_book"
 						class="toggle_button active" href="#">장소 검색</a>
 					</span> <span class="tab_wrapper"> <a id="btn_toggle_book"
-						class="toggle_button active"
-						href="/Project/TeamSearch/teamsearch.jsp">팀 검색</a>
+						class="toggle_button" href="/Project/TeamSearch/teamsearch.jsp">팀
+							검색</a>
 					</span>
 				</div>
+			</div>
 
+			<!-- sport type section -->
+			<div class="container" id="reservation_container">
+				&nbsp;&nbsp;
+				<h2>스포츠 타입</h2>
 
-				<div class="container" id="reservation_container"
-					ng-controller="AppController">
-					&nbsp;&nbsp;
-					<h2>스포츠 타입</h2>
+				<div class="icon aa">
+					<img src="./image_kyy/soccer.png" name="soccer"> <img
+						src="./image_kyy/baseball.png" name="baseball"> <img
+						src="./image_kyy/badminton.png" name="badminton"> <img
+						src="./image_kyy/goggles.png" name="goggles"> <img
+						src="./image_kyy/golf.png" name="golf"> <img
+						src="./image_kyy/tennis-ball.png" name="tennis-ball"> <img
+						src="./image_kyy/ice-skating.png" name="ice-skating"> <img
+						src="./image_kyy/hockey.png" name="hockey"> <img
+						src="./image_kyy/roller-skate.png" name="roller-skate"> <img
+						src="./image_kyy/archery.png" name="archery"> <img
+						src="./image_kyy/target.png" name="target"> <img
+						src="./image_kyy/others.png" id="otherss" name="others"><br>
 
-					<div class="icon aa">
-						<img src="./image_kyy/soccer.png" name="soccer"> <img
-							src="./image_kyy/baseball.png" name="baseball"> <img
-							src="./image_kyy/badminton.png" name="badminton"> <img
-							src="./image_kyy/goggles.png" name="goggles"> <img
-							src="./image_kyy/golf.png" name="golf"> <img
-							src="./image_kyy/tennis-ball.png" name="tennis-ball"> <img
-							src="./image_kyy/ice-skating.png" name="ice-skating"> <img
-							src="./image_kyy/hockey.png" name="hockey"> <img
-							src="./image_kyy/roller-skate.png" name="roller-skate"> <img
-							src="./image_kyy/archery.png" name="archery"> <img
-							src="./image_kyy/target.png" name="target"> <img
-							src="./image_kyy/others.png" id="otherss" name="others"><br>
+					<div class="container" id="otherOptions" style="display: none;">
 
-						<div class="container" id="otherOptions" style="display: none;">
-
-							<div class="dropdown" style="float: right">
-								<button class="btn btn-default dropdown-toggle" type="button"
-									data-toggle="dropdown">
-									상세선택 <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">전체</a></li>
-									<li class="divider"></li>
-									<li><a href="#">승마장</a></li>
-									<li><a href="#">씨름장</a></li>
-									<li><a href="#">요트장</a></li>
-									<li><a href="#">국궁장</a></li>
-									<li><a href="#">인공암장</a></li>
-									<li><a href="#">육상경기장</a></li>
-									<li><a href="#">싸이클경기장</a></li>
-									<li><a href="#">조정카누장</a></li>
-									<li><a href="#">족구장</a></li>
-									<li><a href="#">게이트볼장</a></li>
-									<li><a href="#">전천후게이트볼장</a></li>
-									<li class="divider"></li>
-									<li><a href="#">간이운동장</a></li>
-									<li><a href="#">게이트볼장</a></li>
-									<li><a href="#">구기체육관</a></li>
-									<li><a href="#">기타체육시설</a></li>
-									<li><a href="#">생활체육관</a></li>
-									<li><a href="#">투기체육관</a></li>
-
-								</ul>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-
-
-
-				<div class="container">
-					<h2>지역 조회</h2>
-					<br>
-
-					<div class="input-group">
-						<input type="text" class="form-control"
-							placeholder="동명을 입력하세요 ex)잠실동 " id="P_doro"
-							onkeydown="if (event.keyCode == 13)
-                        document.getElementById('searchInput').click()"
-							name="P_doro" value=""> <input type="hidden" id="su3"
-							name="P_type"> <input type="hidden" id="su4" name="too">
-						<input type="hidden" id="su5" name="too">
-						<div class="input-group-btn">
-							<button id=searchInput class="btn btn-default" type="button">
-								<i class="glyphicon glyphicon-search"></i>
+						<div class="dropdown" style="float: right">
+							<button class="btn btn-default dropdown-toggle" type="button"
+								data-toggle="dropdown">
+								상세선택 <span class="caret"></span>
 							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">전체</a></li>
+								<li class="divider"></li>
+								<li><a href="#">승마장</a></li>
+								<li><a href="#">씨름장</a></li>
+								<li><a href="#">요트장</a></li>
+								<li><a href="#">국궁장</a></li>
+								<li><a href="#">인공암장</a></li>
+								<li><a href="#">육상경기장</a></li>
+								<li><a href="#">싸이클경기장</a></li>
+								<li><a href="#">조정카누장</a></li>
+								<li><a href="#">족구장</a></li>
+								<li><a href="#">게이트볼장</a></li>
+								<li><a href="#">전천후게이트볼장</a></li>
+								<li class="divider"></li>
+								<li><a href="#">간이운동장</a></li>
+								<li><a href="#">게이트볼장</a></li>
+								<li><a href="#">구기체육관</a></li>
+								<li><a href="#">기타체육시설</a></li>
+								<li><a href="#">생활체육관</a></li>
+								<li><a href="#">투기체육관</a></li>
+
+							</ul>
 						</div>
 					</div>
 				</div>
 
+			</div>
+
+
+
+			<!-- search box -->
+			<div class="container">
+				<h2>지역 조회</h2>
+				<br>
+
+				<div class="input-group">
+					<input type="text" class="form-control"
+						placeholder="동명을 입력하세요 ex)잠실동 " id="P_doro"
+						onkeydown="if (event.keyCode == 13)
+                        document.getElementById('searchInput').click()"
+						name="P_doro" value=""> <input type="hidden" id="su3"
+						name="P_type"> <input type="hidden" id="su4" name="too">
+					<input type="hidden" id="su5" name="too">
+					<div class="input-group-btn">
+						<button id=searchInput class="btn btn-default" type="button">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- 			selected sport type -->
+			<div class="container">
 				<br>
 				<p>
 					같이 검색할 검색 종목 :<span id="inputtype"></span>
 				</p>
 				<div id="hoho"></div>
 				<div id="here"></div>
+			</div>
+
+		</div><!--  end of body-inner part -->
 
 
 
 
-				<div id="footer">
-					<div class="container">
-						<div class="row">
-							<div class="col-sm-12 visible_small">
-								<div class="fb_link">
-									<a href="https://www.facebook.com/seoulescape" target="_blank"><img
-										src="http://www.seoul-escape.com/static/image/facebook.png"></a>
-								</div>
-							</div>
-							<div class="col-sm-12 col-md-6">
-								<div class="footer_info">
-									<p>SportSpot © 2017 SEOUL KDATA. All Rights Reserved.</p>
-									<p>(주)SPOTSPORT | 한국데이터진흥원</p>
-									<a href="/reservation/orderlist/" id="admin_orderlist"> </a>
-									</p>
-								</div>
-							</div>
-							<div class="col-md-6 visible_large">
-								<div class="fb_link">
-									<a href="https://www.facebook.com/seoulescape" target="_blank"><img
-										src="http://www.seoul-escape.com/static/image/facebook.png"></a>
-								</div>
-							</div>
+		<div id="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 visible_small">
+						<div class="fb_link">
+							<a href="https://www.facebook.com/seoulescape" target="_blank"><img
+								src="http://www.seoul-escape.com/static/image/facebook.png"></a>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<div class="footer_info">
+							<p>SportSpot © 2017 SEOUL KDATA. All Rights Reserved.</p>
+							<p>(주)SPOTSPORT | 한국데이터진흥원</p>
+							<a href="/reservation/orderlist/" id="admin_orderlist"> </a>
+							</p>
+						</div>
+					</div>
+					<div class="col-md-6 visible_large">
+						<div class="fb_link">
+							<a href="https://www.facebook.com/seoulescape" target="_blank"><img
+								src="http://www.seoul-escape.com/static/image/facebook.png"></a>
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
 
-				<script>
+		<script>
 					(function(i, s, o, g, r, a, m) {
 						i['GoogleAnalyticsObject'] = r;
 						i[r] = i[r] || function() {
@@ -524,8 +538,8 @@ a:hover {
 					ga('send', 'pageview');
 				</script>
 
-				<script type="text/javascript" src="http://wcs.naver.net/wcslog.js"></script>
-				<script type="text/javascript">
+		<script type="text/javascript" src="http://wcs.naver.net/wcslog.js"></script>
+		<script type="text/javascript">
     if(!wcs_add) var wcs_add = {};
     wcs_add["wa"] = "1204ab0e340ff88";
     wcs_do();
