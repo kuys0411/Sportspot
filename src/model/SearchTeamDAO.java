@@ -16,8 +16,8 @@ public class SearchTeamDAO {
 	PreparedStatement st;
 	ResultSet rs;
 
-	String selectAll_sql = "select b.B_ID, m.M_ID, m.M_name, b.B_num, b.B_Date, b.B_startTime, p.P_type "
-			+ "from Member m, Booking_Member b, Place p, PlaceAddr pa where m.M_ID = b.M_ID";
+	String selectAll_sql = "select b.B_ID, m.M_ID, m.M_name, b.B_num, b.B_Date, b.B_startTime, p.P_type, pa.P_Dong "
+			+ "from Member m, Booking_Member b, Place p, PlaceAddr pa where m.M_ID = b.M_ID and b.P_ID = p.P_ID and p.P_ID = pa.P_ID";
 	
 	
 	
@@ -49,6 +49,7 @@ public class SearchTeamDAO {
 		if(reg == "" && type != "") {
 			String sql = selectByType_sql;
 			System.out.println("type1");
+			teamlist.clear();
 			String[] splitedType = type.split(" ");
 			int i = 0;
 			for(i = 0; i < splitedType.length ; i ++) {
@@ -80,6 +81,7 @@ public class SearchTeamDAO {
 		//type은 없고, reg는 있음
 		else if( reg != "" && type == "") {
 			System.out.println("type2");
+			teamlist.clear();
 			try {
 				st = conn.prepareStatement(selectByAddr_sql);
 				st.setString(1, reg);
@@ -100,21 +102,24 @@ public class SearchTeamDAO {
 		
 		//둘다 입력을 안함
 		else if (reg == "" && type == "") {
+			teamlist.clear();
 			System.out.println("type3");
 			return null;
 		}
 		//둘다 입력함
 		else {
+			teamlist.clear();
 			System.out.println("type4");
 			String sql = selectByType_sql;
 			String[] splitedType = type.split(" ");
 			int i = 0;
 			for(i = 0; i < splitedType.length ; i ++) {
-				if(i == 0) sql +="( '" + splitedType[i]+ "', ";
-				else if(i == splitedType.length - 1) sql += " ' " +splitedType[i]+"' )";
+				if(i == 0) sql +="( '" + splitedType[i]+ "' ";
+				else if(i == splitedType.length - 1) sql += " ,' " +splitedType[i]+"' )";
 				else sql+= "'"+splitedType[i]+"', ";
 				
 			}
+			if(splitedType.length == 1) sql+=")";
 			sql+=" and P_Dong = ?";
 			System.out.println("type4, sql : " +sql);
 			try {
@@ -146,8 +151,9 @@ public class SearchTeamDAO {
 		Date bdate = rs.getDate("B_DATE");
 		String bstart = rs.getString("B_STARTTIME");
 		String ptype = rs.getString("P_TYPE");
+		String pdong = rs.getString("P_Dong");
 		
-		SearchTeamDTO searchteamDTO = new SearchTeamDTO(bid, mid, mname, bnum, bdate, bstart, ptype);
+		SearchTeamDTO searchteamDTO = new SearchTeamDTO(bid, mid, mname, bnum, bdate, bstart, ptype, pdong);
 		return searchteamDTO;
 	}
 

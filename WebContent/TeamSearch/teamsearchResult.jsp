@@ -13,6 +13,7 @@
           <th> 날짜 </th>
           <th> 시작시간</th>
           <th> 운동유형</th>
+          <th> 동 주소 </th>
           <th> 같이하기</th>
       
         </tr>
@@ -27,7 +28,8 @@
           <td> ${oneitem.bnum} </td>
           <td> ${oneitem.bdate} </td>
           <td> ${oneitem.bstart} </td>
-          <td> ${oneitem.ptype} </td>
+          <td> ${oneitem.ptype} </td> 
+          <td> ${oneitem.pdong} </td>
           <td> <button id="join" onclick="joinpopup()">같이하기</button> </td>
           </tr>
  </c:forEach>

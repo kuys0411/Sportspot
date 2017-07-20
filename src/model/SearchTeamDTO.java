@@ -10,10 +10,19 @@ public class SearchTeamDTO {
 	Date bdate;
 	String bstart;
 	String ptype;
+	String pdong;
 	
+	public String getPdong() {
+		return pdong;
+	}
+
+	public void setPdong(String pdong) {
+		this.pdong = pdong;
+	}
+
 	public SearchTeamDTO() {}
 
-	public SearchTeamDTO(int bid, String mid, String mname, int bnum, Date bdate, String bstart, String ptype) {
+	public SearchTeamDTO(int bid, String mid, String mname, int bnum, Date bdate, String bstart, String ptype, String pdong) {
 		super();
 		this.bid = bid;
 		this.mid = mid;
@@ -22,6 +31,7 @@ public class SearchTeamDTO {
 		this.bdate = bdate;
 		this.bstart = bstart;
 		this.ptype = ptype;
+		this.pdong = pdong;
 	}
 
 	public int getBid() {
