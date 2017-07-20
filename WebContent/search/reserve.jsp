@@ -130,6 +130,8 @@ $(document).ready(function(){
 
 	<div id="body_wrapper">
 		<div id="body_inner">
+
+			<!-- Menu bar -->
 			<nav class="navbar navbar-default" role="navigation" id="nav">
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
@@ -164,40 +166,42 @@ $(document).ready(function(){
 				</div>
 				<!-- /.container-fluid -->
 			</nav>
-			<!-- 상단바 -->
-
-			<!-- test -->
 			<div id="main_content">
-				<div class="container">
-					<div class="row contact">
-					
-						<div id="reservation_bg">
-							<img src="Resources/images/image_koo/main/main2.jpg">
-						</div>
+				<div class="container" id="reservation_container"
+					ng-controller="AppController">
 
-						
-						
-						
+					<form action="/reservation/detail/" method="post" id="detail_form">
+						<input type='hidden' name='csrfmiddlewaretoken'
+							value='P4Knx6SygVfXsIJzUEJkeEVpVZCmxMPy' /> <input type="hidden"
+							id="hidden_rn" name="reservation_number"> <input
+							type="hidden" id="hidden_pw" name="password">
+					</form>
+
+					<div class="subtitle">
+
+						<span class="tab_wrapper"> <a id="btn_toggle_book"
+						class="toggle_button active">실시간 예약</a>
+<!-- 기존 버튼 ::  <p class="btn btn-warning" style="background-color: #f1c40f">실시간 예약</p> -->
+
+						</span>
+					</div>
+
+
+					<div class="row contact">
+
 						<div class="col-xs-12 col-sm-6 nopadding">
 							<div class="contact_bg">
-								<!-- <img src="Resources/images/image_koo/main/main3.jpg"
-									height="350" style="padding-left: 40px; padding-top: 80px;"> -->
 								<div id="map_ma"></div>
-							</div> 
-							 
-							
-							
-							<div class="arrow-left"></div>
+							</div>
 						</div>
+						
+						Place Information
 						<br>
 						<h3>
 							<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${placeinfo.pname}</b>
 						</h3>
-
-
 						<div class="col-xs-12 col-sm-6 contact_content">
-
-							<div id="hongdae" class="branch_tab active">
+							<div id="hongdae" class="branch_tab active" syt>
 
 								<ul>
 									<%-- <li>장소: ${placeinfo.pname}</li> --%>
@@ -209,7 +213,7 @@ $(document).ready(function(){
 									<textarea rows="1" cols="40" readonly>${placeinfo.pholiday}</textarea>
 									<li>대중교통</li>
 									<textarea rows="5" cols="40" readonly>${placeinfo.phowtogo}</textarea>
-									
+
 
 								</ul>
 
@@ -217,165 +221,145 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<!-- test -->
 
-					<div id="main_content">
+					<div id="book_a_session_wrapper" class="toggle_content active">
 
-						<div class="container" id="reservation_container"
-							ng-controller="AppController">
 
-							<form action="/reservation/detail/" method="post"
-								id="detail_form">
-								<input type='hidden' name='csrfmiddlewaretoken'
-									value='P4Knx6SygVfXsIJzUEJkeEVpVZCmxMPy' /> <input
-									type="hidden" id="hidden_rn" name="reservation_number">
-								<input type="hidden" id="hidden_pw" name="password">
-							</form>
+						<form name="myfrm" action="ReserveComplete" method="post"
+							onsubmit="return false;">
+							<!-- 지점 선택 & 날짜 선택 -->
+							<div class="row">
 
-							<div class="subtitle">
-								<span class="tab_wrapper">
-									<p class="btn btn-warning" style="background-color: #f1c40f">실시간
-										예약</p>
-								</span>
+
+								<div class="col-xs-12 col-sm-6 booking_input_wrapper">
+									<div class="row">
+										<div class="col-xs-6">
+											<label> 날짜선택 </label>
+										</div>
+
+										<div class="col-xs-6">
+											<input type="date" id="select_date" name="select_date"
+												style="color: black" value="2017-07-19" min="2017-07-19"
+												max="2017-07-31"></input> 
+												<input type="button" class="btn btn-default" id="btn btn-default " name="date_btn" value="선택"
+												style="background-color: #333333; color:white;"></input>
+										</div>toggle_button:select
+										<!-- 기존 버튼 ::  <p class="btn btn-warning" style="background-color: #f1c40f">실시간 예약</p> -->
+
+									</div>
+								</div>
+
+								<!-- 지점 선택 -->
+								<div class="col-xs-12 col-sm-6 booking_input_wrapper">
+									<div class="row">
+										<div class="col-xs-6">
+											<label> 인원선택 </label>
+										</div>
+										<div class="col-xs-6">
+											<input type="number" id="sel_count" name="sel_count"
+												value="1" required="required" style="color: black">
+
+
+										</div>
+									</div>
+								</div>
 							</div>
 
-							<div id="book_a_session_wrapper" class="toggle_content active">
 
 
-								<form name="myfrm" action="ReserveComplete" method="post"
-									onsubmit="return false;">
-									<!-- 지점 선택 & 날짜 선택 -->
-									<div class="row">
+							<div id="here"></div>
+							<!--  -->
+							<div id="preesDelete">
+
+								<table class="table">
+									<thead>
+										<tr>
+											<th>시작시간</th>
+											<th>신청인원</th>
+											<th>예약상태</th>
+										</tr>
+									</thead>
+									<tbody>
+
+										<c:forEach items="${time_info}" var="time" varStatus="status">
+											<tr>
+												<td>${time}:00</td>
+												<td>${count_info[status.index]}</td>
+												<!-- 수정해야한다. -->
+
+												<c:set var="name" value="${count_info[status.index]}" />
+												<c:choose>
+													<c:when test="${name < 30}">
+														<!-- 인원수 30명 미만 예약가능 -->
+														<td><input type="submit" class="btn btn-warning"
+															id="reservebtn" value="예약하기" onclick="call('${time}')"
+															></td>
+													</c:when>
+
+													<c:otherwise>
+														<!-- 인원수 30명부터 예약 불가능  -->
+
+														<td><input type="button" class="red" id="reservebtn"
+															value="예약불가" disabled="disabled"
+															style="background-color: #000000"></td>
+													</c:otherwise>
+
+												</c:choose>
+
+											</tr>
+										</c:forEach>
 
 
-										<div class="col-xs-12 col-sm-6 booking_input_wrapper">
-											<div class="row">
-												<div class="col-xs-6">
-													<label> 날짜선택 </label>
-												</div>
+									</tbody>
+								</table>
+							</div>
+							<div style="visibility: hidden" id="hidden">
+								<input type="text" id="sel_pid" name="sel_pid"
+									value="${placeinfo.pid}"></input> <input type="text"
+									name="sel_place" value="${placeinfo.pname}"></input>
+								<!-- <input type="text" id="select_time" name="select_time">시간</input> -->
+								<textarea type="text" cols="1" rows="1" id="select_time"
+									name="select_time"></textarea>
+							</div>
 
-												<div class="col-xs-6">
-													<input type="date" id="select_date" name="select_date"
-														style="color: black" value="2017-07-19" min="2017-07-19"
-														max="2017-07-31"></input> <input type="button"
-														class="yellow" id="date_btn" name="date_btn" value="선택"
-														style="background-color: #333333; width: 51px, height:41px; width: 51px; height: 41px; color: #ffffff"></input>
-												</div>
-											</div>
-										</div>
-
-										<!-- 지점 선택 -->
-										<div class="col-xs-12 col-sm-6 booking_input_wrapper">
-											<div class="row">
-												<div class="col-xs-6">
-													<label> 인원선택 </label>
-												</div>
-												<div class="col-xs-6">
-													<input type="number" id="sel_count" name="sel_count"
-														value="1" required="required" style="color: black">
-
-
-												</div>
-											</div>
-										</div>
-									</div>
-
-
-
-									<div id="here"></div>
-									<!--  -->
-									<div id="preesDelete">
-
-										<table class="table">
-											<thead>
-												<tr>
-													<th>시작시간</th>
-													<th>신청인원</th>
-													<th>예약상태</th>
-												</tr>
-											</thead>
-											<tbody>
-
-												<c:forEach items="${time_info}" var="time"
-													varStatus="status">
-													<tr>
-														<td>${time}:00</td>
-														<td>${count_info[status.index]}</td>
-														<!-- 수정해야한다. -->
-
-														<c:set var="name" value="${count_info[status.index]}" />
-														<c:choose>
-															<c:when test="${name < 30}">
-																<!-- 인원수 30명 미만 예약가능 -->
-																<td><input type="submit" class="yellow"
-																	id="reservebtn" value="예약하기" onclick="call('${time}')"
-																	style="background-color: #000000"></td>
-															</c:when>
-
-															<c:otherwise>
-																<!-- 인원수 30명부터 예약 불가능  -->
-
-																<td><input type="button" class="red"
-																	id="reservebtn" value="예약불가" disabled="disabled"
-																	style="background-color: #000000"></td>
-															</c:otherwise>
-
-														</c:choose>
-
-													</tr>
-												</c:forEach>
-
-
-											</tbody>
-										</table>
-									</div>
-									<div style="visibility: hidden" id="hidden">
-										<input type="text" id="sel_pid" name="sel_pid"
-											value="${placeinfo.pid}"></input> <input type="text"
-											name="sel_place" value="${placeinfo.pname}"></input>
-										<!-- <input type="text" id="select_time" name="select_time">시간</input> -->
-										<textarea type="text" cols="1" rows="1" id="select_time"
-											name="select_time"></textarea>
-									</div>
-
-									<!-- <div class="subtitle">
+							<!-- <div class="subtitle">
 										<span class="tab_wrapper">
 											<p class="btn btn-warning" style="background-color: #f1c40f">오시는
 												길</p>
 										</span>
 									</div>  -->
-								</form>
-								
-							</div>
+						</form>
 
-
-
-						</div>
 					</div>
 
 
-					<!-- <div class="subtitle">
+
+				</div>
+			</div>
+
+
+			<!-- <div class="subtitle">
 						<span class="tab_wrapper">
 							<p class="btn btn-warning" style="background-color: #f1c40f">오시는
 								길</p>
 						</span>
 					</div> -->
 
-					<!-- 지도 view -->
-					<script type="text/javascript"
-						src="http://maps.google.com/maps/api/js?key=AIzaSyDWKmcj5ZnlDMJFJOcD7gTj4KF49JRo3N4"></script>
-					<!-- key 값 입력 -->
-					<style>
-					#map_ma {
-						width: 100%;
-						height: 460px;
-						clear: both;
-						border: solid 1px red;
-					}
-					</style>
+			<!-- 지도 view -->
+			<script type="text/javascript"
+				src="http://maps.google.com/maps/api/js?key=AIzaSyDWKmcj5ZnlDMJFJOcD7gTj4KF49JRo3N4"></script>
+			<!-- key 값 입력 -->
+			<style>
+#map_ma {
+	width: 100%;
+	height: 460px;
+	clear: both;
+	border: solid 1px red;
+}
+</style>
 
-					<!-- <div id="map_ma"></div> -->
-					<script type="text/javascript">
+			<!-- <div id="map_ma"></div> -->
+			<script type="text/javascript">
 						$(document).ready(function() {
 						var myLatlng = new google.maps.LatLng(${placeinfo.py},${placeinfo.px}); // 위치값 위도 경도
 						var Y_point			= ${placeinfo.py};		// Y 좌표
@@ -411,12 +395,12 @@ $(document).ready(function(){
 						});
 					});
 					</script>
-					<!-- 지도 뷰 -->
+			<!-- 지도 뷰 -->
 
-				</div>
-				<!-- CONTAINER-->
-			</div>
 		</div>
+		<!-- CONTAINER-->
+	</div>
+	</div>
 	</div>
 	<!-- MAIN CONTATINER -->
 
