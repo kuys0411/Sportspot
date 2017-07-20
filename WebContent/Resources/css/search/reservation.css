@@ -29,7 +29,7 @@
 .subtitle {
   padding-top: 25px;
   padding-bottom: 25px;
-  border-bottom: 1px solid #f1c40f;
+  border-bottom: 1px solid #ed3e43;
   margin-bottom: 25px;
 }
 
@@ -40,7 +40,8 @@
 .toggle_button {
   padding: 5px 10px;
   font-size: 18px;
-  color: #f1c40f;
+  color: white;
+  background: transparent;
   cursor: pointer;
 }
 
@@ -48,12 +49,12 @@
 .toggle_button:hover {
   text-decoration: none !important;
   color: white;
-  background: #f1c40f;
+  background: #ed3e43;
 }
 
 .toggle_button.active {
   color: white;
-  background: #f1c40f;
+  background: #ed3e43;
 }
 
 #book_a_session_wrapper {
@@ -97,7 +98,7 @@
 
 .booking_input_wrapper .dropdown ul.dropdown-menu a:active,
 .booking_input_wrapper .dropdown ul.dropdown-menu a:hover {
-  background-color: #f1c40f;
+  background-color: #ed3e43;
   color: #fff;
 }
 

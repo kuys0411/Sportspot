@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,60 +9,84 @@
 	content="YHkzOS5N5M9qkZTIGtDDfuKidQhuMuSj02txDAxSlxg" />
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title id="title_seoul_escape">SPORTSPOT</title>
-<link rel="shortcut icon"
-	href='http://www.seoul-escape.com/static/image/favicon.ico'
+<title id="title_seoul_escape">SPORTSPOT Search</title>
+
+<!-- design : icon -->
+<link rel="shortcut icon" href="../Resources/images/jin/ico/favicon.png"
 	type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="../Resources/images/jin/ico/ghost-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="../Resources/images/jin/ico/ghost-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="../Resources/images/jin/ico/ghost-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed"
+	href="../Resources/images/jin/ico/ghost-icon-57-precomposed.png">
+
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
-	content="width=device-width,
-                                   initial-scale=1.0,
-                                   maximum-scale=1">
+	content="width=device-width, initial-scale=1.0,maximum-scale=1">
 <style type="text/css">
-	.icon img{
-    float:left;
-    margin:3.5em;
-    opacity:0.4;
+.icon img {
+	float: left;
+	margin: 3.5em;
+	opacity: 0.4;
 }
- .icon img:hover{
-   opacity:1;
-} 
-a:link { display:inline-block;}
-a:link {text-decoration: none; color: #333333;}
-a:visited {text-decoration: none; color: #333333;}
-a:active {text-decoration: none; color: #333333;}
-a:hover {text-decoration: underline; color: yellow;}
 
+.icon img:hover {
+	opacity: 1;
+}
+
+a:link {
+	display: inline-block;
+}
+
+a:link {
+	text-decoration: none;
+	color: #333333;
+}
+
+a:visited {
+	text-decoration: none;
+	color: white;
+}
+
+a:active {
+	text-decoration: none;
+	color: #333333;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #ed3e43;
+}
 </style>
 
 <meta name="title" content="Seoul Escape Room">
 
-<link rel="stylesheet" href="../1.css" type="text/css" />
+<!-- CSS -->
+
+<link rel="stylesheet" href="../Resources/css/search/search1.css"
+	type="text/css" />
+<link href="../Resources/css/search/reservation.css" rel="stylesheet" />
 
 <link rel="stylesheet"
-	href="http://www.seoul-escape.com/static/CACHE/css/58f590e8ac6c.css"
-	type="text/css" />
-<link href="http://www.seoul-escape.com/static/css/reservation.css"
-	rel="stylesheet" />
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+<!-- JavaScript -->
 
 <script type="text/javascript"
 	src="http://www.seoul-escape.com/static/CACHE/js/38f6e66c6208.js"></script>
-
-<link href="../Resources//css/css_kyy/css_kyy1.css" rel="stylesheet" type="text/css" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="http://code.jquery.com/jquery-1.12.1.js"></script>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
-
 
   <body ng-app="myapp">
     <div class="modal fade" id="error_modal">
@@ -87,7 +113,7 @@ a:hover {text-decoration: underline; color: yellow;}
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
 						<div id="top_logo">
-							<a class="navbar-brand" href="index.jsp"><img
+							<a class="navbar-brand" href="../index.jsp"><img
 								src="../Resources/images/jin/logo/full.png"></a>
 						</div>
 						<button type="button" class="navbar-toggle collapsed"
@@ -378,7 +404,7 @@ $(document).ready(function(){
 
 <div class="container" id="reservation_container" ng-controller="AppController">
   <div id="booking_toggle_wrapper" class="subtitle">
-    <span class="tab_wrapper"> <a id="btn_toggle_book" class="toggle_button active" href="../search.jsp">장소 검색</a> </span>
+    <span class="tab_wrapper"> <a id="btn_toggle_book" class="toggle_button" href="../search.jsp">장소 검색</a> </span>
 	<span class="tab_wrapper"> <a id="btn_toggle_book" class="toggle_button active" href="/Project/TeamSearch/teamsearch.jsp">팀 검색</a> </span>
 </div>
 
@@ -512,11 +538,11 @@ $(document).ready(function(){
     <div id="footer">
       <div class="container">
          <div class="row">
-          <div class="col-sm-12 visible_small">
+         <!--  <div class="col-sm-12 visible_small">
             <div class="fb_link">
               <a href="https://www.facebook.com/seoulescape" target="_blank"><img src="http://www.seoul-escape.com/static/image/facebook.png"></a>
             </div>
-          </div>
+          </div> -->
           <div class="col-sm-12 col-md-6">
             <div class="footer_info">
               <p> Copyright © 2015 Seoul Escape Room. All Rights Reserved. </p>
@@ -524,11 +550,11 @@ $(document).ready(function(){
               <a href="/reservation/orderlist/" id="admin_orderlist"> Login </a> </p>
             </div>
           </div>
-          <div class="col-md-6 visible_large">
+          <!-- <div class="col-md-6 visible_large">
             <div class="fb_link">
               <a href="https://www.facebook.com/seoulescape" target="_blank"><img src="http://www.seoul-escape.com/static/image/facebook.png"></a>
             </div>
-          </div>
+          </div> -->
          </div>
       </div>
     </div>
