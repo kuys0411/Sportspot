@@ -61,12 +61,10 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="nav_collapse">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="../index.jsp" class="active"> HOME </a></li>
-							<li><a id="search" href="../search.jsp"> SEARCH </a></li>
-							
-							<li id="login"><a href="../login.jsp"><span>LOGIN</span> </a></li>
+							<li><a href="/Project" > HOME </a></li>
+							<li><a id="/Project/search.jsp" href="../search.jsp"> SEARCH </a></li>
 							<li id="register"><a href="../signup.jsp"><span>REGISTER</span></a></li>
-							<li id="mypage" class="hide"><a href="mypageShowInfo">MYPAGE</a></li>
+							<li id="mypage" class="hide"><a href="mypage/mypageShowInfo">MYPAGE</a></li>
 							<li id="logout" class="hide"><a href="logout"><span></span>LOGOUT</a></li>
 							<li id="login_result" class="hide"><a><span id="userid"></span></a></li>
 

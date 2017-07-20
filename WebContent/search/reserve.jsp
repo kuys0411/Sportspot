@@ -209,9 +209,9 @@ $(document).ready(function(){
 									<li>홈페이지 이동: <a target="_blank"
 										href="http://${placeinfo.phomepage}">Click</a></li>
 									<li>공휴일</li>
-									<textarea rows="1" cols="40" readonly>${placeinfo.pholiday}</textarea>
+									<textarea rows="1" cols="40" readonly style="color:black;">${placeinfo.pholiday}</textarea>
 									<li>대중교통</li>
-									<textarea rows="5" cols="40" readonly>${placeinfo.phowtogo}</textarea>
+									<textarea rows="5" cols="40" readonly style="color:black;">${placeinfo.phowtogo}</textarea>
 
 
 								</ul>
@@ -292,9 +292,9 @@ $(document).ready(function(){
 												<c:choose>
 													<c:when test="${count < 30}">
 														<!-- 인원수 30명 미만 예약가능 -->
-														<td><input type="submit" class="btn btn-warning" 
+														<td><input type="submit" class="btn btn-warning"
 															id="reservebtn" value="예약하기" onclick="call('${time}',${count_info[status.index]})"
-															style="color:white;"></td>
+															style="color:black;"></td>
 
 													</c:when>
 

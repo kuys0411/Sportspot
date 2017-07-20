@@ -4,23 +4,42 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
+<!-- Meta files -->
+
 <meta name="google-site-verification"
 	content="YHkzOS5N5M9qkZTIGtDDfuKidQhuMuSj02txDAxSlxg" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>예약 완료페이지</title>
-<link rel="shortcut icon"
-	href='http://www.seoul-escape.com/static/image/favicon.ico'
-	type="image/x-icon">
-
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width,
                                initial-scale=1.0,
                                maximum-scale=1">
 <meta name="title" content="Seoul Escape Room">
-<link rel="stylesheet"
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr"><!-- n초후 화면 넘어가기 -->
+
+<title>SportSpot Reservation</title>
+
+
+<!-- design : icon -->
+<link rel="shortcut icon" href="../Resources/images/jin/ico/favicon.png"
+	type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="../Resources/images/jin/ico/ghost-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="../Resources/images/jin/ico/ghost-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="../Resources/images/jin/ico/ghost-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed"
+	href="../Resources/images/jin/ico/ghost-icon-57-precomposed.png">
+
+
+<!-- CSS old -->
+
+
+<!-- <link rel="stylesheet"
 	href="http://www.seoul-escape.com/static/CACHE/css/58f590e8ac6c.css"
 	type="text/css" />
 <link rel="stylesheet"
@@ -28,6 +47,25 @@
 	type="text/css" />
 <link href="http://www.seoul-escape.com/static/css/datepicker.css"
 	rel="stylesheet" />
+<link rel="stylesheet"
+	href="http://www.seoul-escape.com/static/css/contact.css"
+	type="text/css" />
+	 -->
+
+<!-- CSS new -->
+
+
+<link rel="stylesheet" href="/Project/Resources/css/reservation1.css"
+	type="text/css" />
+<link rel="stylesheet" href="/Project/Resources/css/reservation2.css"
+	type="text/css" />
+<link rel="stylesheet" href="/Project/Resources/css/datepicker2.css"
+	type="text/css" />
+<link rel="stylesheet" href="/Project/Resources/css/contact.css"
+	type="text/css" />
+
+
+<!-- Java Script -->
 <script type="text/javascript"
 	src="http://www.seoul-escape.com/static/CACHE/js/c546a5c802e8.js"></script>
 <script type="text/javascript"
@@ -37,16 +75,16 @@
 	src="http://www.seoul-escape.com/static/CACHE/js/da0caed938c7.js"></script>
 <script
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA3t7a2pTWqsB_QnkLNfxdmiGxgXL045g"></script>
+
+
 <link rel="stylesheet"
-	href="http://www.seoul-escape.com/static/css/contact.css"
-	type="text/css" />
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<!-- bootstrap -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- -->
-
+</head>
 
 </head>
 <%
@@ -56,11 +94,20 @@
 		userid = (String) session.getAttribute("userID");
 		
 	}else{
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("../login.jsp");
 	}
 %>
 
 <body ng-app="myapp">
+	
+	<script language="JavaScript">
+   function next(){
+      location = 'mypage/mypageShowInfo';
+   }
+   </script>
+   <body onLoad="setTimeout('next()', 2000)">
+   
+   
 	<div class="modal fade" id="error_modal">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -101,14 +148,16 @@
 				<div class="collapse navbar-collapse" id="nav_collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="/Project"> HOME </a></li>
-						<li><a id="search" href="#" class="active"> SEARCH </a></li>
-						<li id="mypage"><a href="mypage/mypageShowInfo">MYPAGE</a></li>
+						<li><a id="search" href="search.jsp"> SEARCH </a></li>
+						<li id="mypage"><a href="mypage/mypageShowInfo"
+							class="active">MYPAGE</a></li>
 						<li id="logout"><a href="logout"><span></span>LOGOUT</a></li>
 						<li id="login_result"><a><span id="userid"><%=userid%>님
 									환영합니다.</span></a></li>
-
 					</ul>
 				</div>
+
+
 				<!-- /.navbar-collapse -->
 			</div>
 			<!-- /.container-fluid -->
@@ -120,14 +169,14 @@
 			<div class="container">
 				<div class="row contact">
 					<div id="reservation_bg">
-						<img src="Resources/images/image_koo/main/main2.jpg">
+						<img src="Resources/images/jin/reservation_success.jpg">
 					</div>
 
 					<br>
 
 					<h3>
 
-						<b><center>예약내역</center></b>
+						<b><center>예약 성공!</center></b>
 					</h3>
 
 
@@ -135,7 +184,7 @@
 
 						<div id="hongdae" class="branch_tab active">
 
-							<table class="table table-striped table-hover ">
+							<table class="table table-striped table-hover">
 								<thead>
 									<tr>
 										<th><center>날짜</center></th>
@@ -147,7 +196,7 @@
 								<tbody>
 
 
-									<tr class="warning">
+									<tr class="warning"  style="color:black">
 										<td><center>${date}</center></td>
 										<td><center>${place}</center></td>
 										<td><center>${time}:00</center></td>
@@ -157,8 +206,7 @@
 								</tbody>
 							</table>
 
-							<br>
-							<br>
+							<br> <br>
 
 						</div>
 					</div>
@@ -180,7 +228,7 @@
 				<div class="col-sm-12 col-md-6">
 					<div class="footer_info">
 						<p>SportSpot © 2017 SEOUL KDATA. All Rights Reserved.</p>
-						<p>(주)SPOTSPORT | 한국데이터진흥원</p>
+						<p>(주)SPORTSPOT | 빅데이터 청년인재 서울 2반 |
 					</div>
 				</div>
 
