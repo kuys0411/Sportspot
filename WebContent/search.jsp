@@ -9,7 +9,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title id="title_seoul_escape">SPORTSPOT</title>
 
-
 <link rel="shortcut icon"
 	href='http://www.seoul-escape.com/static/image/favicon.ico'
 	type="image/x-icon">
@@ -86,20 +85,19 @@ a:hover {
 </style>
 </head>
 
-<body ng-app="myapp">
 
-
-	<!-- 로그인 예외처리 -->
-	<%
+<%
 	String userid = null;
 	request.setCharacterEncoding("utf-8");
 	if ((String) session.getAttribute("userID") != null) {
 		userid = (String) session.getAttribute("userID");
-	}else{
-		response.sendRedirect("login.jsp");
+		
 	}
 	
-	%>
+%>
+
+
+<body ng-app="myapp">
 
 
 
@@ -144,11 +142,11 @@ a:hover {
 					<div class="collapse navbar-collapse" id="nav_collapse">
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/Project"> HOME </a></li>
-							<li><a href="#" class="active"> SEARCH </a></li>
+							<li><a id="search" href="#"> SEARCH </a></li>
+							<li id="mypage" ><a href="mypage/mypageShowInfo">MYPAGE</a></li>
+							<li id="logout" ><a href="logout"><span></span>LOGOUT</a></li>
+							<li id="login_result" ><a><span id="userid"><%=userid%>님 환영합니다.</span></a></li>
 
-							<li><a href="/contact/"> MYPAGE </a></li>
-							<li><a href="/contact/"> LOGOUT </a></li>
-							<li class=""><a class="set_lang_en" href="#"> </a></li>
 
 						</ul>
 					</div>
@@ -384,12 +382,10 @@ a:hover {
 			<div class="container" id="reservation_container"
 				ng-controller="AppController">
 				<div id="booking_toggle_wrapper" class="subtitle">
-				 
+
 					<span class="tab_wrapper"> <a id="btn_toggle_book"
 						class="toggle_button active" href="#">장소 검색</a>
-					</span>
-					
-					<span class="tab_wrapper"> <a id="btn_toggle_book"
+					</span> <span class="tab_wrapper"> <a id="btn_toggle_book"
 						class="toggle_button active"
 						href="/Project/TeamSearch/teamsearch.jsp">팀 검색</a>
 					</span>
@@ -497,8 +493,7 @@ a:hover {
 								<div class="footer_info">
 									<p>SportSpot © 2017 SEOUL KDATA. All Rights Reserved.</p>
 									<p>(주)SPOTSPORT | 한국데이터진흥원</p>
-									<a href="/reservation/orderlist/" id="admin_orderlist">
-										</a>
+									<a href="/reservation/orderlist/" id="admin_orderlist"> </a>
 									</p>
 								</div>
 							</div>

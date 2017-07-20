@@ -66,19 +66,21 @@
 	var id = "<%=userid%>";
 	
 	$(document).ready(function(){
-		$("#search").on("click", function(){
+		
+		
+		/* $("#search").on("click", function(){
 			if(id=="null"){
 				alert("로그인안했어요ㅠ")
 				
 			}	
-	});
+		});
 	
 		$("#feature_btn").on("click", function(){
 			if(id=="null"){
 				alert("로그인안했어요ㅠ")
 				
 			}
-		})
+		}) */ 
 		
 		if(id != "null"){ //로그인 된 경우 
 			/* alert(id+"님, 어서오세요! :D"); */
@@ -88,9 +90,6 @@
 			$("#logout").removeClass("hide");
 			$("#login_result").removeClass("hide");
 			$("#userid").text(id+"님 환영합니다.");
-		}else{ //로그인 안된 경우 
-			
-			
 		}
 
 		 $("#logout").click(function(){
