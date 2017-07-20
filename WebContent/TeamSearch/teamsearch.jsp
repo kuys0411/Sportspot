@@ -47,7 +47,27 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.12.1.js"></script>
 
+<%
+	String userid = null;
+	request.setCharacterEncoding("utf-8");
+	if ((String) session.getAttribute("userID") != null) {
+		userid = (String) session.getAttribute("userID");
 
+	} else {
+		response.sendRedirect("login.jsp");
+	}
+%>
+
+
+<script>
+$(document).ready(function(){
+	$("#date_btn").on('click', function(){
+		$("#preesDelete").remove();
+	});
+});
+
+
+</script>
 
 </head>
 
@@ -97,7 +117,8 @@
 
 							<li><a href="../mypage/mypageShowInfo"> MYPAGE </a></li>
 							<li><a href="../logout"> LOGOUT </a></li>
-							<li class=""><a class="set_lang_en" href="#"> </a></li>
+							<li id="login_result"><a><span id="userid"><%=userid%>님
+										환영합니다.</span></a></li>
 
 						</ul>
 					</div>
