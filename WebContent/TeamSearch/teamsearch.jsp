@@ -9,6 +9,7 @@
 	content="YHkzOS5N5M9qkZTIGtDDfuKidQhuMuSj02txDAxSlxg" />
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title id="title_seoul_escape">SPORTSPOT Search</title>
 
 <!-- design : icon -->
@@ -27,50 +28,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0,maximum-scale=1">
-<style type="text/css">
-.icon img {
-	float: left;
-	margin: 3.5em;
-	opacity: 0.4;
-}
-
-.icon img:hover {
-	opacity: 1;
-}
-
-a:link {
-	display: inline-block;
-}
-
-a:link {
-	text-decoration: none;
-	color: #333333;
-}
-
-a:visited {
-	text-decoration: none;
-	color: white;
-}
-
-a:active {
-	text-decoration: none;
-	color: #333333;
-}
-
-a:hover {
-	text-decoration: underline;
-	color: #ed3e43;
-}
-</style>
-
 <meta name="title" content="Seoul Escape Room">
 
 <!-- CSS -->
 
-<link rel="stylesheet" href="../Resources/css/search/search1.css"
-	type="text/css" />
-<link href="../Resources/css/search/reservation.css" rel="stylesheet" />
-
+<link rel="stylesheet" href="../Resources/css/search/search1.css" type="text/css" />
+<link rel="stylesheet" href="../Resources/css/search/search2.css"/>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -84,7 +47,7 @@ a:hover {
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.12.1.js"></script>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 
 </head>
 
@@ -527,9 +490,7 @@ $(document).ready(function(){
 									<p>Copyright © 2015 Seoul Escape Room. All Rights Reserved.
 									</p>
 									<p>
-										(주)삶넥스트 | 사업자등록번호: 887-81-00575 | 대표: BAIGWOONYONG, 이정헌 | <a
-											href="/reservation/orderlist/" id="admin_orderlist">
-											Login </a>
+										(주)삶넥스트 | 사업자등록번호: 887-81-00575 | 대표: BAIGWOONYONG, 이정헌 |
 									</p>
 								</div>
 							</div>
