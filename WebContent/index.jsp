@@ -59,8 +59,8 @@
 	margin-right: 20px;
 }
 </style>
-
-<script> if($(result) == 1){ alert("회원탈퇴가 완료되었습니다.");}</script>
+<!-- 
+<script> if($(result) == 1){ alert("회원탈퇴가 완료되었습니다.");}</script> -->
 </head>
 <script>
 	var id = "<%=userid%>";
