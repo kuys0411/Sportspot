@@ -153,12 +153,12 @@ $(document).ready(function(){
 
 					<div id="booking_toggle_wrapper" class="subtitle">
 						<span class="tab_wrapper"> <a id="btn_toggle_book"
-							class="toggle_button" href="mypage_book_main.jsp"> 예약 현황 </a>
+							class="toggle_button" href="mypageShowInfo"> 예약 현황 </a>
 						</span>
 						<span class="tab_wrapper"> <a id="btn_toggle_priceinfo" class="toggle_button" href="mypage_message.jsp"> 받은 메시지 </a> </span> 
 
 						<span class="tab_wrapper"> <a id="btn_toggle_priceinfo"
-							class="toggle_button active" href="mypage_modifyInfo.jsp">
+							class="toggle_button active" href="#">
 								회원정보 수정 </a>
 						</span> <span class="tab_wrapper"> <a id="btn_toggle_cancel"
 							class="toggle_button" href="mypage_memberout.jsp"> 회원 탈퇴 </a>

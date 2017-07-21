@@ -98,21 +98,10 @@
 <script>
 
 $(document).ready(function(){
-/* 
-	<div class="msgForm">
-	<p>Message_From</p>
-	<span id="messageFrom"> ${msg.messageTo}</span> <br>
-	<p>Date</p>
-	<span id="messageDate">${msg.message_Date}</span> <br>
-	<p>Message Body</p>
-	<span id="messageBody">${msg.messageBody} </span> <br>    
-	<button class="messageReply"> Reply  </button> <button class="messageDelete"> Delete </button>
-</div> */
+
 	
     $('#here').on('click', '.messageReply', function(){
-		alert("reply");
     	var msgTo = $(this).closest("div").find('#messageFrom').val();
-    	alert("msgTO : " + msgTo);
     	var OpenWin = window.open("mypopup.jsp", "a", "width=400, height=700, left=300, top=100");
 		OpenWin.onload = function(){
 			OpenWin.document.getElementById('MSGTO').value = msgTo;
@@ -121,7 +110,6 @@ $(document).ready(function(){
     });
     
 	$('#here').on('click', '.messageDelete', function(){
-		alert("delete");
 		var delDiv = $(this).closest("div");
     	var messageFrom = $(this).closest("div").find('#messageID').val();
     	alert(messageFrom);
@@ -266,10 +254,10 @@ $(document).ready(function(){
 
 					<div id="booking_toggle_wrapper" class="subtitle">
 						<span class="tab_wrapper"> <a id="btn_toggle_book"
-							class="toggle_button" href="bookinfo"> 예약현황 </a>
+							class="toggle_button" href="mypageShowInfo"> 예약현황 </a>
 
 						</span>
-						<span class="tab_wrapper"> <a id="btn_toggle_priceinfo" class="toggle_button active" href="mypage_message.jsp"> 받은 메시지 </a> </span>
+						<span class="tab_wrapper"> <a id="btn_toggle_priceinfo" class="toggle_button active" href="#"> 받은 메시지 </a> </span>
 
 						<span class="tab_wrapper"> <a id="btn_toggle_priceinfo"
 							class="toggle_button" href="modifyinfo"> 회원정보 수정 </a>
@@ -278,7 +266,7 @@ $(document).ready(function(){
 						</span>
 					</div>
 				<!-- 여기부터-->
-				<button id="refresh">새로고침</button>
+				<span id="refresh" class="toggle_button">온 메시지 보기</span>
 				 <div id="here">
      
   
