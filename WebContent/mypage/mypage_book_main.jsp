@@ -39,11 +39,14 @@
 		$('.deleteBtn').on('click', function() {
 			var nearTR = $(this).closest("tr");
 			var bookID = $(this).closest("tr").find("#bid").text();
+			var people = $(this).closest("tr").find("#count").text();
 			$.ajax({
 				url : 'removeBookInfo', //가져오고자하는 서버페이지 주소를 넣는다. 
 				type : 'GET', //데이터를 서버로 전송하게 된다. 
 				data : {
-					bID : bookID
+					bID : bookID,
+					count : people
+					
 				//에디터박스의 아이디를 넣으면 해당 에디터박스의 데이터를 보내준다.
 				},
 				success : function(t) {

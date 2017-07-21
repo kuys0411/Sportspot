@@ -45,6 +45,8 @@ public class SearchTeamDAO {
 		System.out.println("searchALlTeam 시작");
 		conn = DBUtil.getConnect();
 		List<SearchTeamDTO> teamlist = new ArrayList<SearchTeamDTO>();
+		
+		
 		//type은 있고 reg는 없음.
 		if(reg == "" && type != "") {
 			String sql = selectByType_sql;

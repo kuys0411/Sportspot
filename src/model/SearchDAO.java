@@ -30,6 +30,7 @@ public class SearchDAO {
 	public  List<SearchResultDTO> selectByTypeAddr(String type,String dong){
 		List<SearchResultDTO> plist = new ArrayList<SearchResultDTO>();
 		conn=DBUtil.getConnect();
+		String query = selectByType_sql;
 		try {
 			
 			System.out.println("type2");
@@ -37,17 +38,19 @@ public class SearchDAO {
 			
 			int i = 0;
 			for(i = 0; i < splitedType.length ; i ++) {
-				if(i == splitedType.length - 1 && i==0) {selectByType_sql +="( '" + splitedType[i]+ "') "; break;}
-				else if(i == 0) selectByTypeAddr_sql +="( '" + splitedType[i]+ "', ";
-				else if(i == splitedType.length - 1) selectByTypeAddr_sql += " '" +splitedType[i]+"' )";
-				else selectByTypeAddr_sql+= "'"+splitedType[i]+"', ";
+				if(i == splitedType.length - 1 && i==0) {query +="( '" + splitedType[i]+ "') "; break;}
+				else if(i == 0) query +="( '" + splitedType[i]+ "', ";
+				else if(i == splitedType.length - 1) query += " '" +splitedType[i]+"' )";
+				else query+= "'"+splitedType[i]+"', ";
 			}
 			
+			System.out.println(query);
 			
 			
-			st=conn.prepareStatement(selectByTypeAddr_sql);
+			query += "and P_Dong = ?";
+			st=conn.prepareStatement(query);
 			st.setString(1, dong);
-			System.out.println("servlet sql : " + selectByTypeAddr_sql);
+			System.out.println("servlet sql : " + query);
 			rs=st.executeQuery();
 			boolean b = rs.next();
 			//결과값이 null
@@ -77,6 +80,7 @@ public class SearchDAO {
 	public  List<SearchResultDTO> selectByType(String type){
 		List<SearchResultDTO> plist = new ArrayList<SearchResultDTO>();
 		conn=DBUtil.getConnect();
+		String query = selectByType_sql;
 		try {
 			
 			System.out.println("type1");
@@ -84,13 +88,13 @@ public class SearchDAO {
 			
 			int i = 0;
 			for(i = 0; i < splitedType.length ; i ++) {
-				if(i == splitedType.length - 1 && i==0) {selectByType_sql +="( '" + splitedType[i]+ "') "; break;}
-				else if(i == 0) selectByType_sql +="( '" + splitedType[i]+ "', ";
-				else if(i == splitedType.length - 1) selectByType_sql += " '" +splitedType[i]+"' )";
-				else selectByType_sql+= "'"+splitedType[i]+"', ";
+				if(i == splitedType.length - 1 && i==0) {query +="( '" + splitedType[i]+ "') "; break;}
+				else if(i == 0) query +="( '" + splitedType[i]+ "', ";
+				else if(i == splitedType.length - 1) query += " '" +splitedType[i]+"' )";
+				else query+= "'"+splitedType[i]+"', ";
 			}
-			System.out.println("servlet sql : " + selectByType_sql);
-			st=conn.prepareStatement(selectByType_sql);
+			System.out.println("servlet sql : " + query);
+			st=conn.prepareStatement(query);
 			rs=st.executeQuery();
 			boolean b = rs.next();
 			//결과값이 null
@@ -123,8 +127,9 @@ public class SearchDAO {
 	public  List<SearchResultDTO> selectByAddr(String dong){
 		List<SearchResultDTO> plist = new ArrayList<SearchResultDTO>();
 		conn=DBUtil.getConnect();
+		String query = selectByAddr_sql;
 		try {
-			st=conn.prepareStatement(selectByAddr_sql);
+			st=conn.prepareStatement(query);
 			st.setString(1, dong);
 			rs=st.executeQuery();
 			boolean b = rs.next();
