@@ -25,7 +25,7 @@
 		
        document.forms['message'].submit();
        alert("메시지를 보냈습니다");
-       window.close();
+       
 }
  
 /* 

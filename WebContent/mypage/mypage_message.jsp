@@ -112,7 +112,6 @@ $(document).ready(function(){
 	$('#here').on('click', '.messageDelete', function(){
 		var delDiv = $(this).closest("div");
     	var messageFrom = $(this).closest("div").find('#messageID').val();
-    	alert(messageFrom);
     	
     	$.ajax({ 
 			url:'deleteMessage',

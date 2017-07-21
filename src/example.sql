@@ -29,7 +29,7 @@ create sequence seq_b_id;
 
 create sequence seq_message_id;
 
-
+delete from message
 
 insert into BOOKING_PLACE values(111, 6, 2017-07-20, 5);
 
@@ -110,7 +110,7 @@ update Booking_Place set count=?  from Booking_Member b, Place p, Booking_Place 
 
 select b.b_id, p.p_id, bp.count, bp.BP_date,p.P_name, bp.BP_startTime from Booking_Member b, Place p, Booking_Place bp where b.b_id = 212 and bp.bp_startTime = 9 and b.p_id = p.p_id and p.P_id = bp.p_id
 
-
-
+select * from member
+select * from message
 
 

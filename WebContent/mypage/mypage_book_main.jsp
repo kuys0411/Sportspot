@@ -55,10 +55,6 @@
 			var people = $(this).closest("tr").find("#count").text();
 			var bdate = $(this).closest("tr").find("#bdate").text();
 			var statime = $(this).closest("tr").find("#startTime").text();
-			alert(bookID);
-			alert(people);
-			alert(bdate);
-			alert(statime);
 			$.ajax({
 				url : 'removeBookInfo', //가져오고자하는 서버페이지 주소를 넣는다. 
 				type : 'GET', //데이터를 서버로 전송하게 된다. 

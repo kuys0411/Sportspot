@@ -85,17 +85,17 @@ select P_ID, BP_startTime, BP_Date, count from booking_Place where P_ID = 283
 		
 		int result = 0;
 		try {
-/*			st = conn.prepareStatement(deleteBookInfo);
+			st = conn.prepareStatement(deleteBookInfo);
 			st.setInt(1, bID);
 			st.setString(2, mID);
-			result = st.executeUpdate();*/
+			result = st.executeUpdate();
 			
 			st = conn.prepareStatement(select_count_sql);
 			st.setInt(1, bID);
 			st.setString(2, startTime);
 			st.setDate(3, sqlDate);
 			rs = st.executeQuery();
-			int a = 0;
+			/*int a = 0;
 			while(rs.next()) a = rs.getInt("count");
 			
 			System.out.println("count " + a);
@@ -114,10 +114,10 @@ select P_ID, BP_startTime, BP_Date, count from booking_Place where P_ID = 283
 				System.out.println("sql : "+st);
 				result = st.executeUpdate();
 				
-				System.out.println("Update count Completed");
-			}
+				System.out.println("Update count Completed");*/
 			
-			return result;
+			
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

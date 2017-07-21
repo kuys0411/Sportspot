@@ -21,24 +21,18 @@
 
 <script>
 
- function closeSelf(){
 
-       document.forms['message'].submit();
-       alert("메시지를 보냈습니다");
-       window.close();
+function closeSelf(){
+	
+   // document.forms['sendmsg'].submit();
+    alert("메시지를 보냈습니다");   
+    setTimeout(function(){
+        self.close();
+    },2000);
 }
+
+
  
-/* 
-<form action="/system/wpacert" method="post" enctype="multipart/form-data" name="certform">
-       <div>Certificate 1: <input type="file" name="cert1"/></div>
-       <div>Certificate 2: <input type="file" name="cert2"/></div>
-       <div>Certificate 3: <input type="file" name="cert3"/></div>
-
-       // change the submit button to normal button
-       <div><input type="button" value="Upload"  onclick="closeSelf();"/></div>
-</form> */
-
-
 </script>
 </head>
  
@@ -50,7 +44,8 @@
 		<div class="login">
 			<div class="inset">
 				<!-----start-main---->
-				<form action="sendMessage" method="POST" name="message">
+				
+				<form action="sendMessage" method="POST" name="sendmsg" onsubmit="return closeSelf();">
 			         <div>
 						<span><label>MessageSender</label></span>
 						<span><input type="text" class="textbox" name="messageFrom" id="MSGFROM" value ="<%=userid%>" readonly ></span>
@@ -62,16 +57,15 @@
 
 					 <br>
 					 <div>
-						<span><label>메시지</label></span>
-						<textarea id="textarea" rows="5" cols="20"  name="messageBody" form="usrform"></textarea>
+						<span><label>메시지 내용</label></span>
+						<textarea id="textarea" rows="5" cols="20"  name="messageBody"></textarea>
 					 </div>
 					<div class="sign">
 						<div class="submit">
-						  <input type="submit" onClick="closeSelf()" value="메시지 보내기"  >
+						  <input type="submit"   value="메시지 보내기"  > 
 						  <input type="button" id ="closebtn" value="창 닫기" onClick="self.close()" >
 						  
 						</div>
-					
 					</div>
 				</form>
 				</div>
