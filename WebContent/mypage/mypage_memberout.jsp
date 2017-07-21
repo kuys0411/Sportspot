@@ -91,7 +91,7 @@
 							<li><a href="../search.jsp"> SEARCH </a></li>
 							<!--  로그인을 하면 로그아웃이랑 MyPage로 교체 -->
 							<li id="mypage"><a href="mypageShowInfo">MYPAGE</a></li>
-							<li id="logout"><a href="../logout"><span></span>LOGOUT</a></li>
+							<li id="logout"><a href="#"><span></span>LOGOUT</a></li>
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
@@ -128,13 +128,13 @@
 
 					<div id="booking_toggle_wrapper" class="subtitle">
 						<span class="tab_wrapper"> <a id="btn_toggle_book"
-							class="toggle_button" href="mypage_book_main.jsp"> 예약 현황 </a></span> 
+							class="toggle_button" href="mypageShowInfo"> 예약 현황 </a></span> 
 						<span class="tab_wrapper"> <a id="btn_toggle_priceinfo"
 							class="toggle_button" href="mypage_message.jsp"> 받은 메시지 </a></span> 
 						<span class="tab_wrapper"> <a id="btn_toggle_priceinfo"
-							class="toggle_button" href="mypage_modifyInfo.jsp"> 회원정보 수정 </a></span> 
+							class="toggle_button" href="modifyinfo"> 회원정보 수정 </a></span> 
 						<span class="tab_wrapper"> <a id="btn_toggle_cancel"
-							class="toggle_button active" href="mypage_memberout.jsp"> 회원탈퇴 </a></span>
+							class="toggle_button active" href="#"> 회원탈퇴 </a></span>
 					</div>
 
 
