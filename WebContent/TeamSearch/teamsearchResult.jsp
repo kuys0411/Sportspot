@@ -2,6 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<style>
+	#btn_color{
+		font-weight:bold;
+		color:#1F50B5;
+	}
+	
+</style>
 
  <table class="table">
       <thead>
@@ -30,7 +37,7 @@
           <td> ${oneitem.bstart} </td>
           <td> ${oneitem.ptype} </td> 
           <td> ${oneitem.pdong} </td>
-          <td> <button class="join" >메시지보내기</button> </td>
+          <td> <button id="btn_color" class="join">메시지보내기</button> </td>
           </tr>
  </c:forEach>
  </tbody>
