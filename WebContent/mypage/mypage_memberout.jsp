@@ -42,6 +42,16 @@
 	}
 	
 	</script>
+<%
+	String userid = null;
+	request.setCharacterEncoding("utf-8");
+	if ((String) session.getAttribute("userID") != null) {
+		userid = (String) session.getAttribute("userID");
+
+	} else {
+		response.sendRedirect("login.jsp");
+	}
+%>
 </head>
 
 <body ng-app="myapp">
