@@ -293,7 +293,9 @@ $(document).ready(function(){
 													<c:when test="${count < 30}">
 														<!-- 인원수 30명 미만 예약가능 -->
 														<td><input type="submit" class="btn btn-warning"
-															id="reservebtn" value="예약하기" onclick="call('${time}',${count_info[status.index]})"></td>
+															id="reservebtn" value="예약하기" 
+															onclick="call('${time}',${count_info[status.index]})"
+															style="color:black;"></td>
 
 													</c:when>
 
