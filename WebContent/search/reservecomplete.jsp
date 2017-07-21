@@ -105,7 +105,7 @@
       location = 'mypage/mypageShowInfo';
    }
    </script>
-   <body onLoad="setTimeout('next()', 2000)">
+   <body onLoad="setTimeout('next()', 3500)"> <!-- 3초 후 이동 -->
    
    
 	<div class="modal fade" id="error_modal">
