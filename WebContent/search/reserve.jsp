@@ -153,9 +153,9 @@ $(document).ready(function(){
 					<div class="collapse navbar-collapse" id="nav_collapse">
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/Project"> HOME </a></li>
-							<li><a id="search" href="#"> SEARCH </a></li>
+							<li><a id="search" href="search.jsp"> SEARCH </a></li>
 							<li id="mypage"><a href="mypage/mypageShowInfo"
-								class="active">MYPAGE</a></li>
+								>MYPAGE</a></li>
 							<li id="logout"><a href="logout"><span></span>LOGOUT</a></li>
 							<li id="login_result"><a><span id="userid"><%=userid%>님
 										환영합니다.</span></a></li>
