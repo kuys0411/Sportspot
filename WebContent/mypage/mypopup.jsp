@@ -22,7 +22,7 @@
 <script>
 
  function closeSelf(){
-
+		
        document.forms['message'].submit();
        alert("메시지를 보냈습니다");
        window.close();
@@ -63,7 +63,7 @@
 					 <br>
 					 <div>
 						<span><label>메시지</label></span>
-						<textarea id="textarea" rows="5" cols="20"  name="messageBody" form="usrform"></textarea>
+						<textarea id="textarea" rows="5" cols="20"  name="messageBody"></textarea>
 					 </div>
 					<div class="sign">
 						<div class="submit">

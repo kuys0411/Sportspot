@@ -4,16 +4,21 @@
 
 <c:forEach items="${messages}" var="msg">	
 		
-					<div class="msgForm">
+					
+						<div class="msgFormin">
 						<p>MessageNum</p>
-						<span id="messageID">${msg.messageID}</span> <br>
+						<input  id="messageID" class="form-control" value="${msg.messageID}" readonly> <br>
 						<p>Message_From</p>
-						<span id="messageFrom"> ${msg.messageFrom}</span> <br>
+						<textarea id="messageFrom" class="form-control" readonly>${msg.messageFrom}</textarea><br>
 
 						<p>Message Body</p>
-						<span id="messageBody">${msg.messageBody} </span> <br>    
-						<button class="messageReply"> Reply  </button> <button class="messageDelete"> Delete </button>
-					</div>
+						<textarea id="messageBody" class="form-control" readonly>${msg.messageBody} </textarea> <br>  
+						
+						<button class="messageReply social"> Reply  </button> <button class="messageDelete social"> Delete </button>
+						 
+						<div class="clear"></div>
+						</div>
+					
 			</c:forEach>
 		<%-- 	
 	<c:forEach items="${messages}" var="msg">			

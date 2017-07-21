@@ -22,15 +22,49 @@
 <meta charset="UTF-8">
 
 <style type="text/css">
+
 .msgForm{
-	width : 300px;
+	margin: 20px;
+	width : 250px;
+	
 	height : auto;
 	float:left;	
 	border-style: solid;
-    border-color: #ff0000;
-
+	background: #673ab7;
+	
 }
-
+.msgFormin{
+	margin: 20px;
+	width : 250px;
+	
+	height : auto;
+	float:left;	
+	background: #673ab7;
+	padding:7px 7px;
+	border-radius:2px;
+	
+	
+}
+.btninline{
+	width : 100%;
+	margin : 0 auto;
+}
+.social{
+	margin-bottom:10px;
+	color:#fff;
+	border-radius:25px;
+	text-align:center;
+	font-size:12px;
+	text-transform:uppercase;
+	font-weight:600;
+   	background: #3280e7; 
+	float:left;
+	margin: 10px;
+	
+}
+.clear{
+	clear:both;
+}
 
 </style>
 
@@ -59,6 +93,8 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 
+
+
 <script>
 
 $(document).ready(function(){
@@ -75,7 +111,7 @@ $(document).ready(function(){
 	
     $('#here').on('click', '.messageReply', function(){
 		alert("reply");
-    	var msgTo = $(this).closest("div").find('#messageFrom').text();
+    	var msgTo = $(this).closest("div").find('#messageFrom').val();
     	alert("msgTO : " + msgTo);
     	var OpenWin = window.open("mypopup.jsp", "a", "width=400, height=700, left=300, top=100");
 		OpenWin.onload = function(){
@@ -87,7 +123,7 @@ $(document).ready(function(){
 	$('#here').on('click', '.messageDelete', function(){
 		alert("delete");
 		var delDiv = $(this).closest("div");
-    	var messageFrom = $(this).closest("div").find('#messageID').text();
+    	var messageFrom = $(this).closest("div").find('#messageID').val();
     	alert(messageFrom);
     	
     	$.ajax({ 
@@ -98,7 +134,7 @@ $(document).ready(function(){
 			},
 			success : function(t){
 				alert("메시지 삭제 성공");
-				delDiv.remove();
+				delDiv.closest("div").remove();
 			},
 			error : function(){
 				alert("메시지 삭제 실패");
