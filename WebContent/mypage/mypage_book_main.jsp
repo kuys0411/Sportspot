@@ -35,17 +35,38 @@
 
 
 <script>
+
+/* 
+
+<c:forEach var="bookInfo" items="${booklist}">
+<tr>
+	<td id="bid">${bookInfo.bookID}</td>
+	<td id="bdate">${bookInfo.bookDate }</td>
+	<td id="startTime">${bookInfo.bookStartTime}</td>
+	<td>${bookInfo.placeName}</td>
+	<td>${bookInfo.bookNum}</td>
+	<td><button class="deleteBtn" style="color:black;">삭제</button></td>
+</tr>
+</c:forEach> */
 	$(document).ready(function() {
 		$('.deleteBtn').on('click', function() {
 			var nearTR = $(this).closest("tr");
 			var bookID = $(this).closest("tr").find("#bid").text();
 			var people = $(this).closest("tr").find("#count").text();
+			var bdate = $(this).closest("tr").find("#bdate").text();
+			var statime = $(this).closest("tr").find("#startTime").text();
+			alert(bookID);
+			alert(people);
+			alert(bdate);
+			alert(statime);
 			$.ajax({
 				url : 'removeBookInfo', //가져오고자하는 서버페이지 주소를 넣는다. 
 				type : 'GET', //데이터를 서버로 전송하게 된다. 
 				data : {
 					bID : bookID,
-					count : people
+					count : people,
+					bookDate : bdate,
+					startTime : statime
 					
 				//에디터박스의 아이디를 넣으면 해당 에디터박스의 데이터를 보내준다.
 				},
@@ -184,7 +205,7 @@
 							<tr>
 								<th>예약번호</th>
 								<th>날짜</th>
-								<th>시간</th>
+								<th>시작시간</th>
 								<th>장소</th>
 								<th>인원</th>
 								<th>삭제</th>
@@ -192,44 +213,17 @@
 						</thead>
 
 						<c:forEach var="bookInfo" items="${booklist}">
-							<!-- 	int bookID;
-	Date bookDate;
-	String bookStartTime;
-	String placeName;
-	int bookNum; -->
 							<tr>
 								<td id="bid">${bookInfo.bookID}</td>
-								<td>${bookInfo.bookDate }</td>
-								<td>${bookInfo.bookStartTime}</td>
+								<td id="bdate">${bookInfo.bookDate }</td>
+								<td id="startTime">${bookInfo.bookStartTime}</td>
 								<td>${bookInfo.placeName}</td>
-								<td>${bookInfo.bookNum}</td>
+								<td id="count">${bookInfo.bookNum}</td>
 								<td><button class="deleteBtn" style="color:black;">삭제</button></td>
-								<%-- 	<td>${emp.hire_date }</td>
-			<td>${emp.job_id }</td>
-			<td>${emp.department_id }</td>
-			<td>${emp.salary }</td>
-			<td><a href="empDelete?empid=${emp.employee_id }">삭제</a></td>
-			<td><button onclick="location.href='empDelete?empid=${emp.employee_id}'">삭제</button></td> --%>
 							</tr>
 						</c:forEach>
 
-						<!--       <tbody> tbody밑으로 행을 추가한다.
-        <tr ng-show="!loaded">
-          <td colspan="6"> Loading.. </td>
-        </tr>
-        <tr ng-repeat="book in sortedBookList" ng-show="loaded">
-          <td> {$ book.branch $} </td>
-          <td> {$ book.hour $} </td>
-          <td> {$ book.duration $} 분 </td>
-          <td> {$ book.room $} </td>
-          <td class="difficulty">
-          <span class="foreground"><i class="fa fa-star" ng-repeat="n in range(0, book.difficulty)"></i><i class="fa fa-star-half-o" ng-if="book.hasHalf==true"></i><i class="fa fa-star-o" ng-repeat="n in range(0, book.restDiff)"></i></span>
-          <td ng-if="currentBranch.can_join==true"> {$ book.available_people $} </td>
-          <span class="background"><i class="fa fa-star-o" ng-repeat="n in range(0, 5)"></i></span> </td>
-          <td ng-if="book.booked==true" class="red"> {$ resv_completed $} </td>
-          <td ng-if="book.booked==false"><a class="yellow" href="#book_a_session_wrapper" ng-click="openReservation($event, book)"> {$ resv_available $} </a></td>
-        </tr>
-      </tbody> -->
+	
 
 						<tbody>
 							<td></td>

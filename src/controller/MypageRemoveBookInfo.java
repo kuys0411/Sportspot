@@ -35,12 +35,14 @@ public class MypageRemoveBookInfo extends HttpServlet {
 		System.out.println("removeBookinfo get start");
 		String bidString = request.getParameter("bID");
 		String countNum = request.getParameter("count");
+		String date = request.getParameter("bookDate");
 		int count = Integer.parseInt(countNum);
 		int bID = Integer.parseInt(bidString);
+		String startTime = request.getParameter("startTime");
 		HttpSession session = request.getSession();
 		String mID = (String)session.getAttribute("userID");
 		MyPageDAO mypagedao = new MyPageDAO();
-		int result = mypagedao.deleteBookInfo(bID, mID, count);
+		int result = mypagedao.deleteBookInfo(bID, mID,startTime, count, date);
 		if(result == 1) {
 			request.setAttribute("bid", bID);
 		}

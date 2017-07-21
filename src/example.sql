@@ -80,6 +80,37 @@ create
 select M_ID from member
 
 selectg
-select * from member
+select * from message
+
+
+68 2017-07-19 8 손기정 체육공원 인조잔디축구장 10 
+
+예약번호 68, 10명 삭제해야함.
+
+update bp set count=''  from Booking_Member b, Place p, Booking_Place bp where b.P_ID = p.P_ID and p.P_ID = bp.P_ID;
+
+select b.b_id, p.p_id, bp.count, bp.BP_date,p.P_name, bp.BP_startTime from Booking_Member b, Place p, Booking_Place bp where b.b_id = 68 and bp.bp_startTime = 8 and b.p_id = p.p_id and p.P_id = bp.p_id
+
+select P_ID, BP_startTime, BP_Date, count from booking_Place where P_ID = 283
+
+
+
+
+P_ID 283, count 61
+
+
+select * from BOOKING_MEMBER
+
+
+update Booking_Place set count=?  from Booking_Member b, Place p, Booking_Place bp 
+			 where b.B_ID = 5 and b.P_ID = p.P_ID and p.P_ID = bp.P_ID
+
+
+212 2017-07-21 9 손기정 체육공원 인조잔디축구장 30명 
+
+select b.b_id, p.p_id, bp.count, bp.BP_date,p.P_name, bp.BP_startTime from Booking_Member b, Place p, Booking_Place bp where b.b_id = 212 and bp.bp_startTime = 9 and b.p_id = p.p_id and p.P_id = bp.p_id
+
+
+
 
 

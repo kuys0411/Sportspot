@@ -57,15 +57,7 @@ public class MemberDAO {
 		conn = DBUtil.getConnect();
 		try {
 			
-			System.out.println("mpwd : " + memDTO.getMpwd() +" update완료함");
-			System.out.println("name : " + memDTO.getMname() +" update완료함");
-			System.out.println("gender : " + memDTO.getMsex() +" update완료함");
-			System.out.println("mail: " + memDTO.getMemail() +" update완료함");
-			System.out.println("interest : " + memDTO.getMinterest() +" update완료함");
-			System.out.println("mid : " + memDTO.getMid() +" update완료함");
-
-			System.out.println("result : " + result +" update완료함");
-			
+	
 			st = conn.prepareStatement(member_update);
 			st.setString(1, memDTO.getMpwd());
 			st.setString(2, memDTO.getMname());
