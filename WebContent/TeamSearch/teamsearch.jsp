@@ -51,19 +51,12 @@
 	String userid = null;
 	request.setCharacterEncoding("utf-8");
 	if ((String) session.getAttribute("userID") != null) {
+		userid = (String) session.getAttribute("userID");
 
 	} else {
 		response.sendRedirect("login.jsp");
 	}
 %>
-
-
-<script>
-$(document).ready(function(){
-	$("#date_btn").on('click', function(){
-		$("#preesDelete").remove();
-	});
-});
 
 
 </script>
