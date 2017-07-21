@@ -179,7 +179,7 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th>예약아이디</th>
+								<th>예약번호</th>
 								<th>날짜</th>
 								<th>시간</th>
 								<th>장소</th>
